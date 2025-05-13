@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Information Form</title>
+  <style>
+    /* Form container styling */
+    form {
+      width: 100%;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    /* Label and input spacing */
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    /* Radio buttons styling */
+    .gender-options {
+      margin-top: 10px;
+    }
+
+    .gender-options label {
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: normal;
+    }
+
+    /* Submit button styling */
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page heading -->
+  <h1 style="text-align: center;">User Information Form</h1>
+
+  <!-- Form element to collect user data -->
+  <form action="#" method="POST">
+    
+    <!-- Input for First Name -->
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required />
+
+    <!-- Input for Last Name -->
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required />
+
+    <!-- Input for Email Address -->
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required />
+
+    <!-- Input for Password -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+
+    <!-- Radio buttons for Gender -->
+    <label>Gender:</label>
+    <div class="gender-options">
+      <label>
+        <input type="radio" name="gender" value="male" required /> Male
+      </label>
+      <label>
+        <input type="radio" name="gender" value="female" /> Female
+      </label>
+    </div>
+
+    <!-- Dropdown for Favorite Fruit -->
+    <label for="fruit">Favorite Fruit:</label>
+    <select id="fruit" name="fruit" required>
+      <option value="">-- Please choose --</option>
+      <option value="apple">Apple</option>
+      <option value="banana">Banana</option>
+      <option value="strawberry">Strawberry</option>
+    </select>
+
+    <!-- Textarea for Message -->
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
