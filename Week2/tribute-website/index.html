@@ -1,0 +1,133 @@
+/* Genel Reset ve Font Ayarları */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #4a5a63;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: #4a5a63;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #d9cba5;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav a:hover {
+  border-color: #d9cba5;
+}
+
+/* Hero */
+#hero {
+  background-color: #f3e5e3;
+  color: #2e2e2e;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#hero img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+#hero blockquote {
+  font-style: italic;
+  margin-top: 20px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Biography */
+#biography {
+  background-color: #9c6d6c;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.bio-box {
+  border: 1px solid #fff;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.bio-box img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+#biography h2 {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+#biography p {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: #fefefe;
+}
+
+/* Books */
+#books {
+  background-color: #7b9095;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#books h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#books ul {
+  list-style-type: disc;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 20px;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: #2e2e2e;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #ccc;
+}
