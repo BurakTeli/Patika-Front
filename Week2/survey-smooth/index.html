@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Survey Smooth</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 id="title">Survey Smooth</h1>
+  <p id="description">Please fill out this short form to help us improve!</p>
+
+  <form id="survey-form">
+    
+    <!-- Full Name -->
+    <label id="name-label" for="name">Full Name</label>
+    <input id="name" type="text" placeholder="Enter your name" required />
+
+    <!-- Email -->
+    <label id="email-label" for="email">Email</label>
+    <input id="email" type="email" placeholder="Enter your email" required />
+
+    <!-- Age -->
+    <label id="number-label" for="number">Age</label>
+    <input id="number" type="number" min="10" max="100" placeholder="Enter your age" required />
+
+    <!-- Gender Dropdown -->
+    <label for="dropdown">Gender</label>
+    <select id="dropdown" required>
+      <option disabled selected value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    <!-- Radio Buttons -->
+    <p>Where did you hear about us?</p>
+    <label>
+      <input type="radio" name="source" value="instagram" required /> Instagram
+    </label>
+    <label>
+      <input type="radio" name="source" value="linkedin" /> LinkedIn
+    </label>
+
+    <!-- Checkboxes -->
+    <p>Preferences:</p>
+    <label>
+      <input type="checkbox" value="terms" /> Accept Terms
+    </label>
+    <label>
+      <input type="checkbox" value="news" /> Subscribe to newsletter
+    </label>
+
+    <!-- Suggestions -->
+    <label for="suggestions">Suggestions</label>
+    <textarea id="suggestions" rows="4" placeholder="Your suggestions..."></textarea>
+
+    <!-- Submit Button -->
+    <input type="submit" id="submit" value="Submit" />
+
+  </form>
+</body>
+</html>
