@@ -2,14 +2,13 @@
   --font-color-1: #ffffff;
   --font-color-2: #868686;
   --background-color-1: #000000;
-  --background-color-1: #101010;
+  --background-color-2: #101010;
   --border-color-1: rgba(255, 255, 255, 0.2);
   --border-color-2: rgba(255, 255, 255, 0.15);
 }
 
 body {
   font-family: var(--bs-body-font-family);
-  background-color: • var(--font-color-1);
+  background-color: var(--background-color-1);
   color: var(--font-color-1);
-  
 }
