@@ -1,0 +1,90 @@
+#hero {
+  background-image: url("../images/hero-man.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-label {
+  background-color: #355592;
+  color: white;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+/* Hero başlığı */
+#hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+/* Hero açıklama */
+#hero p {
+  font-size: 18px;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+/* Hero butonlar */
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-buttons a {
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.hero-buttons .sign-up {
+  background-color: #355592;
+  color: white;
+}
+
+.hero-buttons .sign-up:hover {
+  background-color: #2b477d;
+}
+
+.hero-buttons .details {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.hero-buttons .details:hover {
+  background-color: white;
+  color: #355592;
+}
+
+.hero-content h1 {
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.logo img {
+  width: 120px;
+  height: aout;
+}

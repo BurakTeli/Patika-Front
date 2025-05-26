@@ -1,0 +1,70 @@
+/* Navbar genel yapı */
+#navbar {
+  background-color: transparent; 
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* İçerik hizalama */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo ve yazı */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo span {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Menü linkleri */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* JOIN US butonu özel */
+.join-button {
+  background-color: orange;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.join-button:hover {
+  background-color: darkorange;
+}

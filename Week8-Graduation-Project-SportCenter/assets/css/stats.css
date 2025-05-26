@@ -1,0 +1,32 @@
+#stats {
+  background-color: #f1f6fe;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.stats-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-box {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stat-box h2 {
+  font-size: 36px;
+  color: #355592;
+  margin-bottom: 10px;
+}
+
+.stat-box p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
