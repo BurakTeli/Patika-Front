@@ -127,20 +127,28 @@
             It has roots in a piece of classical Latin literature from 45 BC,
             making it over 2000 years old.
           </p>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old.
-          </p>
 
           <div class="bmi-form">
-            <input type="text" placeholder="Your Height" /> cm
-            <input type="text" placeholder="Your Weight" /> kg
+            <input
+              type="number"
+              id="heightInput"
+              placeholder="Your Height (cm)"
+            />
+            <input
+              type="number"
+              id="weightInput"
+              placeholder="Your Weight (kg)"
+            />
+            <button id="calculateBtn">Calculate BMI</button>
+          </div>
+
+          <div class="bmi-result">
+            <h3>Your BMI:</h3>
+            <p id="bmiValue">--</p>
           </div>
         </div>
 
         <div class="bmi-image">
-          <h3>Your BMI</h3>
           <img src="assets/images/bmi-index.jpg" alt="BMI Index" />
         </div>
       </div>
@@ -319,7 +327,6 @@
         <div class="footer-column">
           <div class="footer-logo">
             <img src="assets/images/logo.png" alt="Powerfull Logo" />
-            
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
