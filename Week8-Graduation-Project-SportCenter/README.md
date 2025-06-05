@@ -1,63 +1,62 @@
-# 🏋️‍♂️ Sport Center Website – Patika+ Bootcamp Bitirme Projesi
+# 🏋️‍♂️ Sport Center Website – Patika+ Bootcamp Final Project
 
-Bu proje, Patika+ Full Stack Web Development Bootcamp kapsamında bitirme projesi olarak geliştirilmiştir. Spor merkezi temalı bu web sitesi; kullanıcı dostu, responsive ve interaktif bir yapıya sahiptir.
+This project was developed as the final project of the Patika+ Full Stack Web Development Bootcamp. The website is fitness center-themed, fully responsive, interactive, and user-friendly.
 
-## 📸 Proje Görseli
+## 📸 Project Screenshot
 
-Sayfanın ekran görüntüsü bu alana daha sonra eklenecektir.
+A screenshot of the project will be added here later.
 
-## 📝 Açıklama (Description)
+## 📝 Description
 
-Sport Center projesi, kullanıcıların spor merkezinin hizmetlerini, eğitmenlerini ve sınıflarını keşfedebileceği, aynı zamanda BMI (Vücut Kitle İndeksi) hesaplayabileceği bir tanıtım sitesidir. Bu projede sadece görsellik değil, aynı zamanda aktif çalışan fonksiyonel bileşenler de yer almaktadır. Kullanıcı deneyimi ve modern web tasarım prensipleri gözetilerek tasarlanmıştır.
+Sport Center is a promotional website where users can discover the services, trainers, and classes of a fitness center. It also features a working BMI (Body Mass Index) calculator. The project focuses not only on aesthetics but also on functionality, with modern UI/UX principles in mind.
 
-## 🚀 Canlı Demo
+## 🚀 Live Demo
 
-Proje tamamlandıktan sonra canlı sürüm bağlantısı bu alana eklenecektir.
+The live demo link will be added here after deployment.
 
-## 🛠️ Kullanılan Teknolojiler
+## 🛠️ Technologies Used
 
 - HTML5  
-- CSS3 (Her bölüm için ayrı dosyalarla yapılandırılmıştır)  
+- CSS3 (Modular and structured with separate files for each section)  
 - Vanilla JavaScript  
-- Responsive Design (Özellikle 576px çözünürlük hedeflenmiştir)  
+- Responsive Design (Optimized especially for 576px resolution)
 
-Bu projede Bootstrap gibi hazır CSS framework'leri kullanılmamıştır. Tüm stiller sıfırdan yazılmıştır.
+> **Note:** No CSS frameworks (like Bootstrap) were used. All styles were written from scratch.
 
-## 💡 Özellikler (Features)
+## 💡 Features
 
-- Sayfa içi gezinme için id tabanlı linkleme yapılan bir navbar  
-- Scroll sırasında sabit kalan (#355592 renkli) responsive bir navbar yapısı  
-- Our Classes alanında tıklanabilir ve filtreleme yapabilen butonlar  
-- Our Best Trainers alanında hover ile değişen eğitmen kartları  
-- BMI Calculator ile kullanıcıdan alınan cm ve kg verileriyle hesaplama  
-- BMI sonucuna göre ok ile gösterilen renkli bant yapısı  
-- Aktif çalışan Google Maps entegrasyonu (fotoğraf değil, embed harita)  
-- Responsive yapı (özellikle 576px mobil çözünürlük için optimize edilmiştir)  
-- Proje bileşenlerine özel ayrı CSS ve JS dosyaları ile yapılandırma  
-- Kod okunabilirliğine uygun açıklayıcı yorum satırları  
-- README.md dosyası ile detaylı proje tanımı  
+- ID-based navigation bar with in-page scrolling  
+- Sticky and responsive navbar (color: `#355592`)  
+- Interactive filter buttons in the “Our Classes” section  
+- Hover effects for trainer cards in “Our Best Trainers” section  
+- BMI Calculator using user input in cm and kg  
+- Visual BMI band with arrow indicator  
+- Active Google Maps embed (not a screenshot)  
+- Fully responsive layout, especially for mobile view  
+- Modular CSS & JS structure for maintainability  
+- Inline comments and developer-friendly code  
+- Detailed project description with this README file
 
+## 📱 Responsive Design Details
 
-## 📱 Responsive Detayları
+The site is fully optimized for mobile screens with a **576px breakpoint**:
+- Menu items and layout adapt to mobile
+- Content stacks vertically
+- Text and images resize without breaking layout
 
-Proje, mobil uyumluluk açısından yalnızca 576px çözünürlük için optimize edilmiştir. Bu çözünürlükte:  
-- Menü ikonları ve içerikler mobil uyumlu hale gelir.  
-- Layout düzeni alt alta geçer.  
-- Yazılar ve görseller küçülmeden, okunabilir kalacak şekilde yeniden boyutlanır.  
+## 📌 What I Learned
 
-## 📌 Öğrenilenler
+This project helped me improve in the following areas:
+- CSS modularization and folder structure
+- Performing calculations based on user input using JavaScript
+- Embedding Google Maps with `iframe`
+- Managing scroll and hover events
+- Applying mobile-first responsive design principles
+- Writing clean, semantic HTML with accessibility in mind
 
-Bu proje sayesinde:  
-- CSS yapılandırmasında modülerlik ve düzenli klasör yönetimi  
-- JavaScript ile kullanıcıdan veri alarak hesaplama işlemleri  
-- Google Maps iframe kullanımı  
-- Scroll ve hover gibi kullanıcı etkileşimlerini yönetme  
-- Responsive tasarım prensiplerini uygulama  
-- HTML element yapısı ile anlamlı ve semantik sayfa oluşturma gibi birçok beceri geliştirilmiştir.  
+## ✨ Developer Notes
 
-## ✨ Geliştirici Notları
-
-- Projeye herhangi bir CSS framework dahil edilmemiştir.  
-- Kodlama sırasında açıklayıcı yorum satırları eklenmiştir.  
-- Tüm bölümler bileşen tabanlı yazılmış, her bölüm için ayrı stil dosyası kullanılmıştır.  
-- Tüm JS işlemleri sade, tek sorumluluk prensibine uygun fonksiyonlarla yazılmıştır. 
+- No external CSS frameworks were used.
+- Inline comments were added throughout the code.
+- Each section is written as a component with separate style files.
+- JavaScript logic is written using clean, single-responsibility functions.

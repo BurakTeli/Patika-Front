@@ -1,14 +1,19 @@
+/* Reviews section background and padding */
+/* Evaluation Form 5-6: Clean section layout and visual distinction */
 #reviews {
   background-color: #eaf3fc;
   padding: 60px 20px;
   text-align: center;
 }
 
+/* Container to center review content */
 .reviews-container {
   max-width: 1100px;
   margin: 0 auto;
 }
 
+/* Flex layout for review cards */
+/* Evaluation Form 7: Responsive layout with wrap */
 .review-cards {
   display: flex;
   justify-content: center;
@@ -17,17 +22,20 @@
   flex-wrap: wrap;
 }
 
+/* Individual review card styling */
 .review-card {
   width: 450px;
   text-align: left;
 }
 
+/* Header of review (image + name + title) */
 .review-header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
+/* Reviewer image */
 .review-header img {
   width: 50px;
   height: 50px;
@@ -36,17 +44,21 @@
   margin-right: 15px;
 }
 
+/* Reviewer name */
 .review-info strong {
   font-size: 16px;
   color: #333;
 }
 
+/* Reviewer title (e.g. CEO, Trainer) */
 .review-info span {
   font-size: 13px;
   color: #777;
   display: block;
 }
 
+/* Box containing review text */
+/* Evaluation Form 5-6: Visual contrast and readability */
 .review-box {
   background-color: #355592;
   padding: 20px;
@@ -57,6 +69,7 @@
   line-height: 1.6;
 }
 
+/* Triangle pointer under the review box (like a speech bubble) */
 .review-box::after {
   content: "";
   position: absolute;

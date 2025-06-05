@@ -1,78 +1,92 @@
+/* Section wrapper for 'Our Classes' */
+/* Evaluation Form 5-6: Layout and color usage */
 #classes {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  
-  .section-title {
-    color: #355592;
-    font-size: 28px;
-    font-weight: 700;
-  }
-  
-  .section-subtitle {
-    margin-top: 10px;
-    color: #444;
-    font-size: 14px;
-  }
-  
-  .class-buttons {
-    margin: 30px 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .class-buttons button {
-    padding: 10px 20px;
-    background-color: #355592;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .class-buttons button.active {
-    background-color: orange;
-  }
-  
-  .class-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    gap: 40px;
-    text-align: left;
-    align-items: center;
-    margin-top: 40px;
-  }
-  
-  .class-text {
-    flex: 1;
-  }
-  
-  .class-text h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .class-text ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-  }
-  
-  .class-text li {
-    margin-bottom: 6px;
-  }
-  
-  .class-image {
-    flex: 1;
-  }
-  
-  .class-image img {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Section title styling */
+.section-title {
+  color: #355592;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Section subtitle description */
+.section-subtitle {
+  margin-top: 10px;
+  color: #444;
+  font-size: 14px;
+}
+
+/* Button container with spacing */
+.class-buttons {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Default button style for class filters */
+/* Evaluation Form 11 - These buttons change content via JS */
+.class-buttons button {
+  padding: 10px 20px;
+  background-color: #355592;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Active button state style */
+.class-buttons button.active {
+  background-color: orange;
+}
+
+/* Container for text and image content */
+.class-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  text-align: left;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* Text block styling */
+.class-text {
+  flex: 1;
+}
+
+/* Subheading inside the class info */
+.class-text h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Custom styled list */
+.class-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* List items spacing */
+.class-text li {
+  margin-bottom: 6px;
+}
+
+/* Image block styling */
+.class-image {
+  flex: 1;
+}
+
+/* Class image responsiveness */
+.class-image img {
+  width: 100%;
+  border-radius: 8px;
+}

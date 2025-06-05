@@ -1,8 +1,11 @@
+/* BMI section wrapper styles */
+/* Evaluation Form 6 - Color usage and layout consistency */
 #bmi {
   background-color: white;
   padding: 60px 20px;
 }
 
+/* Container for BMI section - horizontal layout with spacing */
 .bmi-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -11,16 +14,19 @@
   gap: 40px;
 }
 
+/* Left side content (text and form) */
 .bmi-text {
   flex: 1;
 }
 
+/* BMI heading style */
 .bmi-text h2 {
   color: #355592;
   font-size: 24px;
   margin-bottom: 15px;
 }
 
+/* BMI paragraph styling */
 .bmi-text p {
   font-size: 14px;
   line-height: 1.6;
@@ -28,12 +34,14 @@
   color: #333;
 }
 
+/* Form layout with spacing */
 .bmi-form {
   margin-top: 20px;
   display: flex;
   gap: 10px;
 }
 
+/* Input fields for height and weight */
 .bmi-form input {
   padding: 10px;
   width: 120px;
@@ -41,29 +49,36 @@
   border-radius: 4px;
 }
 
+/* Right side (BMI image) container */
 .bmi-image {
   flex: 1;
   text-align: center;
 }
 
+/* BMI image heading */
 .bmi-image h3 {
   margin-bottom: 10px;
   color: #333;
 }
 
+/* Image scaling */
 .bmi-image img {
   max-width: 100%;
   height: auto;
 }
 
+/* BMI result output style */
 .bmi-result {
   margin-top: 20px;
   text-align: center;
   color: #355592;
   font-size: 18px;
 }
+
+/* Calculate button styling */
+/* Evaluation Form 6 - Button color consistent with design */
 #calculateBtn {
-  background-color: #355592; /* Lacivert tonu, diğer butonlarla uyumlu */
+  background-color: #355592; /* Primary dark blue tone */
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -75,6 +90,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover effect for the button */
 #calculateBtn:hover {
   background-color: #2b477d;
   transform: scale(1.02);

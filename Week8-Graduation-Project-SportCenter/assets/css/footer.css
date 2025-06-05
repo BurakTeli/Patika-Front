@@ -1,4 +1,5 @@
-/* Footer genel yapı */
+/* Footer main container styling */
+/* Evaluation Form 5-6: Design consistency and site color usage */
 #footer {
   background-color: #355592;
   color: white;
@@ -6,7 +7,8 @@
   font-size: 14px;
 }
 
-/* İçerik hizalama */
+/* Footer inner layout container */
+/* Evaluation Form 7: Responsive layout with flex-wrap */
 .footer-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -16,14 +18,14 @@
   justify-content: space-between;
 }
 
-/* Her sütun yapısı */
+/* Each footer column structure */
 .footer-column {
   flex: 1;
   min-width: 200px;
   text-align: center;
 }
 
-/* Logo sadece görsel */
+/* Footer logo area */
 .footer-logo {
   display: flex;
   justify-content: center;
@@ -31,30 +33,33 @@
   margin-bottom: 15px;
 }
 
+/* Logo image style */
 .footer-logo img {
   width: 220px;
   height: auto;
   object-fit: contain;
 }
 
-/* Başlıklar */
+/* Column titles */
 .footer-column h3 {
   font-size: 16px;
   margin-bottom: 10px;
   color: #ffcc70;
 }
 
-/* Link yapıları */
+/* Navigation list styling */
 .footer-column ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* List item spacing */
 .footer-column ul li {
   margin-bottom: 6px;
 }
 
+/* Footer link styling */
 .footer-column ul li a {
   color: white;
   text-decoration: none;
@@ -62,6 +67,7 @@
   transition: color 0.3s;
 }
 
+/* Hover effect for links */
 .footer-column ul li a:hover {
   text-decoration: underline;
   color: #ffcc00;

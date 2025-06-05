@@ -1,60 +1,70 @@
+/* Main trainers section */
+/* Sets light blue background and padding for spacing */
 #trainers {
-    background-color: #eaf3fc;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  
-  .trainers-container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  .trainer-cards {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  
-  .trainer-card {
-    position: relative;
-    width: 250px;
-    border: 3px solid #355592;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-  
-  .trainer-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .trainer-card img {
-    width: 100%;
-    display: block;
-  }
-  
-  .trainer-card.hover-card {
-    border-color: orange;
-  }
-  
-  /* Hover içeriği sadece 3. kartta */
-  .trainer-info {
-    position: absolute;
-    bottom: 0;
-    background-color: #355592;
-    width: 100%;
-    color: white;
-    padding: 10px 0;
-  }
-  
-  .trainer-info h3 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .trainer-info p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
+  background-color: #eaf3fc;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Container to center trainer cards and limit max width */
+.trainers-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Flexbox layout for aligning trainer cards side-by-side */
+.trainer-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Individual trainer card styling */
+.trainer-card {
+  position: relative;
+  width: 250px;
+  border: 3px solid #355592;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+/* Hover effect to slightly enlarge the card */
+.trainer-card:hover {
+  transform: scale(1.05);
+}
+
+/* Trainer image styling */
+.trainer-card img {
+  width: 100%;
+  display: block;
+}
+
+/* Optional hover effect for a specific card */
+/* Used to highlight the third card with orange border */
+.trainer-card.hover-card {
+  border-color: orange;
+}
+
+/* Info box overlay on the bottom of the card */
+.trainer-info {
+  position: absolute;
+  bottom: 0;
+  background-color: #355592;
+  width: 100%;
+  color: white;
+  padding: 10px 0;
+}
+
+/* Trainer name */
+.trainer-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Trainer title or description */
+.trainer-info p {
+  margin: 0;
+  font-size: 14px;
+}

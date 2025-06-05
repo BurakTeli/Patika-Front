@@ -18,7 +18,7 @@ body {
   background-color: var(--background-color-1);
 }
 
-p{
+p {
   color: var(--font-color-2);
   line-height: 1.45;
 }
@@ -42,6 +42,7 @@ p span {
 .section .section-title h2 span {
   color: var(--font-color-2);
 }
+
 .section .section-title h4 {
   color: var(--font-color-2);
   font-size: 28px;

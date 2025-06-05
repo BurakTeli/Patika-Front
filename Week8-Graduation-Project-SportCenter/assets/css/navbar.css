@@ -1,13 +1,14 @@
-/* Navbar genel yapı */
+/* Navbar general styling */
+/* Evaluation Form 9-10: Navigation placement and scroll behavior */
 #navbar {
-  background-color: transparent; 
+  background-color: transparent;  /* Transparent by default, may change on scroll via JS */
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1000; /* Ensures navbar stays on top of all content */
 }
 
-/* İçerik hizalama */
+/* Inner container for centering and spacing */
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -17,32 +18,35 @@
   justify-content: space-between;
 }
 
-/* Logo ve yazı */
+/* Logo area (image + optional text) */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+/* Logo image styling */
 .logo img {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
 
+/* Optional logo text styling */
 .logo span {
   color: white;
   font-weight: bold;
   font-size: 20px;
 }
 
-/* Menü linkleri */
+/* Navigation links container */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
+/* Link style (Home, Classes, Trainers, etc.) */
 .nav-links a {
   color: white;
   text-decoration: none;
@@ -51,11 +55,13 @@
   transition: color 0.3s;
 }
 
+/* Hover effect on links */
 .nav-links a:hover {
   color: #ffcc00;
 }
 
-/* JOIN US butonu özel */
+/* Special styling for 'JOIN US' call-to-action button */
+/* Evaluation Form 5-6: Color and visual hierarchy */
 .join-button {
   background-color: orange;
   color: white;
@@ -65,6 +71,7 @@
   transition: background-color 0.3s;
 }
 
+/* Hover effect for 'JOIN US' button */
 .join-button:hover {
   background-color: darkorange;
 }

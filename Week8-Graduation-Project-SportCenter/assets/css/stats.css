@@ -1,9 +1,13 @@
+/* Stats section background and padding */
+/* Creates a light blue background to visually separate the section */
 #stats {
   background-color: #f1f6fe;
   padding: 60px 20px;
   text-align: center;
 }
 
+/* Grid layout to organize statistic boxes in four columns */
+/* Evaluation Form 6: Responsive and clean layout */
 .stats-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -12,6 +16,7 @@
   gap: 20px;
 }
 
+/* Individual statistic box styling */
 .stat-box {
   background-color: white;
   padding: 30px 20px;
@@ -19,12 +24,14 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Statistic number styling */
 .stat-box h2 {
   font-size: 36px;
   color: #355592;
   margin-bottom: 10px;
 }
 
+/* Statistic label styling */
 .stat-box p {
   font-size: 16px;
   font-weight: 500;

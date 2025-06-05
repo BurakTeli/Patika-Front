@@ -1,11 +1,13 @@
-/* Tüm boşlukları sıfırla */
+/* Reset default spacing and use consistent box model */
+/* Evaluation Form 3-4: Readable, clean and consistent setup */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body ve html'e özel */
+/* Set full height and width for HTML and body */
+/* Useful for layout containers and background stretching */
 html,
 body {
   height: 100%;
@@ -14,6 +16,8 @@ body {
   padding: 0;
 }
 
+/* Enable smooth scrolling behavior for anchor links */
+/* Evaluation Form 9: Navbar smooth scroll effect */
 html {
   scroll-behavior: smooth;
 }
