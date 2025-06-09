@@ -9,6 +9,7 @@ interface ProductListProps {
   basket: Basket;
   balance: number;
   dispatch: React.Dispatch<Action>;
+  onIcardiClick: () => void;
 }
 
 const ProductList: React.FC<ProductListProps> = ({
@@ -16,6 +17,7 @@ const ProductList: React.FC<ProductListProps> = ({
   basket,
   balance,
   dispatch,
+  onIcardiClick
 }) => {
   return (
     <div className="product-list">
@@ -34,6 +36,8 @@ const ProductList: React.FC<ProductListProps> = ({
           canSell={(basket[p.id] || 0) > 0}
           onBuy={() => dispatch({ type: "BUY", payload: { product: p } })}
           onSell={() => dispatch({ type: "SELL", payload: { product: p } })}
+          isIcardi={p.id === 1}
+          onIcardiClick={onIcardiClick}
         />
       ))}
     </div>

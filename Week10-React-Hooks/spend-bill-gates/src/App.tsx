@@ -1,8 +1,8 @@
-// src/App.tsx
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import PurchasedList from "./components/PurchasedList";
+import IcardiModal from "./components/IcardiModal";
 import {
   balanceReducer,
   initialState,
@@ -11,6 +11,7 @@ import { products } from "./data/products";
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(balanceReducer, initialState);
+  const [showIcardiVideo, setShowIcardiVideo] = useState(false);
 
   return (
     <div>
@@ -20,11 +21,13 @@ const App: React.FC = () => {
         basket={state.basket}
         balance={state.balance}
         dispatch={dispatch}
+        onIcardiClick={() => setShowIcardiVideo(true)}
       />
       <PurchasedList
         products={products}
         basket={state.basket}
       />
+      <IcardiModal open={showIcardiVideo} onClose={() => setShowIcardiVideo(false)} />
     </div>
   );
 };

@@ -1,0 +1,42 @@
+.icardi-btn {
+    width: 168px;
+    height: 52px;
+    margin: 16px auto 0 auto;
+    border: none;
+    border-radius: 18px;
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, #f5cb08 0 50%, #d5212a 50% 100%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 16px 0 rgba(213,33,42,0.10);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.13s, box-shadow 0.13s;
+  }
+  
+  .icardi-btn:hover {
+    filter: brightness(0.94);
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 6px 26px 0 rgba(213,33,42,0.15);
+  }
+  
+  .icardi-btn::before {
+    content: '';
+    display: block;
+    background: url('https://img.icons8.com/ios-filled/36/ffffff/play-button-circled--v1.png') no-repeat center center;
+    background-size: 28px 28px;
+    width: 36px;
+    height: 36px;
+    margin-right: 13px;
+    filter: drop-shadow(0 0 2px #d5212a44);
+  }
+  .icardi-btn span {
+    z-index: 2;
+    font-family: inherit;
+  }
+  

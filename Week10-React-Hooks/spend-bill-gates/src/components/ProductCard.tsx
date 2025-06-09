@@ -9,6 +9,8 @@ export interface ProductCardProps {
   canSell: boolean;
   onBuy: () => void;
   onSell: () => void;
+  isIcardi?: boolean;
+  onIcardiClick?: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -20,6 +22,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   canSell,
   onBuy,
   onSell,
+  isIcardi,
+  onIcardiClick,
 }) => {
   return (
     <div className="product-card">
@@ -30,15 +34,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
       />
       <h2 className="product-name">{name}</h2>
       <p className="product-price">${price.toLocaleString()}</p>
-      <div className="product-controls">
-        <button className="btn-sell" onClick={onSell} disabled={!canSell}>
-          Sell
+      
+      {/* İcardi ise özel buton, değilse normal alış/satış kontrolleri */}
+      {isIcardi ? (
+        <button className="icardi-btn" onClick={onIcardiClick}>
+          <span>Özel Video</span>
         </button>
-        <span className="product-quantity">{quantity}</span>
-        <button className="btn-buy" onClick={onBuy} disabled={!canBuy}>
-          Buy
-        </button>
-      </div>
+      ) : (
+        <div className="product-controls">
+          <button className="btn-sell" onClick={onSell} disabled={!canSell}>
+            Sell
+          </button>
+          <span className="product-quantity">{quantity}</span>
+          <button className="btn-buy" onClick={onBuy} disabled={!canBuy}>
+            Buy
+          </button>
+        </div>
+      )}
     </div>
   );
 };
