@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import ProductList from "./components/ProductList";
 
 const App: React.FC = () => {
   return (
     <div>
       <Navbar />
-      {/* Diğer bileşenler burada olacak */}
+      <ProductList />
     </div>
   );
 };
