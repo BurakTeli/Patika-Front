@@ -4,9 +4,23 @@ export interface ProductCardProps {
   name: string;
   price: number;
   image: string;
+  quantity: number;
+  canBuy: boolean;
+  canSell: boolean;
+  onBuy: () => void;
+  onSell: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, image }) => {
+const ProductCard: React.FC<ProductCardProps> = ({
+  name,
+  price,
+  image,
+  quantity,
+  canBuy,
+  canSell,
+  onBuy,
+  onSell,
+}) => {
   return (
     <div className="product-card">
       <img
@@ -17,11 +31,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, image }) => {
       <h2 className="product-name">{name}</h2>
       <p className="product-price">${price.toLocaleString()}</p>
       <div className="product-controls">
-        <button className="btn-sell" disabled>
+        <button className="btn-sell" onClick={onSell} disabled={!canSell}>
           Sell
         </button>
-        <span className="product-quantity">0</span>
-        <button className="btn-buy" disabled>
+        <span className="product-quantity">{quantity}</span>
+        <button className="btn-buy" onClick={onBuy} disabled={!canBuy}>
           Buy
         </button>
       </div>

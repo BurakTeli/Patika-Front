@@ -1,9 +1,22 @@
 // src/components/ProductList.tsx
 import React from "react";
 import ProductCard from "./ProductCard";
-import { products } from "../data/products";
+import type { Product } from "../data/products";
+import type { Basket, Action } from "../hooks/useBalanceReducer";
 
-const ProductList: React.FC = () => {
+interface ProductListProps {
+  products: Product[];
+  basket: Basket;
+  balance: number;
+  dispatch: React.Dispatch<Action>;
+}
+
+const ProductList: React.FC<ProductListProps> = ({
+  products,
+  basket,
+  balance,
+  dispatch,
+}) => {
   return (
     <div className="product-list">
       {products.map((p) => (
@@ -12,6 +25,15 @@ const ProductList: React.FC = () => {
           name={p.name}
           price={p.price}
           image={p.image}
+          quantity={basket[p.id] || 0}
+          canBuy={
+            (p.id === 21 || p.id === 3)
+              ? (basket[p.id] || 0) < 1 && balance >= p.price
+              : balance >= p.price
+          }
+          canSell={(basket[p.id] || 0) > 0}
+          onBuy={() => dispatch({ type: "BUY", payload: { product: p } })}
+          onSell={() => dispatch({ type: "SELL", payload: { product: p } })}
         />
       ))}
     </div>
