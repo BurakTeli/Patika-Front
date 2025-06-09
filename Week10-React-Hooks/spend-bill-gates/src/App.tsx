@@ -1,10 +1,13 @@
+// src/App.tsx
 import React, { useReducer } from "react";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
-import { balanceReducer, initialState } from "./hooks/useBalanceReducer";
-import type { BalanceState } from "./hooks/useBalanceReducer";
+import PurchasedList from "./components/PurchasedList";
+import {
+  balanceReducer,
+  initialState,
+} from "./hooks/useBalanceReducer";
 import { products } from "./data/products";
-
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(balanceReducer, initialState);
@@ -18,7 +21,10 @@ const App: React.FC = () => {
         balance={state.balance}
         dispatch={dispatch}
       />
-      {/* Sepet ve alınanlar burada gösterilecek */}
+      <PurchasedList
+        products={products}
+        basket={state.basket}
+      />
     </div>
   );
 };
