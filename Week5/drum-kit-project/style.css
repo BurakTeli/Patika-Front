@@ -1,0 +1,91 @@
+/* Reset ve genel ayarlar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Ana container */
+  .drum-kit-container {
+    text-align: center;
+    width: 100%;
+    max-width: 960px;
+    padding: 40px 20px;
+  }
+  
+  /* Başlıklar */
+  .title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ccc;
+  }
+  
+  /* Drum tuşları */
+  .drum-pads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+  }
+  
+  .drum-key {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .drum-key:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .drum-key:active,
+  .drum-key.active {
+    transform: scale(0.95);
+    background-color: #ff4081;
+    box-shadow: 0 0 15px #ff4081;
+    border-color: transparent;
+  }
+  
+  /* Klavye tuşu gösterimi */
+  .drum-key kbd {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 6px;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    font-size: 0.9rem;
+    color: #999;
+  }
+  

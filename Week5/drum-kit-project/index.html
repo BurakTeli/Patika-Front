@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Drum Kit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="drum-kit-container">
+    <header>
+      <h1 class="title">🎧 Drum Kit Experience</h1>
+      <p class="subtitle">Press keys or click buttons to play different drum sounds.</p>
+    </header>
+
+    <section class="drum-pads">
+      <!-- Her tuş, veri-key ve veri-sound ile tanımlı -->
+      <button class="drum-key" data-key="A" data-sound="kick.wav">
+        <kbd>A</kbd>
+        <span>Kick</span>
+      </button>
+
+      <button class="drum-key" data-key="S" data-sound="snare.wav">
+        <kbd>S</kbd>
+        <span>Snare</span>
+      </button>
+
+      <button class="drum-key" data-key="D" data-sound="tom.wav">
+        <kbd>D</kbd>
+        <span>Tom</span>
+      </button>
+
+      <button class="drum-key" data-key="F" data-sound="hihat.wav">
+        <kbd>F</kbd>
+        <span>Hi-Hat</span>
+      </button>
+
+      <button class="drum-key" data-key="G" data-sound="crash.wav">
+        <kbd>G</kbd>
+        <span>Crash</span>
+      </button>
+
+      <button class="drum-key" data-key="H" data-sound="ride.wav">
+        <kbd>H</kbd>
+        <span>Ride</span>
+      </button>
+    </section>
+
+    <footer class="footer">
+      <p>Crafted with 🎵 by Burak</p>
+    </footer>
+  </main>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>
