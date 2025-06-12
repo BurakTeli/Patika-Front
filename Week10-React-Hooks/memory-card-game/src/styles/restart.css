@@ -1,0 +1,20 @@
+.restart-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .restart-button {
+    padding: 12px 28px;
+    font-size: 18px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .restart-button:hover {
+    background-color: #388e3c;
+  }
+  

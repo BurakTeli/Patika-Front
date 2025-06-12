@@ -7,6 +7,7 @@ import {
   setMatched,
   setGameFinished,
   flipCardDirectly,
+  unflipCards,
 } from "./gameSlice";
 
 // 🟢 Oyun başladığında kartları oluşturur
@@ -61,13 +62,14 @@ export const flipCardThunk = (cardId: number) => {
           dispatch(setMatched([firstId, secondId]));
           dispatch(setScore(currentState.score + 50));
         } else {
+          dispatch(unflipCards([firstId, secondId]));
           dispatch(setScore(Math.max(0, currentState.score - 10)));
         }
 
         dispatch(setOpenedCards([]));
 
         // Tüm kartlar eşleşti mi?
-        const allMatched = currentState.cards.every((c) => c.isMatched);
+        const allMatched = getState().game.cards.every((c) => c.isMatched);
         if (allMatched) {
           dispatch(setGameFinished(true));
         }

@@ -5,6 +5,7 @@ import { initGameThunk } from "./redux/gameActions";
 import Board from "./components/Board";
 import ScoreBoard from "./components/ScoreBoard";
 import "./styles/app.css";
+import RestartButton from "./components/RestartButton";
 
 const App: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       <h1>Memory Card Game</h1>
       <ScoreBoard />
       <Board />
+      <RestartButton />
     </div>
   );
 };

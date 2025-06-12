@@ -38,14 +38,14 @@ const gameSlice = createSlice({
       state.isGameFinished = action.payload;
     },
     flipCardDirectly: (state, action) => {
-      const index = state.cards.findIndex(card => card.id === action.payload);
+      const index = state.cards.findIndex((card) => card.id === action.payload);
       if (index !== -1) {
         state.cards[index].isFlipped = true;
       }
     },
     setMatched: (state, action) => {
       action.payload.forEach((id: number) => {
-        const index = state.cards.findIndex(card => card.id === id);
+        const index = state.cards.findIndex((card) => card.id === id);
         if (index !== -1) {
           state.cards[index].isMatched = true;
         }
@@ -56,7 +56,15 @@ const gameSlice = createSlice({
       state.openedCards = [];
       state.score = 0;
       state.isGameFinished = false;
-    }
+    },
+    unflipCards: (state, action) => {
+      action.payload.forEach((id: number) => {
+        const index = state.cards.findIndex((card) => card.id === id);
+        if (index !== -1) {
+          state.cards[index].isFlipped = false;
+        }
+      });
+    },
   },
 });
 
@@ -68,6 +76,7 @@ export const {
   flipCardDirectly,
   setMatched,
   resetGameState,
+  unflipCards,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
