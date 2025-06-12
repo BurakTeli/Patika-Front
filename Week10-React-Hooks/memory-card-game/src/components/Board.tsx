@@ -1,39 +1,22 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 import Card from "./Card";
-
-const dummyImages = [
-  "/assets/react.png",
-  "/assets/vue.png",
-  "/assets/angular.png",
-  "/assets/svelte.png",
-  "/assets/node.png",
-  "/assets/redux.png",
-  "/assets/js.png",
-  "/assets/html.png",
-  "/assets/css.png",
-  "/assets/git.png",
-  "/assets/github.png",
-  "/assets/ts.png",
-  "/assets/react.png",
-  "/assets/vue.png",
-  "/assets/angular.png",
-  "/assets/svelte.png",
-  "/assets/node.png",
-  "/assets/redux.png",
-  "/assets/js.png",
-  "/assets/html.png",
-  "/assets/css.png",
-  "/assets/git.png",
-  "/assets/github.png",
-  "/assets/ts.png",
-  "/assets/react.png" // Toplam 25 görsel
-];
+import "../styles/board.css";
 
 const Board: React.FC = () => {
+  const cards = useSelector((state: RootState) => state.game.cards);
+
   return (
     <div className="card-grid">
-      {dummyImages.map((img, i) => (
-        <Card key={i} image={img} />
+      {cards.map((card) => (
+        <Card
+          key={card.id}
+          id={card.id}
+          image={card.image}
+          isFlipped={card.isFlipped}
+          isMatched={card.isMatched}
+        />
       ))}
     </div>
   );

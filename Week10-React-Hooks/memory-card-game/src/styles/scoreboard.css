@@ -1,0 +1,15 @@
+.score-board {
+    margin-bottom: 20px;
+    padding: 12px 24px;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .score-board h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  

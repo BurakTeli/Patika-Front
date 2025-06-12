@@ -1,0 +1,8 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 160px); /* Kart genişliğiyle uyumlu */
+    grid-gap: 30px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
