@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Hafıza Kart Oyunu / Memory Card Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Proje Hakkında / About the Project
 
-## Available Scripts
+Bu proje, React ve Redux Toolkit kullanılarak geliştirilmiş, kullanıcıların hafıza kartlarını eşleştirmeye çalıştığı interaktif bir hafıza oyunudur. Oyun, kullanıcı deneyimini artırmak için dinamik animasyonlar, puanlama sistemi ve yeniden başlatma fonksiyonları içerir. Modern web teknolojileri ile performanslı ve ölçeklenebilir bir yapı hedeflenmiştir.
 
-In the project directory, you can run:
+This project is an interactive memory card matching game developed using React and Redux Toolkit. It includes dynamic animations, scoring mechanics, and restart functionality to enhance user experience. Built with modern web technologies, it aims for performant and scalable architecture.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Kullanılan Teknolojiler / Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React (Functional Components & Hooks)
+- Redux Toolkit (State Management & Thunks)
+- TypeScript (Statik Tip Kontrolü)
+- CSS3 (Animasyonlar ve Responsive Tasarım)
+- Webpack (Build Süreci)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Özellikler / Features
 
-### `npm run build`
+- **Kart Eşleştirme Mekaniği:** İki kart açıldığında eşleşme kontrolü yapılır. Eşleşen kartlar açık kalır, eşleşmeyen kartlar belirli bir süre sonra kapanır.
+- **Puanlama Sistemi:** Her doğru eşleşme +50 puan, her yanlış eşleşme -10 puan olarak hesaplanır.
+- **Oyun Başlatma ve Yeniden Başlatma:** Oyun başladığında kartlar karıştırılır. Oyun sonunda “Yeni Oyun” butonu ile oyun sıfırlanabilir.
+- **Animasyonlar:** Kartların açılıp kapanması, eşleşme sırasında parlayan efektler ve hover animasyonları.
+- **Responsive Tasarım:** Farklı ekran boyutlarında uyumlu görüntüleme.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Card Matching Mechanism:** When two cards are flipped, a match check occurs. Matching cards remain open; non-matching cards close after a delay.
+- **Scoring System:** +50 points for correct matches, -10 points for incorrect matches.
+- **Game Initialization and Restart:** Cards are shuffled at game start. A “New Game” button allows resetting the game at any time.
+- **Animations:** Smooth flip animations, glowing effects on matched cards, and hover scaling.
+- **Responsive Design:** Compatible with various screen sizes and devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dosya ve Klasör Yapısı / File and Folder Structure
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
