@@ -1,6 +1,5 @@
 .app {
   min-height: 100vh;
-  background: linear-gradient(to right, #f7f7f7, #e0e0e0);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +19,26 @@ h1 {
   grid-template-columns: repeat(5, 120px); /* 100px → 120px */
   grid-gap: 50px; /* biraz daha boşluk olsun */
   justify-content: center;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #6dd5fa, #2980b9, #2575fc, #6a11cb);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  color: #333;
+  min-height: 100vh;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
