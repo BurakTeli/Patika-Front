@@ -1,0 +1,11 @@
+.app {
+  text-align: center;
+  padding: 40px;
+  background-color: #fdfdfd;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
