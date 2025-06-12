@@ -1,0 +1,60 @@
+.note-form {
+  background: #fff;
+  border-radius: 10px;
+  padding: 50px; /* her kenardan eşit boşluk */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Dikey ortalama */
+  align-items: center;     /* Yatay ortalama */
+  gap: 20px;
+
+  min-width: 400px;
+  min-height: 300px;
+}
+
+
+.form-input,
+.form-textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  color: #000;
+  background-color: #fff;
+}
+
+.form-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.color-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.color-circle.selected {
+  border-color: #000;
+}
+
+.add-button {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}

@@ -1,0 +1,58 @@
+/* Tüm sayfa font ve arka plan */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1f1f1f, #2e2e2e);
+  color: #f4f4f4;
+  height: 100vh;
+}
+
+/* Uygulama ana kapsayıcı */
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Üst başlık */
+.app-header {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* İçerik (form + notlar) */
+.app-content {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ← bu önemli */
+  gap: 40px;
+  flex: 1;
+  width: 100%;
+}
+
+/* Sol panel (form kısmı) */
+.left-panel {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sağ panel (notlar) */
+.right-panel {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  align-content: start;
+  margin-top: 20px;
+}
