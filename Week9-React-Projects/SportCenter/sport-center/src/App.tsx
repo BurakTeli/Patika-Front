@@ -1,5 +1,6 @@
 import BMI from "./components/BMI/BMI";
 import Classes from "./components/Classes/Classes";
+import Contact from "./components/Contact/Contact";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
@@ -18,6 +19,7 @@ function App() {
       <Trainers />
       <Products />
       <Reviews />
+      <Contact />
     </>
   );
 }
