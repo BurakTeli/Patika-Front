@@ -1,0 +1,1341 @@
+/* Resetting general layout for consistent base across all browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Exo 2", sans-serif;
+}
+
+/* Prevent horizontal overflow and ensure full-width usage */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Define custom CSS variables for consistent theme colors */
+:root {
+  --background-color-1: #ffffff; /* White background */
+  --background-color-2: #f1f8ff; /* Light blue background */
+  --background-color-3: #f39c11; /* Orange accent */
+  --text-color-1: #ffffff; /* White text */
+  --text-color-2: #395389; /* Dark blue text */
+  --text-color-3: #616161; /* Medium gray text */
+  --text-color-4: #1b1f22; /* Dark gray/black text */
+}
+
+/* Section layout with white background */
+.section-white {
+  position: relative;
+  background-color: var(--background-color-1);
+  padding: 65px 0 35px 0;
+  width: 100%;
+}
+
+/* Section layout with light blue background */
+.section-blue {
+  background-color: var(--background-color-2);
+  position: relative;
+  padding: 65px 0 35px 0;
+  width: 100%;
+}
+
+/* Shared style for all section <h2> headings */
+section h2 {
+  color: var(--text-color-2);
+  font-weight: 800;
+  text-align: center;
+  font-size: 28px;
+}
+
+/* Shared <p> tag style inside white or blue background sections */
+.section-white.p,
+.section-blue.p {
+  color: var(--text-color-3);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Decorative underline effect for section headings */
+section h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 6px;
+  background-color: var(--background-color-3);
+  margin: 8px auto 34px;
+  border-radius: 3px;
+}
+
+/* Header section with background image and vertical content layout */
+.header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-image: url("../images/hero-man.jpg");
+  background-position: center;
+  height: 97vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* Navbar container with space between logo and links */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 390px 0 250px;
+  position: fixed;
+  z-index: 200;
+}
+
+/* Navbar background when scrolled */
+.navbar-scroll {
+  background-color: #355592;
+}
+
+/* Style for navbar list layout */
+.navbar ul {
+  display: flex;
+  gap: 26px;
+}
+
+/* Default style for navigation links */
+.navbar ul a {
+  color: var(--text-color-1);
+  font-size: 15px;
+  font-weight: 800;
+}
+/* Special styling for the last navigation link (usually 'Join Us' or similar) */
+.navbar ul li:last-child a {
+  background-color: var(--background-color-3);
+  align-items: first baseline;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* Logo image styling inside the navigation bar */
+.logo img {
+  width: 75%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Main container of the hero/home section */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 250px;
+  position: relative;
+  width: 80%;
+  margin-top: 150px;
+}
+
+/* Styling for the badge/button displayed above the hero heading */
+.home-button {
+  display: inline-block;
+  background-color: #355494;
+  font-weight: 700;
+  color: var(--text-color-1);
+  border-radius: 3px;
+  padding: 6px 14px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Container to control the width of the main headline text */
+.home-top-h1 {
+  width: 60%;
+}
+
+/* Main headline in the hero section */
+.home-top-h1 h1 {
+  color: var(--text-color-1);
+  font-size: 76px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 1.3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 8px;
+}
+
+/* Paragraph text under the headline in hero section */
+.home p {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--text-color-1);
+  font-weight: 700;
+  padding: 5px 28px 5px 16px;
+  font-size: 25px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* Container for call-to-action buttons under the hero paragraph */
+.home-buttons {
+  display: flex;
+  justify-content: start;
+  padding-left: 20px;
+  gap: 40px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Styling for the 'Sign Up' button */
+.home-buttons .sign-up {
+  background-color: var(--text-color-2);
+  color: var(--text-color-1);
+  border-radius: 3px;
+  padding: 4px 18px;
+}
+
+/* Styling for the 'Details' button */
+.home-buttons .details {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--text-color-1);
+  border-radius: 3px;
+  padding: 4px 18px;
+  border: 2px solid var(--text-color-1);
+}
+
+/* Box container holding statistics (Course, Workout, etc.) */
+.boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Padding override for blue section when used with small stat boxes */
+.section-blue.pad {
+  padding: 34px;
+}
+
+/* Individual statistic box styling (Course, Workout, Hours, Clients) */
+.home-box {
+  background-color: var(--background-color-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: auto;
+  padding: 12px 16px 22px 16px;
+  gap: 18px;
+}
+/* Style for number values inside the home statistic boxes */
+.home-box span {
+  font-size: 24px;
+  color: var(--text-color-2);
+  font-weight: 900;
+}
+
+/* Style for the text labels inside each home statistic box */
+.home-box p {
+  color: var(--text-color-4);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* Decorative clip-path background shape for the Classes section */
+.section-white.classes::after {
+  content: "";
+  position: absolute;
+  left: 35%; /* Aligns shape to the left */
+  top: 0;
+  width: 100%; /* Ensures no overflow on mobile */
+  height: 100%;
+  background-color: #f6f6f6;
+  z-index: -2;
+  clip-path: polygon(0 0, 65% 0, 65% 68%, 20% 68%);
+}
+
+/* Ensures the section remains visually above pseudo elements */
+.section-white.classes {
+  z-index: 2;
+}
+
+/* Wrapper container for the Classes section */
+.classes-container {
+  width: 100%;
+}
+
+/* Text and title wrapper for the Classes section */
+.classes-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Style for each paragraph inside the Classes info container */
+.classes-info-p p {
+  color: var(--text-color-3);
+  font-weight: 600;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Container for class category selection buttons */
+.classes-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+  margin-top: 40px;
+}
+
+/* Highlighted button style for currently selected class */
+.highlight {
+  background-color: var(--background-color-3) !important;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 4px var(--background-color-3));
+  position: relative;
+}
+
+/* Triangle indicator below the selected class button */
+.highlight::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--background-color-3) transparent transparent transparent;
+  transform: translateX(-50%);
+}
+
+/* Base style for all class category buttons */
+.classes-buttons button {
+  background-color: var(--text-color-2);
+  color: var(--text-color-1);
+  border-radius: 3px;
+  padding: 6px 16px;
+  font-weight: 700;
+  border: none;
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+/* Layout for the dynamic content displayed under class buttons */
+.classes-choosen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 140px;
+  line-height: 1.5;
+}
+
+/* Container for text content (title, description, times) that changes dynamically */
+.classes-choosen-info {
+  width: 26%;
+  text-align: justify;
+}
+/* Styling for h3 headings inside the dynamic info area (e.g. class titles) */
+.classes-choosen-info h3 {
+  color: var(--text-color-3);
+  font-weight: 800;
+  margin-bottom: 14px;
+  font-size: 22px;
+}
+
+/* Styling for paragraph text inside the dynamic info section */
+.classes-choosen-info p {
+  color: var(--text-color-3);
+  font-weight: 600;
+}
+
+/* Spacing adjustments between individual <p> elements */
+.classes-choosen-info #info-desc {
+  margin-bottom: 28px;
+}
+.classes-choosen-info #info-time-title {
+  margin-bottom: 20px;
+}
+.classes-choosen-info #info-time {
+  margin-bottom: 20px;
+}
+.classes-choosen-info #info-time-add {
+  margin-bottom: 20px;
+}
+
+/* Container that wraps the image associated with the selected class */
+.classes-choosen-photo {
+  width: 22%;
+}
+
+/* Image inside the dynamic content area – responsive and scaled */
+.classes-choosen-photo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Main container for the BMI calculator section */
+.bmi-calculator {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 140px;
+  line-height: 1.5;
+}
+
+/* Left-side information column in the BMI calculator */
+.bmi-info {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+/* Top part of the info section: heading and explanatory paragraphs */
+.bmi-info-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Adds spacing between paragraphs, except the first one */
+.bmi-info-top p ~ p {
+  margin-top: 20px;
+}
+
+/* Paragraph text within the BMI information section */
+.bmi-info-top p {
+  color: var(--text-color-3);
+  font-weight: 600;
+}
+
+/* Heading styling inside the BMI info section */
+.bmi-info-top h3 {
+  color: var(--text-color-2);
+  font-weight: 900;
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+/* Layout container for height and weight input fields */
+.bmi-inputs {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+}
+
+/* Wrapper for each individual input pair (input + unit) */
+.bmi-input {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+/* Input field styling inside the BMI form */
+.bmi-inputs input {
+  margin: 0 1px;
+  width: 80%;
+  padding: 2px 2px;
+  border-radius: 3px;
+  border: 1.7px solid rgb(69, 68, 68);
+}
+
+/* Right-side image block in the BMI calculator section */
+.bmi-img {
+  width: 32%;
+  position: relative;
+  display: inline-block;
+}
+
+/* Responsive image inside the BMI display area */
+.bmi-img img {
+  width: 100%;
+  object-fit: cover;
+}
+/* Indicator arrow displayed below the BMI image to mark calculated result */
+#bmi-indicator {
+  position: absolute;
+  bottom: -20px;
+  left: 25px;
+  transition: left 0.5s ease-in-out;
+  width: 20px;
+  height: 20px;
+  background: var(--background-color-3);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Line height for paragraphs under the trainer section title */
+.trainers-p p {
+  line-height: 1.5;
+}
+
+/* Container for all trainer boxes, spaced evenly */
+.trainers-boxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 70px;
+}
+
+/* Base style for individual trainer boxes */
+.trainer-box {
+  position: relative;
+  width: 15%;
+  border-radius: 6px;
+  border: 2px solid var(--background-color-3);
+}
+
+/* Decorative top horizontal bar */
+.trainer-box .top-bar {
+  content: "";
+  position: absolute;
+  top: -7.5px;
+  left: 50%;
+  width: 60px;
+  height: 6px;
+  background-color: var(--text-color-2);
+  transform: translateX(-50%);
+}
+
+/* Decorative bottom horizontal bar */
+.trainer-box .bottom-bar {
+  content: "";
+  position: absolute;
+  bottom: -7.5px;
+  left: 50%;
+  width: 60px;
+  height: 6px;
+  background-color: var(--text-color-2);
+  transform: translateX(-50%);
+}
+
+/* Left vertical bar decoration */
+.trainer-box .left-bar {
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 6px;
+  height: 80px;
+  background-color: var(--text-color-2);
+  transform: translateY(-50%);
+}
+
+/* Right vertical bar decoration */
+.trainer-box .right-bar {
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  width: 6px;
+  height: 80px;
+  background-color: var(--text-color-2);
+  transform: translateY(-50%);
+}
+
+/* Trainer image styling inside each box */
+.trainer-box img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Adjusted width for the first box's left bar and last box's right bar */
+.trainers-boxes .trainer-box:first-child .left-bar {
+  left: -8px;
+  width: 7px;
+}
+
+.trainers-boxes .trainer-box:last-child .right-bar {
+  right: -8px;
+  width: 7px;
+}
+
+/* Hidden overlay content that appears on hover – initially hidden with z-index */
+.trainers-layer {
+  color: var(--text-color-1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  background-color: var(--text-color-2);
+  clip-path: polygon(
+    5% 25%,
+    20% 25%,
+    20% 10%,
+    80% 10%,
+    80% 25%,
+    95% 25%,
+    95% 75%,
+    80% 75%,
+    80% 90%,
+    20% 90%,
+    20% 75%,
+    5% 75%
+  );
+}
+
+/* Reveal the overlay info when hovering over the trainer box */
+.trainer-box:hover .trainers-layer {
+  z-index: 2;
+}
+
+/* Animate side bars when hovered – extend height and shift vertically */
+.trainer-box:hover .left-bar {
+  top: 75%;
+  height: 150px;
+  transform: translateY(-80%);
+}
+.trainer-box:hover .right-bar {
+  top: 75%;
+  height: 150px;
+  transform: translateY(-80%);
+}
+.trainer-box:hover .bottom-bar {
+  left: 50%;
+  width: 160px;
+  transform: translateX(-50%);
+}
+
+/* Container for the product showcase boxes */
+.purchase-boxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+/* Individual product card styling */
+.purchase-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  padding: 0 0 6px 0;
+}
+
+/* Product image styling inside each product card */
+.purchase-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+/* Bottom section of the product box (includes title, price, etc.) */
+.box-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(56, 56, 56);
+}
+
+/* Styling for the product name text */
+.box-bottom p {
+  font-size: 20px;
+}
+
+/* Styling for pricing text under product name */
+.box-bottom span {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Styling for original price (crossed out) */
+del {
+  text-decoration: line-through;
+  color: rgb(56, 56, 56);
+  font-weight: bold;
+}
+
+/* Icon and label (e.g. cart icon + 'Add To Cart') container */
+.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Position the first span (icon) to the left inside the icon container */
+.icon span:nth-child(1) {
+  position: absolute;
+  left: -50px;
+}
+
+/* General paragraph styling for review section */
+.review-p-1,
+.review-p-2 {
+  color: var(--text-color-3);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Wrapper for the entire review section */
+.review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+}
+
+.review-p {
+  line-height: 1.4;
+}
+
+/* Container for left and right client review boxes */
+.review-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin: 60px 0 80px 0;
+}
+
+/* Shared style for each individual review box */
+.review-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 46%;
+  max-width: 460px;
+  position: relative;
+}
+
+/* Top section of the review box (contains photo and text info) */
+.review-top {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Info block next to the user photo */
+.review-top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Image container styling */
+.review-img {
+  width: 50px;
+  height: 40%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Styling for image inside circular avatar */
+.review-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Title text in review (e.g. profession) */
+.review-top-info p {
+  color: rgb(47, 47, 47);
+  font-weight: 700;
+}
+
+/* Subtitle text in review (e.g. CEO, CFO) */
+.review-top-info span {
+  font-size: 14px;
+  color: rgb(47, 47, 47);
+}
+
+/* Review text container (bottom part of box) */
+.review-bottom {
+  background-color: var(--text-color-2);
+  padding: 12px 24px;
+  line-height: 1.4;
+  position: relative;
+  width: 100%;
+}
+
+/* Decorative triangle on bottom-left of review box */
+.review-bottom::before {
+  content: "";
+  position: absolute;
+  bottom: -34.2px;
+  left: -29.9px;
+  width: 65px;
+  height: 35px;
+  background-color: #395289a7;
+  clip-path: polygon(100% 0, 45% 0, 100% 100%);
+}
+
+/* Decorative triangle on bottom-right of review box */
+.review-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -35.2px;
+  width: 70px;
+  height: 35px;
+  background-color: #395289a7;
+  right: -39px;
+  clip-path: polygon(45% 0, 0 0, 0 100%);
+}
+
+/* Styling for paragraph inside the review message */
+.review-bottom p {
+  color: var(--text-color-1);
+  font-weight: 400;
+}
+
+/* General layout for the Contact section */
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Container for form and map side by side */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+/* Shared styling for both form and map columns */
+.contact-div,
+.map-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* Top part of the contact form – contains phone/email labels */
+.contact-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+/* Custom style for specific paragraph elements – overrides global <p> style */
+.contact-top .phone-p,
+.contact-top .email-p {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Bottom section of the contact form – contains input fields */
+.contact-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* Wrapper for form inputs and textarea */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Styling for all input and textarea fields inside the form */
+.form-group input,
+.form-group textarea {
+  background-color: var(--background-color-2);
+  border: none;
+  width: 100%;
+  padding: 6px 180px 6px 8px;
+  box-sizing: border-box;
+}
+
+/* Specific styling for the textarea (resizable vertically) */
+.form-group textarea {
+  resize: vertical;
+  padding: 10px 180px 10px 8px;
+  height: 100px;
+}
+
+/* Map iframe size styling in the contact section */
+.map-div iframe {
+  width: 100%;
+  height: 300px;
+}
+
+/* Footer background and general text color */
+.footer {
+  background-color: var(--text-color-2);
+  color: var(--text-color-1);
+  padding-bottom: 16px;
+}
+
+/* Logo image size in the footer */
+.footer-top img {
+  width: 180px;
+}
+
+/* Footer's top area – contains logo and description text */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 0 200px;
+}
+
+/* Footer bottom area – contains navigation links */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+/* Shared style for link sections inside footer */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Link colors inside the footer */
+.footer-links a {
+  color: var(--text-color-1);
+}
+
+.footer-bottom h3 {
+  font-size: 22px;
+}
+
+/* Hamburger menu icon – hidden by default */
+.menu-hmbrgr {
+  display: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Responsive styles for screens smaller than 576px */
+@media (max-width: 576px) {
+  /* Reduce heading font size on smaller screens */
+  section h2 {
+    font-size: 20px;
+  }
+
+  /* Adjust background image in the header */
+  .header {
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Show hamburger icon on small screens */
+  .menu-hmbrgr {
+    display: block;
+    color: #ffffff;
+  }
+
+  /* Stack navbar items vertically */
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  /* Display navbar when .show class is active (used via JS) */
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar ul li {
+    padding: 10px 0;
+  }
+
+  /* Override last <a> tag style on mobile for cleaner look */
+  .navbar ul li:last-child a {
+    color: var(--text-color-1);
+    font-size: 15px;
+    font-weight: 800;
+    background-color: transparent;
+    align-items: first baseline;
+    text-transform: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  /* Resize logo for smaller screens */
+  .logo img {
+    width: 70%;
+  }
+
+  /* Adjust navbar padding */
+  .navbar {
+    padding: 0 50px 0 14px;
+  }
+
+  /* Home section layout for mobile */
+  .home {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 10px;
+    margin-top: 160px;
+  }
+
+  .home-top-h1 {
+    width: 100%;
+  }
+
+  .home-top-h1 h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+  }
+
+  .home p {
+    font-size: 15px;
+    padding: 4px 18px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .home-button {
+    padding: 2px 14px;
+  }
+
+  /* Stack CTA buttons vertically */
+  .home-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+    gap: 4px;
+    font-weight: 800;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .home-buttons .sign-up,
+  .home-buttons .details {
+    width: 100%;
+    padding: 6px 20px;
+    box-sizing: border-box;
+  }
+
+  .boxes {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-box {
+    width: 100%;
+  }
+
+  /* Adjust layout in Classes section for mobile */
+  .classes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .classes-info-p {
+    width: 70%;
+  }
+
+  .section-white.classes::after {
+    left: 30%;
+    clip-path: polygon(0 0, 70% 0, 70% 63%, 20% 63%);
+  }
+
+  .classes-choosen {
+    flex-direction: column;
+    align-items: flex-start !important;
+    width: 100%;
+    text-align: justify;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .classes-choosen-info {
+    width: 100%;
+    text-align: justify;
+    padding: 0 20px;
+  }
+
+  .classes-choosen-info #info-title,
+  .classes-choosen-info #info-time-title {
+    text-align: start;
+    font-size: 24px;
+  }
+
+  .classes-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 80%;
+    margin: 40px 0;
+  }
+
+  .classes-buttons button {
+    padding: 6px 16px;
+    font-weight: 800;
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+  .classes-choosen-photo {
+    margin-top: 0;
+    width: 100%;
+  }
+}
+/* BMI Calculator section styling */
+.bmi-calculator {
+  flex-direction: column;
+  align-items: start;
+  margin-top: 120px;
+  line-height: 1.5;
+  width: 100%;
+}
+
+/* BMI information text styling */
+.bmi-info {
+  width: 100%;
+  text-align: justify;
+  padding: 0 20px;
+}
+
+/* Title font size inside BMI info section */
+.bmi-info-top h3 {
+  font-size: 30px;
+}
+
+/* Add top margin between consecutive <p> tags */
+.bmi-info-top p ~ p {
+  margin-top: 20px;
+}
+
+/* Container for BMI input fields */
+.bmi-inputs {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+/* Individual BMI input row styling */
+.bmi-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 80%;
+}
+
+/* Style for the input elements */
+.bmi-inputs input {
+  margin: 0;
+  width: 80%;
+  padding: 2px 2px;
+}
+
+/* BMI section image styling */
+.bmi-img {
+  width: 100%;
+}
+
+/* === Trainers Section Styling === */
+.trainers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Paragraph styling inside trainers section */
+.trainers-p {
+  width: 70%;
+  line-height: 1.5;
+}
+
+/* Trainer cards layout */
+.trainers-boxes {
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 40px;
+}
+
+/* === Purchase Section Styling === */
+.purchase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Paragraph inside purchase section */
+.purchase-p {
+  width: 75%;
+  line-height: 1.4;
+}
+
+/* Individual trainer card inside purchase */
+.trainer-box {
+  width: 80%;
+}
+
+/* Purchase boxes layout */
+.purchase-boxes {
+  flex-direction: column;
+}
+
+/* Individual purchase box */
+.purchase-box {
+  flex-direction: column;
+  width: 75%;
+}
+
+/* === Review Section Styling === */
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Paragraph in review section */
+.review-p {
+  line-height: 1.4;
+  width: 75%;
+}
+
+/* Layout for review cards */
+.review-boxes {
+  flex-direction: column;
+  gap: 60px;
+  margin: 40px 0 60px 0;
+}
+
+/* Each review card */
+.review-box {
+  width: 100%;
+}
+
+/* === Contact Section Styling === */
+.contact-div {
+  padding: 0 30px;
+}
+
+/* Contact layout for mobile */
+.contact-container {
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+/* Contact description text */
+.contact-p {
+  width: 75%;
+  line-height: 1.4;
+}
+
+/* Make both contact and map sections full width */
+.contact-div,
+.map-div {
+  width: 100%;
+}
+
+/* Contact top row (icons + info) */
+.contact-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+/* Phone and email text styling */
+.contact-top .phone-p,
+.contact-top .email-p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Spacing between form fields */
+.form-group {
+  margin-top: 20px;
+  gap: 30px;
+}
+
+/* Placeholder text size for form fields */
+input::placeholder,
+textarea::placeholder {
+  font-size: 12px;
+}
+
+/* Padding inside embedded map */
+.map-div iframe {
+  padding: 0 10px;
+}
+
+/* === Footer Section Styling === */
+.footer-top {
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 0 10px;
+  line-height: 1.4;
+}
+
+/* Footer text size */
+.footer p {
+  font-size: 12px;
+}
+
+/* Footer link titles */
+.footer-links h3 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+/* Show hamburger menu only for screens smaller than 576px */
+@media (min-width: 577px) {
+  .menu-hmbrgr {
+    display: none !important;
+  }
+}

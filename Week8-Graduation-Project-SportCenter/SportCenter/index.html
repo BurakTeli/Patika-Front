@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sport Center</title>
+    <!-- External CSS file for project-specific styles -->
+    <link rel="stylesheet" href="style/style.css" />
+    <!-- Font Awesome CDN for icon usage across the project -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- === HEADER SECTION === -->
+    <!-- The header includes the main navigation bar and the homepage hero section -->
+    <header class="header" id="header">
+      <!-- === NAVIGATION BAR === -->
+      <!-- Includes logo image, responsive hamburger icon and navigation links -->
+      <nav class="navbar" id="navbar">
+        <!-- Site logo section -->
+        <div class="logo">
+          <img src="images/logo.png" alt="logo" />
+        </div>
+
+        <!-- Hamburger icon for mobile menu toggle -->
+        <i class="fa-solid fa-bars menu-hmbrgr" id="menu-hmbrgr"></i>
+
+        <!-- Main navigation menu with anchor links to page sections -->
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#classes">Classes</a></li>
+          <li><a href="#trainer">Trainer</a></li>
+          <li><a href="#review">Review</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#joinus">Join Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- === HERO SECTION === -->
+      <!-- Includes a heading, a short description, and two CTA buttons -->
+      <div class="home" id="home">
+        <a href="#" class="home-button">POWERFULL</a>
+        <div class="home-top-h1">
+          <h1>Group Practice With Trainer</h1>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+        <div class="home-buttons">
+          <a href="#" class="sign-up">Sign Up</a>
+          <a href="#" class="details">Details</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- === STATISTICS SECTION === -->
+    <!-- Four statistic boxes with less padding than standard sections (via pad class) -->
+    <section class="section-blue pad">
+      <div class="boxes">
+        <div class="home-box">
+          <span>325</span>
+          <p>Course</p>
+        </div>
+        <div class="home-box">
+          <span>405</span>
+          <p>Work Out</p>
+        </div>
+        <div class="home-box">
+          <span>305</span>
+          <p>Working Hour</p>
+        </div>
+        <div class="home-box">
+          <span>705</span>
+          <p>Happy Client</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === CLASSES SECTION === -->
+    <!-- White background section that includes class information and a dynamic content area -->
+    <section class="section-white classes" id="classes">
+      <div class="classes-container">
+        <div class="classes-info">
+          <h2>OUR CLASSES</h2>
+          <div class="classes-info-p">
+            <p>Introductory text about available classes.</p>
+            <p>Location or institution reference</p>
+          </div>
+        </div>
+
+        <!-- Buttons to switch between class types (Yoga, Group, etc.) -->
+        <!-- Each button has a unique ID to be used by JavaScript -->
+        <div class="classes-buttons">
+          <button class="btn-yoga" id="btn-yoga">Yoga</button>
+          <button class="btn-group" id="btn-group">Group</button>
+          <button class="btn-solo" id="btn-solo">Solo</button>
+          <button class="btn-stretching" id="btn-stretching">Stretching</button>
+        </div>
+
+        <!-- === DYNAMIC CLASS INFORMATION AREA === -->
+        <!-- Content below changes based on which class button is clicked -->
+        <div class="classes-choosen">
+          <div class="classes-choosen-info">
+            <!-- Each content element has a specific ID for targeted manipulation -->
+            <h3 id="info-title">Why are your Yoga?</h3>
+            <p id="info-desc">Description about selected class type.</p>
+            <h3 id="info-time-title">When comes Yoga Your Time.</h3>
+            <p id="info-time">Saturday-Sunday: 8:00am - 10:00am</p>
+            <p id="info-time-add">Monday-Tuesday: 10:00am - 12:00pm</p>
+            <p id="info-time-extra">Wednesday-Friday: 3:00pm - 6:00pm</p>
+          </div>
+          <div class="classes-choosen-photo">
+            <img
+              src="images/yoga.jpg"
+              alt="img-yoga"
+              id="classes-chosen-photo"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- === BMI CALCULATOR SECTION === -->
+      <!-- A two-column layout with input form and image explaining BMI -->
+      <div class="bmi-calculator">
+        <!-- Left side: Informational content and input fields -->
+        <div class="bmi-info">
+          <div class="bmi-info-top">
+            <h3>BMI Calculator</h3>
+            <p>
+              Explanatory text about the Body Mass Index and its significance.
+            </p>
+          </div>
+
+          <!-- Input fields for user's height and weight -->
+          <div class="bmi-inputs">
+            <div class="bmi-input">
+              <input type="text" placeholder="Your Height" id="height" /><span
+                >cm</span
+              >
+            </div>
+            <div class="bmi-input">
+              <input type="text" placeholder="Your Weight" id="weight" /><span
+                >kg</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side: BMI image and indicator -->
+        <div class="bmi-img">
+          <h3>Your BMI</h3>
+          <img src="images/bmi-index.jpg" alt="bmi" />
+          <div id="bmi-indicator"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === TRAINERS SECTION === -->
+    <!-- Blue background section showcasing top trainers with hover effect details -->
+    <section class="section-blue p" id="trainer">
+      <div class="trainers">
+        <h2>OUR BEST TRAINERS</h2>
+        <div class="trainers-p">
+          <p>Brief introduction about trainer expertise and location.</p>
+        </div>
+
+        <!-- Trainer profiles with name, title, and layered animation -->
+        <div class="trainers-boxes">
+          <!-- Each trainer is inside a boxed layout with surrounding bars -->
+          <div class="trainer-box">
+            <img src="images/trainer1.jpg" alt="trainer1" />
+            <div class="top-bar"></div>
+            <div class="bottom-bar"></div>
+            <div class="left-bar"></div>
+            <div class="right-bar"></div>
+            <div class="trainers-layer">
+              <h4>Alexa Gray</h4>
+              <p>Pilates Trainer</p>
+            </div>
+          </div>
+          <!-- Repeat for other trainers -->
+          <div class="trainer-box">
+            <img src="images/trainer2.jpg" alt="trainer2" />
+            <div class="top-bar"></div>
+            <div class="bottom-bar"></div>
+            <div class="left-bar"></div>
+            <div class="right-bar"></div>
+            <div class="trainers-layer">
+              <h4>Chris Evans</h4>
+              <p>Fitness Trainer</p>
+            </div>
+          </div>
+          <div class="trainer-box">
+            <img src="images/trainer3.jpg" alt="trainer3" />
+            <div class="top-bar"></div>
+            <div class="bottom-bar"></div>
+            <div class="left-bar"></div>
+            <div class="right-bar"></div>
+            <div class="trainers-layer">
+              <h4>Jane Doe</h4>
+              <p>Cardio Trainer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === PURCHASE SECTION === -->
+    <!-- Ürünlerin sergilendiği beyaz arka planlı ana bölüm -->
+    <section class="section-white p">
+      <!-- PURCHASE bölümünün genel kapsayıcısı -->
+      <div class="purchase">
+        <!-- Başlık -->
+        <h2>PURCHASE FROM US</h2>
+
+        <!-- Alt açıklama metinlerinin yer aldığı kapsayıcı -->
+        <div class="purchase-p">
+          <!-- Açıklama 1 -->
+          <p>
+            Lorem ıpsum is not simply random text. It has roots in a piece of
+            classical at
+          </p>
+          <!-- Açıklama 2 -->
+          <p>Hampden-Sydney College</p>
+        </div>
+
+        <!-- Ürün kutularının tamamını saran ana kapsayıcı -->
+        <div class="purchase-boxes">
+          <!-- === Ürün 1 === -->
+          <!-- Her bir ürün kutusu için özel kapsayıcı -->
+          <div class="purchase-box">
+            <!-- Ürün görseli -->
+            <img src="images/purchase1.jpg" alt="purchase1" />
+            <!-- Ürüne ait açıklama ve fiyat bilgilerinin olduğu alt bölüm -->
+            <div class="box-bottom">
+              <!-- Ürün adı -->
+              <p>Kettleebell / 5kg</p>
+              <!-- Eski ve yeni fiyat bilgisi -->
+              <span><del>89,99$</del>/ 59,99$</span><br />
+              <!-- Sepete ekle butonu için ikon ve yazı içeren alan -->
+              <div class="icon">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <span>Add To Card</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- === Ürün 2 === -->
+          <div class="purchase-box">
+            <img src="images/purchase2.jpg" alt="purchase2" />
+            <div class="box-bottom">
+              <p>Treadmill</p>
+              <span><del>899,99$</del>/ 599,99$</span><br />
+              <div class="icon">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <span>Add To Card</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- === Ürün 3 === -->
+          <div class="purchase-box">
+            <img src="images/purchase3.jpg" alt="purchase3" />
+            <div class="box-bottom">
+              <p>Adjustable Dumbbell</p>
+              <span><del>89,99$</del>/ 59,99$</span><br />
+              <div class="icon">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <span>Add To Card</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- === Ürün 4 === -->
+          <div class="purchase-box">
+            <img src="images/purchase4.jpg" alt="purchase4" />
+            <div class="box-bottom">
+              <p>Kettlebell / 3kg</p>
+              <span><del>89,99$</del>/ 59,99$</span><br />
+              <div class="icon">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <span>Add To Card</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.purchase-boxes -->
+      </div>
+      <!-- /.purchase -->
+    </section>
+    <!-- /.section-white -->
+
+    <!-- === CLIENT REVIEW SECTION === -->
+    <!-- Blue background section with customer feedback and images -->
+    <section class="section-blue" id="review">
+      <div class="review">
+        <h2>REVIEW CLIENT</h2>
+        <div class="review-p">
+          <p class="review-p-1">Brief explanation about client testimonials.</p>
+          <p class="review-p-2">Company or client origin info.</p>
+        </div>
+
+        <!-- Two review cards with avatar, name, and description -->
+        <div class="review-boxes">
+          <div class="review-box">
+            <div class="review-top">
+              <div class="review-img">
+                <img src="images/client1.jpg" alt="client1" />
+              </div>
+              <div class="review-top-info">
+                <p>Diet Expert</p>
+                <span>CFO</span>
+              </div>
+            </div>
+            <div class="review-bottom">
+              <p>Customer testimonial paragraph...</p>
+            </div>
+          </div>
+          <div class="review-box">
+            <div class="review-top">
+              <div class="review-img">
+                <img src="images/client2.jpg" alt="client2" />
+              </div>
+              <div class="review-top-info">
+                <p>Cardio Trainer</p>
+                <span>CEO</span>
+              </div>
+            </div>
+            <div class="review-bottom">
+              <p>Customer testimonial paragraph...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === CONTACT SECTION === -->
+    <!-- White background section including form and embedded map -->
+    <section class="section-white p" id="contact">
+      <div class="contact">
+        <h2>CONTACT US</h2>
+        <div class="contact-p">
+          <p class="review-p-1">
+            Brief explanatory content about contacting us.
+          </p>
+          <p class="review-p-2">Institution name or location reference.</p>
+        </div>
+
+        <!-- Contact form (left) and Google Map (right) -->
+        <div class="contact-container">
+          <div class="contact-div">
+            <form>
+              <!-- Top area of the contact form -->
+              <div class="contact-top">
+                <div>
+                  <p>Mobile Number</p>
+                  <p class="phone-p">+135 773 321 4442</p>
+                </div>
+                <div>
+                  <p>Email Address</p>
+                  <p class="email-p">demo@demo.com</p>
+                </div>
+              </div>
+
+              <!-- Bottom area with input fields and textarea -->
+              <div class="contact-bottom">
+                <h3>Make An Appointment</h3>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Your Message"
+                  ></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Google Maps iframe section -->
+          <div class="map-div">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=..."
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- === FOOTER SECTION === -->
+    <!-- Custom background with logo and informational links -->
+    <footer class="footer">
+      <div class="footer-top">
+        <img src="images/logo.png" alt="logo" />
+        <p>Brief description or motto of the company.</p>
+      </div>
+      <div class="footer-bottom">
+        <!-- Two link groups: Information and Helpful Links -->
+        <div class="footer-links">
+          <h3>Information</h3>
+          <a href="#">About Us</a>
+          <a href="#">Classes</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h3>Helpful Links</h3>
+          <a href="#">Services</a>
+          <a href="#">Supports</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- External JavaScript file to handle interactivity -->
+    <script src="./script/script.js"></script>
+  </body>
+</html>

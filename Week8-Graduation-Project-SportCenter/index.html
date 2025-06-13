@@ -4,297 +4,240 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sport Center</title>
-
-    <!-- Linking all modular CSS files -->
-    <!-- Evaluation Form 2 - Code is separated and structured -->
-    <link rel="stylesheet" href="assets/css/global.css" />
-    <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/hero.css" />
-    <link rel="stylesheet" href="assets/css/stats.css" />
-    <link rel="stylesheet" href="assets/css/classes.css" />
-    <link rel="stylesheet" href="assets/css/bmi.css" />
-    <link rel="stylesheet" href="assets/css/trainers.css" />
-    <link rel="stylesheet" href="assets/css/products.css" />
-    <link rel="stylesheet" href="assets/css/reviews.css" />
-    <link rel="stylesheet" href="assets/css/contact.css" />
-    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="style1.css" />
+    <script src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-
   <body>
-    <!-- Header Section with Navigation -->
-    <!-- Evaluation Form 9-10: Navigation works and links correctly -->
-    <header id="navbar">
-      <div class="navbar-container">
-        <!-- Website Logo -->
+    <!-- Header section including navigation menu and home hero section -->
+    <header class="header" id="header">
+      <nav class="navbar" id="navbar">
+        <!-- Logo section -->
         <div class="logo">
-          <img src="assets/images/logo.png" alt="Powerfull Logo" />
+          <img src="images/logo.png" alt="logo" />
         </div>
+        <!-- Hamburger menu icon for mobile navigation -->
+        <i class="fa-solid fa-bars menu-hmbrgr" id="menu-hmbrgr"></i>
+        <!-- Navigation links -->
+        <ul>
+          <li><a href="#header">Home</a></li>
+          <li><a href="#classes">Classes</a></li>
+          <li><a href="#trainer">Trainer</a></li>
+          <li><a href="#review">Review</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#joinus">Join Us</a></li>
+        </ul>
+      </nav>
 
-        <!-- Navigation Menu -->
-        <nav class="nav-links">
-          <a href="#hero">Home</a>
-          <a href="#classes">Classes</a>
-          <a href="#trainers">Trainers</a>
-          <a href="#reviews">Review</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact" class="join-button">JOIN US</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero Section (Main Welcome Area) -->
-    <!-- Evaluation Form 5-6: Design and color usage -->
-    <section id="hero">
-      <div class="hero-content">
-        <span class="hero-label">POWERFULL</span>
-        <h1>Group<br />Practice<br />With Trainer</h1>
+      <!-- Hero section with a call-to-action title and buttons -->
+      <div class="home" id="home">
+        <a href="#" class="home-button">POWERFULL</a>
+        <div class="home-top-h1">
+          <h1>Group Practice With Trainer</h1>
+        </div>
         <p>
-          Join our fitness community and train with certified professionals.
-          Whether you're into yoga, cardio, or strength training — we have the
-          perfect class for you!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus odit aut iste...
         </p>
-        <div class="hero-buttons">
+        <div class="home-buttons">
           <a href="#" class="sign-up">Sign Up</a>
           <a href="#" class="details">Details</a>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- Statistics Section -->
-    <section id="stats">
-      <div class="stats-container">
-        <!-- Total Course Count -->
-        <div class="stat-box">
-          <h2>325</h2>
+    <!-- Statistics section with boxes for course, workout, hours and clients -->
+    <section class="section-blue pad">
+      <div class="boxes">
+        <div class="home-box">
+          <span>325</span>
           <p>Course</p>
         </div>
-        <!-- Total Workouts -->
-        <div class="stat-box">
-          <h2>405</h2>
+        <div class="home-box">
+          <span>405</span>
           <p>Work Out</p>
         </div>
-        <!-- Working Hours -->
-        <div class="stat-box">
-          <h2>305</h2>
+        <div class="home-box">
+          <span>305</span>
           <p>Working Hour</p>
         </div>
-        <!-- Happy Clients -->
-        <div class="stat-box">
-          <h2>705</h2>
+        <div class="home-box">
+          <span>705</span>
           <p>Happy Client</p>
         </div>
       </div>
     </section>
 
-    <!-- Our Classes Section -->
-    <!-- Evaluation Form 11 - Buttons interaction will be validated via JS -->
-    <section id="classes">
+    <!-- Classes section: contains toggle buttons and dynamically changing content -->
+    <section class="section-white classes" id="classes">
       <div class="classes-container">
-        <h2 class="section-title">OUR CLASSES</h2>
-        <p class="section-subtitle">
-          Discover a wide variety of classes that suit your fitness goals.
-        </p>
-
-        <!-- Class filter buttons -->
-        <div class="class-buttons">
-          <button class="active">Yoga</button>
-          <button>Group</button>
-          <button>Solo</button>
-          <button>Stretching</button>
-        </div>
-
-        <!-- Class Content (Yoga) -->
-        <div class="class-content">
-          <div class="class-text">
-            <h3>Why Choose Yoga?</h3>
+        <div class="classes-info">
+          <h2>OUR CLASSES</h2>
+          <div class="classes-info-p">
             <p>
-              Yoga is a mind-body practice that combines physical postures,
-              breathing techniques, and meditation.
+              Lorem ipsum is not just random text. It has classical roots...
             </p>
-            <h4>Yoga Class Schedule</h4>
-            <ul>
-              <li>Saturday–Sunday: 8:00am – 10:00am</li>
-              <li>Monday–Tuesday: 10:00am – 12:00pm</li>
-              <li>Wednesday–Friday: 3:00pm – 6:00pm</li>
-            </ul>
+            <p>Hampden-Sydney College</p>
           </div>
-          <div class="class-image">
-            <img src="assets/images/yoga.jpg" alt="Yoga" />
+        </div>
+
+        <!-- Class category selection buttons -->
+        <div class="classes-buttons">
+          <button class="btn-yoga" id="btn-yoga">Yoga</button>
+          <button class="btn-group" id="btn-group">Group</button>
+          <button class="btn-solo" id="btn-solo">Solo</button>
+          <button class="btn-stretching" id="btn-stretching">Stretching</button>
+        </div>
+
+        <!-- Dynamic content updated via JavaScript -->
+        <div class="classes-choosen">
+          <div class="classes-choosen-info">
+            <h3 id="info-title">Why are your Yoga?</h3>
+            <p id="info-desc">Description of selected class goes here...</p>
+            <h3 id="info-time-title">When comes Yoga Your Time.</h3>
+            <p id="info-time">Saturday-Sunday: 8:00am - 10:00am</p>
+            <p id="info-time-add">Monday-Tuesday: 10:00am - 12:00pm</p>
+            <p id="info-time-extra">Wednesday-Friday: 3:00pm - 6:00pm</p>
+          </div>
+          <div class="classes-choosen-photo">
+            <img
+              src="images/yoga.jpg"
+              alt="img-yoga"
+              id="classes-chosen-photo"
+            />
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- BMI Calculator Section -->
-    <!-- Evaluation Form 8 - BMI functionality will be tested -->
-    <section id="bmi">
-      <div class="bmi-container">
-        <!-- BMI Explanation and Input -->
-        <div class="bmi-text">
-          <h2>BMI Calculator</h2>
-          <p>
-            Enter your height and weight to calculate your BMI.
-          </p>
-
-          <!-- BMI Form Inputs -->
-          <div class="bmi-form">
-            <input type="number" id="heightInput" placeholder="Your Height (cm)" />
-            <input type="number" id="weightInput" placeholder="Your Weight (kg)" />
-            <button id="calculateBtn">Calculate BMI</button>
+      <!-- BMI Calculator section with input fields and image -->
+      <div class="bmi-calculator">
+        <div class="bmi-info">
+          <div class="bmi-info-top">
+            <h3>BMI Calculator</h3>
+            <p>Explanation text about BMI and its origin.</p>
+            <p>Additional text for better user understanding.</p>
           </div>
-
-          <!-- BMI Result Area -->
-          <div class="bmi-result">
-            <h3>Your BMI:</h3>
-            <p id="bmiValue">--</p>
-          </div>
-        </div>
-
-        <!-- BMI Image -->
-        <div class="bmi-image">
-          <img src="assets/images/bmi-index.jpg" alt="BMI Index" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Trainers Showcase -->
-    <!-- Evaluation Form 12 - Hover effects will be checked -->
-    <section id="trainers">
-      <div class="trainers-container">
-        <h2 class="section-title">OUR BEST TRAINERS</h2>
-        <p class="section-subtitle">Meet our experienced professionals.</p>
-
-        <div class="trainer-cards">
-          <!-- Trainer 1 -->
-          <div class="trainer-card">
-            <img src="assets/images/trainer1.jpg" alt="Trainer 1" />
-          </div>
-          <!-- Trainer 2 -->
-          <div class="trainer-card">
-            <img src="assets/images/trainer2.jpg" alt="Trainer 2" />
-          </div>
-          <!-- Trainer 3 with info box -->
-          <div class="trainer-card hover-card">
-            <img src="assets/images/trainer3.jpg" alt="Trainer 3" />
-            <div class="trainer-info">
-              <h3>Jane Doe</h3>
-              <p>Cardio Trainer</p>
+          <div class="bmi-inputs">
+            <div class="bmi-input">
+              <input type="text" placeholder="Your Height" id="height" />
+              <span>cm</span>
+            </div>
+            <div class="bmi-input">
+              <input type="text" placeholder="Your Weight" id="weight" />
+              <span>kg</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Products / Shop Section -->
-    <section id="products">
-      <div class="products-container">
-        <h2 class="section-title">PURCHASE FROM US</h2>
-        <p class="section-subtitle">
-          Premium quality fitness gear available for purchase.
-        </p>
-
-        <div class="product-cards">
-          <!-- Product 1 -->
-          <div class="product-card">
-            <img src="assets/images/purchase1.jpg" alt="Kettlebell 5kg" />
-            <h3>Kettlebell / 5kg</h3>
-            <p>89.99$ / 59.99$</p>
-            <button>Add To Cart</button>
-          </div>
-          <!-- Product 2 -->
-          <div class="product-card">
-            <img src="assets/images/purchase2.jpg" alt="Treadmill" />
-            <h3>Treadmill</h3>
-            <p>899.99$ / 599.99$</p>
-            <button>Add To Cart</button>
-          </div>
-          <!-- Product 3 -->
-          <div class="product-card">
-            <img src="assets/images/purchase3.jpg" alt="Adjustable Dumbbell" />
-            <h3>Adjustable Dumbbell</h3>
-            <p>89.99$ / 59.99$</p>
-            <button>Add To Cart</button>
-          </div>
-          <!-- Product 4 -->
-          <div class="product-card">
-            <img src="assets/images/purchase4.jpg" alt="Kettlebell 3kg" />
-            <h3>Kettlebell / 3kg</h3>
-            <p>89.99$ / 59.99$</p>
-            <button>Add To Cart</button>
-          </div>
+        <div class="bmi-img">
+          <h3>Your BMI</h3>
+          <img src="images/bmi-index.jpg" alt="bmi" />
+          <div id="bmi-indicator"></div>
         </div>
       </div>
     </section>
 
-    <!-- Client Reviews Section -->
-    <section id="reviews">
-      <div class="reviews-container">
-        <h2 class="section-title">CLIENT REVIEWS</h2>
-        <p class="section-subtitle">Feedback from our community.</p>
+    <!-- Trainers section with highlighted trainer profiles -->
+    <section class="section-blue p" id="trainer">
+      <div class="trainers">
+        <h2>OUR BEST TRAINERS</h2>
+        <div class="trainers-p">
+          <p>Introductory text about the trainers</p>
+          <p>More details about where they studied or work</p>
+        </div>
+        <div class="trainers-boxes">
+          <!-- Each trainer box with image and overlay info -->
+          <!-- REPEATED STRUCTURE OMITTED FOR BREVITY -->
+        </div>
+      </div>
+    </section>
 
-        <div class="review-cards">
-          <!-- Review 1 -->
-          <div class="review-card">
-            <div class="review-header">
-              <img src="assets/images/client1.jpg" alt="Client 1" />
-              <div class="review-info">
-                <strong>Diet Expert</strong>
-                <span>CFO</span>
+    <!-- Product showcase section -->
+    <section class="section-white p">
+      <div class="purchase">
+        <h2>PURCHASE FROM US</h2>
+        <div class="purchase-p">
+          <p>Promotional message</p>
+          <p>Supporting text</p>
+        </div>
+        <div class="purchase-boxes">
+          <!-- Individual product card structure -->
+          <!-- REPEATED STRUCTURE OMITTED FOR BREVITY -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Review section with client testimonials -->
+    <section class="section-blue" id="review">
+      <div class="review">
+        <h2>REVIEW CLIENT</h2>
+        <div class="review-p">
+          <p class="review-p-1">Client feedback summary</p>
+          <p class="review-p-2">Client's institution or title</p>
+        </div>
+        <div class="review-boxes">
+          <!-- REPEATED STRUCTURE OMITTED FOR BREVITY -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form and embedded Google Map -->
+    <section class="section-white p" id="contact">
+      <div class="contact">
+        <h2>CONTACT US</h2>
+        <div class="contact-p">
+          <p class="review-p-1">Contact description</p>
+          <p class="review-p-2">Institution info</p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-div">
+            <form>
+              <div class="contact-top">
+                <div>
+                  <p>Mobile Number</p>
+                  <p class="phone-p">+135 773 321 4442</p>
+                </div>
+                <div>
+                  <p>Email Address</p>
+                  <p class="email-p">demo@demo.com</p>
+                </div>
               </div>
-            </div>
-            <div class="review-box">
-              <p>
-                Thanks to the motivation I received, I’ve transformed my lifestyle.
-              </p>
-            </div>
-          </div>
-          <!-- Review 2 -->
-          <div class="review-card">
-            <div class="review-header">
-              <img src="assets/images/client2.jpg" alt="Client 2" />
-              <div class="review-info">
-                <strong>Cardio Trainer</strong>
-                <span>CEO</span>
+              <div class="contact-bottom">
+                <h3>Make An Appointment</h3>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <textarea
+                    name="message"
+                    id="message"
+                    placeholder="Your Message"
+                  ></textarea>
+                </div>
               </div>
-            </div>
-            <div class="review-box">
-              <p>
-                The energy here is unmatched! Highly recommended for all levels.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="contact-container">
-        <h2 class="section-title">CONTACT US</h2>
-        <p class="section-subtitle">We are here to help you!</p>
-
-        <div class="contact-content">
-          <!-- Contact Info and Form -->
-          <div class="contact-left">
-            <p><strong>Mobile Number</strong> &nbsp; +1 875 732 4842</p>
-            <p><strong>Email Address</strong> &nbsp; demo@gmail.com</p>
-
-            <!-- Contact Form -->
-            <form class="contact-form">
-              <input type="text" placeholder="Your Name" required />
-              <input type="email" placeholder="Your Email" required />
-              <textarea rows="5" placeholder="Your Message" required></textarea>
-              <button type="submit">Send Message</button>
             </form>
           </div>
-
-          <!-- Embedded Google Map -->
-          <!-- Evaluation Form 13 - Google Map must be visible and active -->
-          <div class="contact-right">
+          <div class="map-div">
             <iframe
-              src="https://www.google.com/maps/embed?...etc"
-              width="100%"
-              height="300"
+              src="https://www.google.com/maps/embed?..."
+              width="600"
+              height="450"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -304,47 +247,31 @@
       </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer id="footer">
-      <div class="footer-container">
-        <!-- Company Information -->
-        <div class="footer-column">
-          <div class="footer-logo">
-            <img src="assets/images/logo.png" alt="Powerfull Logo" />
-          </div>
-          <p>
-            Empower your body and mind with Sport Center. 
-          </p>
-        </div>
-
-        <!-- Footer Links -->
-        <div class="footer-column">
+    <!-- Footer with navigation and information -->
+    <footer class="footer">
+      <div class="footer-top">
+        <img src="images/logo.png" alt="logo" />
+        <p>Brief description about the company and its mission.</p>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links">
           <h3>Information</h3>
-          <ul>
-            <li><a href="#hero">About Us</a></li>
-            <li><a href="#classes">Classes</a></li>
-            <li><a href="#products">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <a href="#">About Us</a>
+          <a href="#">Classes</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
         </div>
-
-        <!-- Legal Links -->
-        <div class="footer-column">
+        <div class="footer-links">
           <h3>Helpful Links</h3>
-          <ul>
-            <li><a href="#">Supports</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
+          <a href="#">Services</a>
+          <a href="#">Supports</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <!-- Evaluation Form 8-11 - Functionality Scripts -->
-    <script src="assets/js/navbar.js"></script>
-    <script src="assets/js/classes.js"></script>
-    <script src="assets/js/bmi.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- JavaScript functionality -->
+    <script src="script.js"></script>
   </body>
 </html>
