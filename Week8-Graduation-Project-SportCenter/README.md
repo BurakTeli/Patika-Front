@@ -10,9 +10,10 @@ A screenshot of the project will be added here later.
 
 Sport Center is a promotional website where users can discover the services, trainers, and classes of a fitness center. It also features a working BMI (Body Mass Index) calculator. The project focuses not only on aesthetics but also on functionality, with modern UI/UX principles in mind.
 
-## 🚀 Live Demo
+## 🔴 Live Preview
 
-The live demo link will be added here after deployment.
+🔗 [Live Demo](https://684c02935a8771c50384b7c4--amazing-maamoul-f6b8ea.netlify.app)
+
 
 ## 🛠️ Technologies Used
 
