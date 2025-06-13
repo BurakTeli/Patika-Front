@@ -3,6 +3,7 @@ import Classes from "./components/Classes/Classes";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Stats from "./components/Stats/Stats";
+import Trainers from "./components/Trainers/Trainers";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Stats />
       <Classes />
       <BMI />
+      <Trainers />
     </>
   );
 }
