@@ -12,7 +12,7 @@ Sport Center is a promotional website where users can discover the services, tra
 
 ## 🔴 Live Preview
 
-🔗 [Live Demo]
+🔗 [Live Demo](https://grand-lily-7a563b.netlify.app)
 
 
 ## 🛠️ Technologies Used
