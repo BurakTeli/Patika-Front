@@ -1,0 +1,44 @@
+#bmi {
+    padding: 80px 20px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .bmi-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  
+  .bmi-text-section {
+    flex: 1 1 50%;
+  }
+  
+  .bmi-form input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .bmi-form button {
+    padding: 10px 20px;
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    margin-top: 10px;
+  }
+  
+  .bmi-result {
+    margin-top: 20px;
+  }
+  
+  .bmi-image img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
