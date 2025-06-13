@@ -1,13 +1,15 @@
-import React from "react";
+import Classes from "./components/Classes/Classes";
+import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
+import Stats from "./components/Stats/Stats";
 
 function App() {
   return (
     <>
       <Navbar />
-      {/* Diğer bölümler buraya gelecek */}
+      <Hero />
+      <Stats />
+      <Classes />
     </>
   );
 }
-
-export default App;

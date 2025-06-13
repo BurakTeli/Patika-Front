@@ -1,0 +1,51 @@
+#classes {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .classes-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .class-buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .class-buttons button {
+    padding: 8px 20px;
+    border: none;
+    background-color: #eee;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .class-buttons .active {
+    background-color: #ff3366;
+    color: #fff;
+  }
+  
+  .class-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+  }
+  
+  .class-text {
+    flex: 1 1 45%;
+    text-align: left;
+  }
+  
+  .class-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
