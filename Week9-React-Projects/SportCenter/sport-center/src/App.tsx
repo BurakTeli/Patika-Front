@@ -3,6 +3,7 @@ import Classes from "./components/Classes/Classes";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
+import Reviews from "./components/Reviews/Reviews";
 import Stats from "./components/Stats/Stats";
 import Trainers from "./components/Trainers/Trainers";
 
@@ -16,6 +17,7 @@ function App() {
       <BMI />
       <Trainers />
       <Products />
+      <Reviews />
     </>
   );
 }
