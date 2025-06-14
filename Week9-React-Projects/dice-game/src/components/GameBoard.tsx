@@ -5,6 +5,7 @@ import RollButton from "./RollButton";
 import ResultMessage from "./ResultMessage";
 import GameHistory from "./GameHistory";
 import ResetButton from "./ResetButton";
+import ThemeToggle from "./ThemeToggle";
 import "../styles/GameBoard.css";
 
 type HistoryItem = {
@@ -66,6 +67,7 @@ const GameBoard: React.FC = () => {
   return (
     <div className="game-board">
       <h1>🎲 Dice Game</h1>
+      <ThemeToggle />
       <PlayerName
         name={playerName}
         onChange={setPlayerName}

@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import { useTheme } from "../context/ThemeContext";
+import "../styles/theme.css";
 
-const ThemeToggle = () => {
+const ThemeToggle: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <button className="theme-toggle" onClick={toggleTheme}>
+      Switch to {theme === "light" ? "Dark" : "Light"} Mode
+    </button>
+  );
+};
 
-export default ThemeToggle
+export default ThemeToggle;
