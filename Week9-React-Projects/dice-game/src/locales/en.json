@@ -1,0 +1,17 @@
+{
+    "title": "Dice Game",
+    "playerLabel": "Player 1",
+    "enterName": "Enter your name",
+    "lockName": "Lock Name",
+    "locked": "Locked 🔒",
+    "rollDice": "Roll Dice 🎲",
+    "reset": "Reset Game 🔄",
+    "history": "Game History",
+    "noHistory": "No rolls yet.",
+    "youWin": "You Win! 🎉",
+    "youLose": "You Lose! 😢",
+    "draw": "It's a Draw! 🤝",
+    "switchTo": "Switch to {{mode}} Mode",
+    "language": "Language"
+  }
+  

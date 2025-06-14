@@ -1,0 +1,17 @@
+{
+    "title": "Zar Oyunu",
+    "playerLabel": "Oyuncu 1",
+    "enterName": "Adınızı girin",
+    "lockName": "İsmi Kilitle",
+    "locked": "Kilitli 🔒",
+    "rollDice": "Zar At 🎲",
+    "reset": "Oyunu Sıfırla 🔄",
+    "history": "Oyun Geçmişi",
+    "noHistory": "Henüz zar atılmadı.",
+    "youWin": "Kazandınız! 🎉",
+    "youLose": "Kaybettiniz! 😢",
+    "draw": "Beraberlik 🤝",
+    "switchTo": "{{mode}} Moduna Geç",
+    "language": "Dil"
+  }
+  
