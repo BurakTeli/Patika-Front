@@ -20,6 +20,18 @@ const GameBoard: React.FC = () => {
   };
 
   const handleRollDice = () => {
+    // 🎬 Animasyonu başlat
+    const diceImages = document.querySelectorAll(".dice-image");
+    diceImages.forEach((el) => {
+      el.classList.add("animate-shake");
+
+      // Animasyon bitince class'ı temizle
+      setTimeout(() => {
+        el.classList.remove("animate-shake");
+      }, 600);
+    });
+
+    // 🎲 Zar sonuçlarını belirle
     const newPlayerRoll = Math.floor(Math.random() * 6) + 1;
     const newComputerRoll = Math.floor(Math.random() * 6) + 1;
     setPlayerRoll(newPlayerRoll);
