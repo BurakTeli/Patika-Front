@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./styles/main.css";
 import Dice from "./components/Dice";
 import PlayerName from "./components/PlayerName";
+import RollButton from "./components/RollButton";
 
 function App() {
   const [playerName, setPlayerName] = useState("");
   const [isLocked, setIsLocked] = useState(false);
+  const [playerRoll, setPlayerRoll] = useState(1);
+  const [computerRoll, setComputerRoll] = useState(1);
 
   const handleLockName = () => {
     if (playerName.trim() === "") {
@@ -13,6 +16,13 @@ function App() {
       return;
     }
     setIsLocked(true);
+  };
+
+  const handleRollDice = () => {
+    const newPlayerRoll = Math.floor(Math.random() * 6) + 1;
+    const newComputerRoll = Math.floor(Math.random() * 6) + 1;
+    setPlayerRoll(newPlayerRoll);
+    setComputerRoll(newComputerRoll);
   };
 
   return (
@@ -25,9 +35,10 @@ function App() {
         isLocked={isLocked}
       />
       <div className="dice-container">
-        <Dice value={3} player={playerName || "Player 1"} />
-        <Dice value={5} player="Computer" />
+        <Dice value={playerRoll} player={playerName || "Player 1"} />
+        <Dice value={computerRoll} player="Computer" />
       </div>
+      <RollButton onRoll={handleRollDice} disabled={!isLocked} />
     </div>
   );
 }
