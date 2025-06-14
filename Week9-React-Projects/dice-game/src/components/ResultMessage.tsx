@@ -1,11 +1,23 @@
-import React from 'react'
+import React from "react";
+import "../styles/ResultMessage.css";
 
-const ResultMessage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+type ResultMessageProps = {
+  playerRoll: number;
+  computerRoll: number;
+};
 
-export default ResultMessage
+const ResultMessage: React.FC<ResultMessageProps> = ({ playerRoll, computerRoll }) => {
+  let message = "";
+
+  if (playerRoll > computerRoll) {
+    message = "You Win! 🎉";
+  } else if (playerRoll < computerRoll) {
+    message = "You Lose! 😢";
+  } else {
+    message = "It's a Draw! 🤝";
+  }
+
+  return <div className="result-message">{message}</div>;
+};
+
+export default ResultMessage;

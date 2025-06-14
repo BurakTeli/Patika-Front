@@ -1,0 +1,12 @@
+.game-board {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .dice-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 20px 0;
+  }
+  

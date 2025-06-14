@@ -10,11 +10,7 @@ const Dice: React.FC<DiceProps> = ({ value, player }) => {
   return (
     <div className="dice">
       <p className="player-label">{player}</p>
-      <img
-        src={`./assets/dice${value}.png`}
-        alt={`dice ${value}`}
-        className="dice-image"
-      />
+      <img src={`/assets/dice${value}.png`} alt={`dice ${value}`} className="dice-image" />
     </div>
   );
 };
