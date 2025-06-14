@@ -4,6 +4,7 @@ import PlayerName from "./PlayerName";
 import RollButton from "./RollButton";
 import ResultMessage from "./ResultMessage";
 import GameHistory from "./GameHistory";
+import ResetButton from "./ResetButton";
 import "../styles/GameBoard.css";
 
 type HistoryItem = {
@@ -28,7 +29,6 @@ const GameBoard: React.FC = () => {
   };
 
   const handleRollDice = () => {
-    // 🎬 Zar animasyonu
     const diceImages = document.querySelectorAll(".dice-image");
     diceImages.forEach((el) => {
       el.classList.add("animate-shake");
@@ -37,19 +37,16 @@ const GameBoard: React.FC = () => {
       }, 600);
     });
 
-    // 🎲 Gerçek zar sonuçları
     const newPlayerRoll = Math.floor(Math.random() * 6) + 1;
     const newComputerRoll = Math.floor(Math.random() * 6) + 1;
     setPlayerRoll(newPlayerRoll);
     setComputerRoll(newComputerRoll);
 
-    // 🧠 Sonuç hesapla
     let resultText = "";
     if (newPlayerRoll > newComputerRoll) resultText = "You Win! 🎉";
     else if (newPlayerRoll < newComputerRoll) resultText = "You Lose! 😢";
     else resultText = "It's a Draw! 🤝";
 
-    // 📜 Geçmişe ekle
     setHistory((prev) => [
       ...prev,
       {
@@ -58,6 +55,12 @@ const GameBoard: React.FC = () => {
         result: resultText,
       },
     ]);
+  };
+
+  const handleReset = () => {
+    setPlayerRoll(1);
+    setComputerRoll(1);
+    setHistory([]);
   };
 
   return (
@@ -75,6 +78,7 @@ const GameBoard: React.FC = () => {
       </div>
       <ResultMessage playerRoll={playerRoll} computerRoll={computerRoll} />
       <RollButton onRoll={handleRollDice} disabled={!isLocked} />
+      <ResetButton onReset={handleReset} />
       <GameHistory history={history} />
     </div>
   );
