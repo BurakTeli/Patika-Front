@@ -1,4 +1,4 @@
-export {};
+// ✅ Tüm importlar en üstte olmalı
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "./locales/en.json";
@@ -9,7 +9,7 @@ i18n.use(initReactI18next).init({
     en: { translation: en },
     tr: { translation: tr },
   },
-  lng: "en", // varsayılan dil
+  lng: "en", // veya varsayılan dil
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,
