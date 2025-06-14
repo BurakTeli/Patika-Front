@@ -1,0 +1,31 @@
+.player-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px;
+  }
+  
+  .player-name input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+  }
+  
+  .lock-button {
+    padding: 8px 16px;
+    background-color: #1dd1a1;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .lock-button:hover {
+    background-color: #10ac84;
+  }
+  
