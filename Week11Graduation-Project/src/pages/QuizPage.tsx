@@ -5,11 +5,19 @@ import FirstQuestion from "../components/quiz/FirstQuestion";
 import QuestionCard from "../components/quiz/QuestionCard";
 import ProgressBar from "../components/common/ProgressBar";
 
+interface AnswerRecord {
+  question: string;
+  selected: string;
+  correctAnswer: string;
+  isCorrect: boolean;
+}
+
 const QuizPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
-  const [correctCount, setCorrectCount] = useState(0); // ✅ doğru cevap sayısı
+  const [correctCount, setCorrectCount] = useState(0);
+  const [userAnswers, setUserAnswers] = useState<AnswerRecord[]>([]); // ✅ kullanıcı cevaplarını saklıyoruz
 
   const timerRef = useRef<number | null>(null);
   const countdownRef = useRef<number | null>(null);
@@ -28,7 +36,7 @@ const QuizPage: React.FC = () => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             if (countdownRef.current) window.clearInterval(countdownRef.current);
-            triggerNextQuestion();
+            triggerNextQuestion(null); // Süre bitince cevap vermediyse boş geç
             return 0;
           }
           return prev - 1;
@@ -42,15 +50,37 @@ const QuizPage: React.FC = () => {
     };
   }, [currentIndex]);
 
-  const triggerNextQuestion = () => {
+  const triggerNextQuestion = (selected: string | null) => {
     setShowOptions(false);
+
+    // Cevap kaydını oluştur
+    const record: AnswerRecord = {
+      question: currentQuestion.question,
+      selected: selected ?? "No Answer",
+      correctAnswer: currentQuestion.answer,
+      isCorrect: selected === currentQuestion.answer,
+    };
+
+    // Listeye ekle
+    setUserAnswers((prev) => [...prev, record]);
+
+    // Doğruysa sayaç artır
+    if (selected === currentQuestion.answer) {
+      setCorrectCount((prev) => prev + 1);
+    }
 
     setTimeout(() => {
       if (currentIndex < questions.length - 1) {
         setCurrentIndex((prev) => prev + 1);
       } else {
-        // ✅ Test bittiğinde doğru sayısını ResultPage'e gönder
-        navigate("/result", { state: { correctCount, total: questions.length } });
+        // Test bittiğinde doğru sayısı ve kullanıcı cevaplarını gönder
+        navigate("/result", {
+          state: {
+            correctCount,
+            total: questions.length,
+            userAnswers: [...userAnswers, record], // güncel son cevabı da dahil et
+          },
+        });
       }
     }, 300);
   };
@@ -59,13 +89,7 @@ const QuizPage: React.FC = () => {
     if (!showOptions) return;
 
     if (countdownRef.current) window.clearInterval(countdownRef.current);
-
-    // ✅ Cevap doğruysa sayacı artır
-    if (selected === currentQuestion.answer) {
-      setCorrectCount((prev) => prev + 1);
-    }
-
-    triggerNextQuestion();
+    triggerNextQuestion(selected);
   };
 
   return (
