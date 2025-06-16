@@ -18,6 +18,7 @@
   "homepage": "https://github.com/BurakTeli/Patika-Front#readme",
   "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.6"
+    "bootstrap": "^5.3.6",
+    "react-router-dom": "^7.6.2"
   }
 }
