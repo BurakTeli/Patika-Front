@@ -1,0 +1,60 @@
+.start-page {
+    background-color: #ddfef8;           /* Soft background color */
+    width: 100vw;                        /* Full viewport width */
+    height: 100vh;                       /* Full viewport height */
+    display: flex;                       /* Use flexbox for layout */
+    flex-direction: column;             /* Stack children vertically */
+    align-items: center;                /* Center horizontally */
+    justify-content: center;            /* Center vertically */
+    font-family: sans-serif;            /* Basic sans-serif font */
+    padding: 20px;                      /* Inner spacing */
+    box-sizing: border-box;             /* Includes padding in width/height */
+  }
+  
+  /* Heading title at the top of the page */
+  .start-title {
+    color: #23194f;                     /* Primary text color */
+    font-size: 2.5rem;                  /* Large heading font size */
+    margin-bottom: 30px;               /* Space below title */
+    text-align: center;                /* Center the text */
+  }
+  
+  /* Wrapper for the form inputs */
+  .start-form {
+    display: flex;                      /* Use flexbox for form layout */
+    flex-direction: column;            /* Stack inputs vertically */
+    gap: 15px;                          /* Space between form elements */
+    width: 100%;                        /* Take full width of parent */
+    max-width: 400px;                  /* But no wider than 400px */
+  }
+  
+  /* Text input fields for first name and last name */
+  .form-input {
+    padding: 12px;                      /* Inner padding for better UX */
+    border-radius: 12px;               /* Rounded corners */
+    border: 1px solid #23194f;         /* Border in primary color */
+    font-size: 1rem;                   /* Standard font size */
+    width: 100%;                       /* Full width inside form */
+  }
+  
+  /* Submit button to start the quiz */
+  .start-button {
+    background-color: #23194f;         /* Primary background color */
+    color: white;                      /* White text */
+    border: none;                      /* Remove default border */
+    padding: 12px;                     /* Keeps original height */
+    border-radius: 12px;               /* Rounded button corners */
+    font-size: 1rem;                   /* Standard font size */
+    cursor: pointer;                   /* Show pointer on hover */
+    transition: background-color 0.3s; /* Smooth hover effect */
+  
+    width: 150px;                      /* Fixed width for narrower appearance */
+    align-self: center;                /* Center the button horizontally */
+  }
+  
+  /* Error message below input fields */
+  .form-error {
+    color: red;                        /* Standard error color */
+    font-size: 0.85rem;                /* Smaller font for error text */
+  }
+  
