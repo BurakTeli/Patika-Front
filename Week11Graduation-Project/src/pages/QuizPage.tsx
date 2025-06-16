@@ -18,6 +18,7 @@ const QuizPage: React.FC = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
   const [correctCount, setCorrectCount] = useState(0);
+  const [score, setScore] = useState(0); // ✅ PUAN STATE
   const [userAnswers, setUserAnswers] = useState<AnswerRecord[]>([]);
 
   const timerRef = useRef<number | null>(null);
@@ -38,7 +39,8 @@ const QuizPage: React.FC = () => {
       countdownRef.current = window.setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
-            if (countdownRef.current) window.clearInterval(countdownRef.current);
+            if (countdownRef.current)
+              window.clearInterval(countdownRef.current);
             triggerNextQuestion(null);
             return 0;
           }
@@ -65,8 +67,9 @@ const QuizPage: React.FC = () => {
 
     setUserAnswers((prev) => [...prev, record]);
 
-    if (selected === currentQuestion.answer) {
+    if (selected === currentQuestion.answer && currentIndex > 0) {
       setCorrectCount((prev) => prev + 1);
+      setScore((prev) => prev + 10); // ✅ PUAN EKLEME
     }
 
     setTimeout(() => {
@@ -78,6 +81,7 @@ const QuizPage: React.FC = () => {
             correctCount,
             total: questions.length,
             userAnswers: [...userAnswers, record],
+            score, // ✅ PUANI SONUCA GÖNDER
           },
         });
       }
@@ -107,6 +111,10 @@ const QuizPage: React.FC = () => {
     <>
       <ProgressBar current={currentIndex} total={questions.length} />
 
+      <div style={{ textAlign: "center", margin: "10px 0" }}>
+        <h3>Puan: {score}</h3> {/* ✅ PUAN GÖSTERİMİ */}
+      </div>
+
       {currentQuestion.isFirst ? (
         <FirstQuestion
           question={currentQuestion.question}
@@ -134,9 +142,8 @@ const QuizPage: React.FC = () => {
         </strong>
       </div>
 
-      {/* 🎴 Jokerler sadece FirstQuestion değilse gösterilir */}
       {!currentQuestion.isFirst && (
-        <div style={{ marginTop: 30 }}>
+        <div className="joker-container" style={{ marginTop: 30 }}>
           <JokerPanel onSkip={handleSkip} onEliminate={handleEliminate} />
         </div>
       )}
@@ -144,4 +151,4 @@ const QuizPage: React.FC = () => {
   );
 };
 
-export default QuizPage;
+export default QuizPage ;
