@@ -46,3 +46,8 @@
   pointer-events: auto;
   transition: opacity 0.5s ease;
 }
+.option-button.eliminated {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+}
