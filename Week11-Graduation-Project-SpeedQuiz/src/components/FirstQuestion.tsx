@@ -14,9 +14,19 @@ const FirstQuestion = ({ question, onNext }: FirstQuestionProps) => {
 
   return (
     <div className="first-question-container">
+      {/* Soru Başlığı */}
       <h2>{question.question}</h2>
-      <div className="options">
-        {question.options.map((option: string, i: number) => (
+
+
+      <img
+        src={`/${question.media}`} // Örn: teacher.png
+        alt="question visual"
+        className="question-image"
+      />
+
+      {/* Butonlar (2x2 grid ve sabit altta) */}
+      <div className="option-container">
+        {question.options.map((option, i) => (
           <OptionButton key={i} text={option} onClick={onNext} />
         ))}
       </div>
@@ -24,4 +34,4 @@ const FirstQuestion = ({ question, onNext }: FirstQuestionProps) => {
   )
 }
 
-export default FirstQuestion
+export default FirstQuestion 

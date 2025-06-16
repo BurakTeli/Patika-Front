@@ -1,124 +1,53 @@
-.quiz-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  font-family: sans-serif;
-}
-
-.question-header {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.question-text {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.timer {
-  font-size: 1.2rem;
-  color: #23194f;
-}
-
-.question-image-wrapper {
-  background-color: #23194f; /* Fotoğraf kutusu arka plan rengi */
-  padding: 20px;
-  border-radius: 20px; /* Yumuşak hatlar */
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 360px;
-  height: 240px;
-}
-
-.question-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-}
-
-/* İlk 4 saniye bulanık */
-.blurred {
-  filter: blur(12px);
-}
-
-/* 4 saniye sonra netleşiyor */
-.visible {
-  filter: blur(0);
-}
-
-.hidden {
-  display: none;
-}
-
-.small {
-  width: 180px;
-  height: 120px;
-}
-
-.large {
-  width: 360px;
-  height: 240px;
-}
-
-.waiting-text {
-  font-size: 1.2rem;
-  color: #777;
-  margin-top: 20px;
-}
-
-/* Şıklar için grid */
-.options-grid {
+.option-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-top: 30px;
-  padding: 0 20px;
-  width: 100%;
-  max-width: 600px;
+  padding: 24px;
+  background-color: #fdfdfd;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .option-button {
-  height: 120px;
-  font-size: 1.2rem;
+  width: 100%;
+  padding: 28px 0;
+  font-size: 22px;
+  font-weight: bold;
   color: white;
   border: none;
-  border-radius: 12px;
-  font-weight: bold;
+  border-radius: 16px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .option-button:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* Renkler */
-.color-0 {
-  background-color: #e74c3c; /* kırmızı */
+.option-button:nth-child(1) {
+  background-color: #e53935; /* kırmızı */
 }
 
-.color-1 {
-  background-color: #3498db; /* mavi */
+.option-button:nth-child(2) {
+  background-color: #1e88e5; /* mavi */
 }
 
-.color-2 {
-  background-color: #f1c40f; /* sarı */
-  color: black;
+.option-button:nth-child(3) {
+  background-color: #fbc02d; /* sarı */
+  color: black; /* okunabilirlik için */
 }
 
-.color-3 {
-  background-color: #2ecc71; /* yeşil */
+.option-button:nth-child(4) {
+  background-color: #43a047; /* yeşil */
 }
 
-.question-image-placeholder {
-  width: 100%;
-  height: 100%;
-  background-color: #23194f;
-  border-radius: 20px;
-}
+

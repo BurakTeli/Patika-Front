@@ -2,7 +2,6 @@ type OptionButtonProps = {
     text: string
     onClick: () => void
     disabled?: boolean
-    isCorrect?: boolean
   }
   
   const OptionButton = ({ text, onClick, disabled = false }: OptionButtonProps) => {
