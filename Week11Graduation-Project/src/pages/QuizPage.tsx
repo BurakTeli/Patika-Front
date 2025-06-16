@@ -1,27 +1,67 @@
-import React, { useState } from "react";
-import { questions } from "../utils/questions";
-import FirstQuestion from "../components/quiz/FirstQuestion";
-import QuestionCard from "../components/quiz/QuestionCard.tsx"; // genel soru component
+import React, { useState, useEffect } from 'react';
+import { questions } from '../utils/questions';
+import FirstQuestion from '../components/quiz/FirstQuestion';
+import QuestionCard from '../components/quiz/QuestionCard';
+import ProgressBar from '../components/common/ProgressBar';
 
-const QuizPage = () => {
+const QuizPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleAnswer = (selected: string) => {
-    console.log("Seçilen cevap:", selected);
-    // Sonraki soruya geçiş vs.
-    setCurrentIndex((prev) => prev + 1);
-  };
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [showOptions, setShowOptions] = useState(false);
 
   const currentQuestion = questions[currentIndex];
 
+  useEffect(() => {
+    setShowOptions(false);
+    setTimeLeft(30);
+
+    const hideTimer = setTimeout(() => {
+      setShowOptions(true);
+    }, 4000);
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          clearTimeout(hideTimer);
+          goNextQuestion();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(hideTimer);
+    };
+  }, [currentIndex]);
+
+  const goNextQuestion = () => {
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      console.log('Test tamamlandı');
+    }
+  };
+
+  const handleAnswer = (selected: string) => {
+    if (!showOptions) return;
+
+    console.log('Seçilen cevap:', selected);
+    goNextQuestion();
+  };
+
   return (
-    <div>
+    <>
+      <ProgressBar current={currentIndex} total={questions.length} />
       {currentQuestion.isFirst ? (
         <FirstQuestion
           question={currentQuestion.question}
           options={currentQuestion.options}
           media={currentQuestion.media}
           onAnswer={handleAnswer}
+          showOptions={showOptions}
         />
       ) : (
         <QuestionCard
@@ -29,9 +69,13 @@ const QuizPage = () => {
           options={currentQuestion.options}
           media={currentQuestion.media}
           onAnswer={handleAnswer}
+          showOptions={showOptions}
         />
       )}
-    </div>
+      <div style={{ marginTop: 20, textAlign: 'center' }}>
+        <strong>Kalan Süre: {timeLeft} sn</strong>
+      </div>
+    </>
   );
 };
 
