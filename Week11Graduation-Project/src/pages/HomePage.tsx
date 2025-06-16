@@ -1,23 +1,36 @@
-import { useNavigate } from 'react-router-dom';
-import UserInfoForm from '../components/forms/UserInfoForm';
-import '../styles/homePage.css';
+import { useNavigate } from "react-router-dom";
+import UserInfoForm from "../components/forms/UserInfoForm";
+import "../styles/homePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const handleSubmit = (values: { firstName: string; lastName: string; nickname: string }) => {
+  const handleSubmit = (values: {
+    firstName: string;
+    lastName: string;
+    nickname: string;
+  }) => {
     console.log(values);
-    navigate('/quiz');
+    navigate("/quiz");
+  };
+
+  const handleFunnyPage = () => {
+    navigate("/funny");
   };
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Teste Hoş Geldiniz!</h1>
+      <h1 className="home-title">Welcome to the Quiz!</h1>
       <p className="home-info">
-        Test 10 sorudan oluşur. Her soru için 30 saniyeniz vardır. Joker haklarınızı akıllıca kullanın.
+        This quiz contains 10 questions. You have 30 seconds for each. Use your
+        jokers wisely!
       </p>
 
       <UserInfoForm onSubmit={handleSubmit} />
+
+      <button className="funny-button" onClick={handleFunnyPage}>
+        Funny Page
+      </button>
     </div>
   );
 };
