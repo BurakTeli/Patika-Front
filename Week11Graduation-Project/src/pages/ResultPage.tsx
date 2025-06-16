@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "../styles/pages/ResultPage.css"; // sadece görünüm için, dokunulmaz
+import "../styles/pages/ResultPage.css";
 
 interface AnswerRecord {
   question: string;
@@ -16,40 +16,55 @@ const ResultPage: React.FC = () => {
     correctCount = 0,
     total = 0,
     userAnswers = [],
+    score = 0,
   } = location.state || {};
 
-  const score = Math.round((correctCount / total) * 100);
-
   const handleRetry = () => {
-    navigate("/"); // Testi yeniden başlat
+    navigate("/");
   };
+
+  // 🔥 Geri bildirim mesajı
+  const feedbackMessage =
+    score >= 80
+      ? "🎉 Harika iş çıkardın!"
+      : score >= 50
+      ? "👏 Fena değil, daha da iyi olabilirsin!"
+      : "📚 Bir dahaki sefere daha iyi olacak!";
 
   return (
     <div className="result-container">
       <h1 className="result-title">Quiz Completed!</h1>
-      <p className="result-message">
-        You answered <strong>{correctCount}</strong> out of{" "}
-        <strong>{total}</strong> questions correctly.
-      </p>
-      <p className="result-score">
-        Your score: <strong>{score}%</strong>
-      </p>
 
-      <hr />
+      <div className="result-summary">
+        <p>
+          You answered <strong>{correctCount}</strong> out of{" "}
+          <strong>{total}</strong> questions correctly.
+        </p>
 
-      <h2 style={{ marginTop: 40 }}>Your Answers:</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+        <p className="result-score">
+          Percentage Score: <strong>{Math.round((correctCount / total) * 100)}%</strong>
+        </p>
+
+        <p className="result-score">
+          Final Score: <strong>{score} points</strong>
+        </p>
+
+        <p className="result-feedback">{feedbackMessage}</p>
+      </div>
+
+      <hr className="result-divider" />
+
+      <h2 className="result-subtitle">Your Answers:</h2>
+      <ul className="result-answer-list">
         {userAnswers.map((answer: AnswerRecord, index: number) => (
-          <li key={index} style={{ marginBottom: 20 }}>
+          <li key={index} className="result-answer-item">
             <strong>Q{index + 1}:</strong> {answer.question}
             <br />
-            <span>
-              ✅ Correct Answer: <strong>{answer.correctAnswer}</strong>
-            </span>
+            <span>✅ Correct Answer: <strong>{answer.correctAnswer}</strong></span>
             <br />
             <span>
               🟡 Your Answer:{" "}
-              <strong style={{ color: answer.isCorrect ? "green" : "red" }}>
+              <strong className={answer.isCorrect ? "answer-correct" : "answer-wrong"}>
                 {answer.selected}
               </strong>
             </span>

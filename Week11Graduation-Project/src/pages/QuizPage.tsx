@@ -1,147 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { questions } from "../utils/questions";
-import FirstQuestion from "../components/quiz/FirstQuestion";
-import QuestionCard from "../components/quiz/QuestionCard";
+import React from "react";
+import { useQuizLogic } from "../hooks/useQuizLogic";
 import ProgressBar from "../components/common/ProgressBar";
 import JokerPanel from "../components/JokerPanel";
-
-interface AnswerRecord {
-  question: string;
-  selected: string;
-  correctAnswer: string;
-  isCorrect: boolean;
-}
+import ScoreDisplay from "../components/quiz/ScoreDisplay";
+import TimerDisplay from "../components/quiz/TimerDisplay";
+import QuestionRenderer from "../components/quiz/QuestionRenderer";
 
 const QuizPage: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showOptions, setShowOptions] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(30);
-  const [correctCount, setCorrectCount] = useState(0);
-  const [score, setScore] = useState(0); // ✅ PUAN STATE
-  const [userAnswers, setUserAnswers] = useState<AnswerRecord[]>([]);
-
-  const timerRef = useRef<number | null>(null);
-  const countdownRef = useRef<number | null>(null);
-  const eliminatedOptionsRef = useRef<string[]>([]);
-
-  const navigate = useNavigate();
-  const currentQuestion = questions[currentIndex];
-
-  useEffect(() => {
-    setShowOptions(false);
-    setTimeLeft(30);
-    eliminatedOptionsRef.current = [];
-
-    timerRef.current = window.setTimeout(() => {
-      setShowOptions(true);
-
-      countdownRef.current = window.setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            if (countdownRef.current)
-              window.clearInterval(countdownRef.current);
-            triggerNextQuestion(null);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    }, 4000);
-
-    return () => {
-      if (timerRef.current) window.clearTimeout(timerRef.current);
-      if (countdownRef.current) window.clearInterval(countdownRef.current);
-    };
-  }, [currentIndex]);
-
-  const triggerNextQuestion = (selected: string | null) => {
-    setShowOptions(false);
-
-    const record: AnswerRecord = {
-      question: currentQuestion.question,
-      selected: selected ?? "No Answer",
-      correctAnswer: currentQuestion.answer,
-      isCorrect: selected === currentQuestion.answer,
-    };
-
-    setUserAnswers((prev) => [...prev, record]);
-
-    if (selected === currentQuestion.answer && currentIndex > 0) {
-      setCorrectCount((prev) => prev + 1);
-      setScore((prev) => prev + 10); // ✅ PUAN EKLEME
-    }
-
-    setTimeout(() => {
-      if (currentIndex < questions.length - 1) {
-        setCurrentIndex((prev) => prev + 1);
-      } else {
-        navigate("/result", {
-          state: {
-            correctCount,
-            total: questions.length,
-            userAnswers: [...userAnswers, record],
-            score, // ✅ PUANI SONUCA GÖNDER
-          },
-        });
-      }
-    }, 300);
-  };
-
-  const handleAnswer = (selected: string) => {
-    if (!showOptions) return;
-    if (countdownRef.current) window.clearInterval(countdownRef.current);
-    triggerNextQuestion(selected);
-  };
-
-  const handleSkip = () => {
-    if (countdownRef.current) window.clearInterval(countdownRef.current);
-    triggerNextQuestion(null);
-  };
-
-  const handleEliminate = () => {
-    const options = currentQuestion.options;
-    const correct = currentQuestion.answer;
-    const wrongs = options.filter((opt) => opt !== correct);
-    eliminatedOptionsRef.current = wrongs.slice(0, 2);
-    console.log("❌ Elenen Şıklar:", eliminatedOptionsRef.current);
-  };
+  const {
+    currentQuestion,
+    currentIndex,
+    showOptions,
+    timeLeft,
+    score,
+    handleAnswer,
+    handleSkip,
+    handleEliminate,
+    eliminatedOptions,
+  } = useQuizLogic();
 
   return (
     <>
-      <ProgressBar current={currentIndex} total={questions.length} />
-
-      <div style={{ textAlign: "center", margin: "10px 0" }}>
-        <h3>Puan: {score}</h3> {/* ✅ PUAN GÖSTERİMİ */}
-      </div>
-
-      {currentQuestion.isFirst ? (
-        <FirstQuestion
-          question={currentQuestion.question}
-          options={currentQuestion.options}
-          media={currentQuestion.media}
-          onAnswer={handleAnswer}
-          showOptions={showOptions}
-        />
-      ) : (
-        <QuestionCard
-          question={currentQuestion.question}
-          options={currentQuestion.options}
-          media={currentQuestion.media}
-          onAnswer={handleAnswer}
-          showOptions={showOptions}
-          eliminatedOptions={eliminatedOptionsRef.current}
-        />
-      )}
-
-      <div style={{ marginTop: 20, textAlign: "center" }}>
-        <strong>
-          {showOptions
-            ? `Time Left: ${timeLeft}s`
-            : "Answer options will appear in 4 seconds..."}
-        </strong>
-      </div>
-
+      <ProgressBar current={currentIndex} total={10} />
+      <ScoreDisplay score={score} />
+      <QuestionRenderer
+        question={currentQuestion}
+        onAnswer={handleAnswer}
+        showOptions={showOptions}
+        eliminatedOptions={eliminatedOptions}
+      />
+      <TimerDisplay timeLeft={timeLeft} showOptions={showOptions} />
       {!currentQuestion.isFirst && (
         <div className="joker-container" style={{ marginTop: 30 }}>
           <JokerPanel onSkip={handleSkip} onEliminate={handleEliminate} />
@@ -151,4 +39,4 @@ const QuizPage: React.FC = () => {
   );
 };
 
-export default QuizPage ;
+export default QuizPage;
