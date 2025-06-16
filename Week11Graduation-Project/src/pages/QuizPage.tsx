@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { questions } from '../utils/questions';
-import FirstQuestion from '../components/quiz/FirstQuestion';
-import QuestionCard from '../components/quiz/QuestionCard';
-import ProgressBar from '../components/common/ProgressBar';
+import React, { useState, useEffect, useRef } from "react";
+import { questions } from "../utils/questions";
+import FirstQuestion from "../components/quiz/FirstQuestion";
+import QuestionCard from "../components/quiz/QuestionCard";
+import ProgressBar from "../components/common/ProgressBar";
 
 const QuizPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(30);
   const [showOptions, setShowOptions] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(30);
+
+  const timerRef = useRef<number | null>(null);
+  const countdownRef = useRef<number | null>(null);
 
   const currentQuestion = questions[currentIndex];
 
@@ -15,41 +18,58 @@ const QuizPage: React.FC = () => {
     setShowOptions(false);
     setTimeLeft(30);
 
-    const hideTimer = setTimeout(() => {
+    // 4 saniye sonra şıkları göster
+    timerRef.current = window.setTimeout(() => {
       setShowOptions(true);
+
+      // Sayaç başlat (30 saniye)
+      countdownRef.current = window.setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            if (countdownRef.current) {
+              window.clearInterval(countdownRef.current);
+            }
+            triggerNextQuestion();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
     }, 4000);
 
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          clearTimeout(hideTimer);
-          goNextQuestion();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
+    // Cleanup
     return () => {
-      clearInterval(interval);
-      clearTimeout(hideTimer);
+      if (timerRef.current) {
+        window.clearTimeout(timerRef.current);
+      }
+      if (countdownRef.current) {
+        window.clearInterval(countdownRef.current);
+      }
     };
   }, [currentIndex]);
 
-  const goNextQuestion = () => {
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      console.log('Test tamamlandı');
-    }
+  const triggerNextQuestion = () => {
+    setShowOptions(false); // önce seçenekleri gizle (animasyon için)
+
+    // Animasyonun bitmesini bekle (örneğin 300ms sonra geçiş)
+    setTimeout(() => {
+      if (currentIndex < questions.length - 1) {
+        setCurrentIndex((prev) => prev + 1);
+      } else {
+        console.log("Test tamamlandı");
+        // Sonuç sayfası yönlendirmesi burada olabilir
+      }
+    }, 300); // bu süre CSS animasyon süresiyle uyumlu olmalı
   };
 
   const handleAnswer = (selected: string) => {
     if (!showOptions) return;
 
-    console.log('Seçilen cevap:', selected);
-    goNextQuestion();
+    console.log("Seçilen cevap:", selected);
+    if (countdownRef.current) {
+      window.clearInterval(countdownRef.current);
+    }
+    triggerNextQuestion();
   };
 
   return (
@@ -72,8 +92,12 @@ const QuizPage: React.FC = () => {
           showOptions={showOptions}
         />
       )}
-      <div style={{ marginTop: 20, textAlign: 'center' }}>
-        <strong>Kalan Süre: {timeLeft} sn</strong>
+      <div style={{ marginTop: 20, textAlign: "center" }}>
+        <strong>
+          {showOptions
+            ? `Kalan Süre: ${timeLeft} sn`
+            : "Cevap seçenekleri 4 saniye sonra görünecek..."}
+        </strong>
       </div>
     </>
   );
