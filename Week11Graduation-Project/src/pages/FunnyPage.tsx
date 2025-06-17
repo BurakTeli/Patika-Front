@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 
 const FunnyPage = () => {
   const [showContent, setShowContent] = useState(false);
@@ -19,7 +19,7 @@ const FunnyPage = () => {
   };
 
   return (
-    <div className={showContent ? 'funny-page light' : 'funny-page dark'}>
+    <div className={showContent ? "funny-page light" : "funny-page dark"}>
       {!showContent && (
         <div className="intro-animation">
           {/* 👉 This image will move from right to left using CSS */}
@@ -42,7 +42,10 @@ const FunnyPage = () => {
                 className="box"
                 onClick={() => handleBoxClick(index)}
               >
-                <img src={`/images/box${index + 1}.png`} alt={`Box ${index + 1}`} />
+                <img
+                  src={`/images/box${index + 1}.png`}
+                  alt={`Box ${index + 1}`}
+                />
               </div>
             ))}
           </div>
