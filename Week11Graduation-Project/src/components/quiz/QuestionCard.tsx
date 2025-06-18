@@ -20,7 +20,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   correctAnswer,
   eliminatedOptions = [],
 }) => {
-  const colorClasses = ["option-red", "option-blue", "option-yellow", "option-green"];
+  const colorClasses = [
+    "option-red",
+    "option-blue",
+    "option-yellow",
+    "option-green",
+  ];
   const [flashingOption, setFlashingOption] = useState<string | null>(null);
   const [flashType, setFlashType] = useState<"correct" | "wrong" | null>(null);
 
@@ -68,7 +73,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               key={option}
               onClick={() => handleAnswer(option)}
               disabled={!showOptions || isEliminated}
-              className={`option-button ${colorClass} ${isEliminated ? "eliminated" : ""} ${flashClass}`}
+              className={`option-button ${colorClass} ${
+                isEliminated ? "eliminated" : ""
+              } ${flashClass}`}
             >
               {option}
             </button>

@@ -1,0 +1,35 @@
+.countdown-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #23194f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.countdown-timer {
+  font-size: 64px;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+  transition: color 0.3s;
+}
+
+.countdown-timer.danger {
+  color: red;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
