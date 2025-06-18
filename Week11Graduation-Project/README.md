@@ -1,54 +1,119 @@
-# React + TypeScript + Vite
+# 🚀 Kahoot-Style Interactive Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Interactive Quiz Application** – a fully responsive, animated, and gamified quiz experience developed using **React + TypeScript + Vite**.  
+This project was built as a part of a Bootcamp graduation project, pushing the boundaries of frontend development with dynamic components, clean architecture, and immersive user interactions.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Purpose of the Project
 
-## Expanding the ESLint configuration
+The goals of this project were to:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Simulate a **Kahoot-like timed quiz system**
+- Create **modular and reusable components** for scalability
+- Implement **countdown timers, visual animations**, and **feedback mechanisms**
+- Build a **joker system** with confirmation dialogs and interaction effects
+- Apply **professional coding practices** such as naming conventions, file structure, and styling
+- Learn how to **deploy the project to Netlify** and share it as a live demo
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧠 What I Learned
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### ⚛️ React & TypeScript
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Strongly typed props and interface-driven component logic
+- Component-based architecture and props-state synchronization
+- Reusability with modular breakdown: `QuestionCard`, `TimerDisplay`, `ScoreDisplay`, `JokerPanel`, etc.
+
+### 🎨 UI/UX & Styling
+
+- Responsive design using **CSS Grid and Flexbox**
+- Advanced styling and **CSS animations**
+- Scroll-locked bottom action bars
+- Color-coded answer buttons with interaction feedback
+
+### ⏱️ Timing & Game Logic
+
+- Timer management using `useEffect` and state hooks
+- Delayed transitions between questions
+- Correct and incorrect feedback via visual effects
+
+### 🃏 Joker System
+
+- Visually appealing **joker cards** with hover effects
+- Animated **confirmation dialog** on joker activation
+- Pausing and resuming timer during interactions
+
+### 🧼 Code Quality & Structure
+
+- Clean project folder structure and file organization
+- Meaningful variable and component naming
+- Clear, commented code for each component
+- Separation of styling into dedicated `.css` files
+
+
+## 📂 Project Structure
+
+📦 Week11Graduation-Project
+┣ 📁 assets
+┃ ┗ 📁 images
+┣ 📁 components
+┃ ┣ 📜 QuestionCard.tsx
+┃ ┣ 📜 JokerPanel.tsx
+┃ ┗ 📜 ...
+┣ 📁 pages
+┃ ┣ 📜 QuizPage.tsx
+┃ ┣ 📜 ResultPage.tsx
+┃ ┗ 📜 FunnyPage.tsx
+┣ 📁 styles
+┃ ┣ 📜 QuestionCard.css
+┃ ┣ 📜 Joker.css
+┃ ┗ 📜 ...
+┣ 📜 App.tsx
+┣ 📜 main.tsx
+┗ 📜 index.html
+
+## 🎮 Features
+
+- ✅ Fully functional quiz flow with score tracking
+- ✅ Countdown timer for each question
+- ✅ Answer validation with animated feedback
+- ✅ Joker system (3 types) with confirmation and effects
+- ✅ Fixed action bar for answering on mobile
+- ✅ Modern and responsive UI
+- ✅ Navigable pages like `/quiz`, `/funny`, `/race`
+
+---
+
+## 🌐 Live Demo (Netlify)
+
+🟢 **Netlify Deployment Link:**  
+👉 [https://your-netlify-link.netlify.app](https://your-netlify-link.netlify.app)  
+*(Replace this with your actual published link)*
+
+---
+
+## 🔮 Potential Improvements
+
+- Add Firebase/Supabase for user data and questions
+- Multi-user competition mode
+- Global leaderboard and rankings
+- Admin dashboard for managing quizzes
+
+---
+
+## 👨‍💻 Author
+
+**Burak Telli** – [GitHub: @BurakTeli](https://github.com/BurakTeli)  
+Frontend Developer | UI/UX Enthusiast | Bootcamp Graduate  
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** – feel free to use, adapt, and contribute.
+
+---
+
+
