@@ -16,7 +16,7 @@ function App() {
         <Route path="/result" element={<ResultPage />} />
         <Route path="/funny" element={<FunnyPage />} />
         <Route path="/race" element={<RaceStartSection />} />
-        <Route path="/sonraki-sayfa" element={<NextPage />} /> {/* Yeni sayfa yönlendirmesi */}
+        <Route path="/sonraki-sayfa" element={<NextPage />} /> 
       </Routes>
     </BrowserRouter>
   );

@@ -60,23 +60,32 @@ export const useQuizLogic = () => {
       isCorrect: selected === currentQuestion.answer,
     };
 
-    setUserAnswers((prev) => [...prev, record]);
-
-    if (selected === currentQuestion.answer && currentIndex > 0) {
+    const isCorrect = selected === currentQuestion.answer;
+    if (isCorrect && currentIndex > 0) {
       setCorrectCount((prev) => prev + 1);
       setScore((prev) => prev + 10);
     }
+
+    const updatedUserAnswers = [...userAnswers, record];
+    setUserAnswers(updatedUserAnswers);
 
     setTimeout(() => {
       if (currentIndex < questions.length - 1) {
         setCurrentIndex((prev) => prev + 1);
       } else {
+        const wrongCount = updatedUserAnswers.filter((r) => !r.isCorrect).length;
+        const averageTime =
+          Math.round(
+            ((questions.length * 30 - timeLeft) / questions.length) * 10
+          ) / 10;
+
         navigate("/result", {
           state: {
-            correctCount,
-            total: questions.length,
-            userAnswers: [...userAnswers, record],
             score,
+            correctAnswers: correctCount + (isCorrect ? 1 : 0),
+            wrongAnswers: wrongCount,
+            averageTime,
+            totalQuestions: questions.length,
           },
         });
       }
