@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/components/QuestionCard.css";
 
 interface QuestionCardProps {
@@ -7,7 +7,8 @@ interface QuestionCardProps {
   media: string;
   onAnswer: (selected: string) => void;
   showOptions: boolean;
-  eliminatedOptions?: string[]; // ✅ eklendi
+  correctAnswer: string;
+  eliminatedOptions?: string[];
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
@@ -16,8 +17,27 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   media,
   onAnswer,
   showOptions,
+  correctAnswer,
   eliminatedOptions = [],
 }) => {
+  const colorClasses = ["option-red", "option-blue", "option-yellow", "option-green"];
+  const [flashingOption, setFlashingOption] = useState<string | null>(null);
+  const [flashType, setFlashType] = useState<"correct" | "wrong" | null>(null);
+
+  const handleAnswer = (option: string) => {
+    const isCorrect = option === correctAnswer;
+
+    setFlashingOption(option);
+    setFlashType(isCorrect ? "correct" : "wrong");
+
+    setTimeout(() => {
+      setFlashingOption(null);
+      setFlashType(null);
+    }, 800);
+
+    onAnswer(option);
+  };
+
   return (
     <div className="question-card-container">
       <h2 className="question-text">{question}</h2>
@@ -31,15 +51,22 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       )}
 
       <div className={`options-container ${showOptions ? "show" : "hide"}`}>
-        {options.map((option) => {
+        {options.map((option, index) => {
           const isEliminated = eliminatedOptions.includes(option);
+          const colorClass = colorClasses[index % colorClasses.length];
+          const isFlashing = flashingOption === option;
+          const flashClass = isFlashing
+            ? flashType === "correct"
+              ? "flash-correct"
+              : "flash-wrong"
+            : "";
 
           return (
             <button
               key={option}
-              onClick={() => onAnswer(option)}
+              onClick={() => handleAnswer(option)}
               disabled={!showOptions || isEliminated}
-              className={`option-button ${isEliminated ? "eliminated" : ""}`}
+              className={`option-button ${colorClass} ${isEliminated ? "eliminated" : ""} ${flashClass}`}
             >
               {option}
             </button>
