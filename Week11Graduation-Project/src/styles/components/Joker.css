@@ -1,0 +1,101 @@
+/* Joker panel konumu */
+.joker-panel {
+  position: fixed;
+  top: 50%;
+  left: 130px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 600;
+}
+
+/* Joker kart stilleri */
+.joker-card {
+  width: 180px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.joker-card:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.joker-card.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Dialog arka plan */
+.joker-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dialog kartı */
+.joker-dialog-card {
+  background-color: #23194f;
+  padding: 32px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Başlık */
+.joker-dialog-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* Görsel */
+.joker-dialog-image {
+  width: 140px;
+  margin: 20px auto;
+}
+
+/* Butonlar */
+.joker-dialog-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.yes-button,
+.no-button {
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.yes-button {
+  background-color: #2ecc71;
+}
+
+.no-button {
+  background-color: #e74c3c;
+}
+
+.yes-button:hover {
+  background-color: #27ae60;
+}
+
+.no-button:hover {
+  background-color: #c0392b;
+}

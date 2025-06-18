@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuizLogic } from "../hooks/useQuizLogic";
 import ProgressBar from "../components/common/ProgressBar";
-import JokerPanel from "../components/JokerPanel";
+import JokerPanel from "../components/Joker/JokerPanel";
 import ScoreDisplay from "../components/quiz/ScoreDisplay";
 import TimerDisplay from "../components/quiz/TimerDisplay";
 import QuestionRenderer from "../components/quiz/QuestionRenderer";
