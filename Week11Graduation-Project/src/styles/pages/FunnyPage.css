@@ -1,0 +1,124 @@
+/* 🔲 Sayfa genel yapısı */
+.funny-page {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+  color: white;
+}
+
+/* 🌞 Beyaz temada metin görünmesin (isteğe bağlı) */
+.funny-page.light {
+  background-color: #ffffff;
+  color: #ffffff;
+}
+
+/* 🎬 Giriş animasyonu ve buton konumu */
+.intro-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+/* 🚗 İlk karakter: Sağdan sola hareket eder */
+.moving-image {
+  position: absolute;
+  right: -850px;
+  top: 30%;
+  width: 680px;
+  height: auto;
+  transition: transform 10s ease-in-out;
+  transform: translateX(0);
+}
+
+/* 🚀 Hareket başladığında sola kayar */
+.moving-image.animate {
+  transform: translateX(-100vw);
+}
+
+/* 🎯 İkinci karakter: Solda sabit görünür */
+.moving-image2 {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  width: 480px;
+  height: auto;
+}
+
+/* ⬛ 2 saniyelik ekran karartma efekti */
+.blackout-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9999;
+}
+
+/* 🟣 Başlat butonu */
+.start-button {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #ff2c9d;
+}
+/* Sabit ikinci karakter */
+.moving-image2 {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  width: 480px;
+  height: auto;
+}
+
+/* Üçüncü karakter: sağa doğru kayar */
+.moving-image3 {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 720px;
+  height: auto;
+  animation: moveRight 5s forwards;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* Toretto giriş-çıkış */
+.toretto-image {
+  position: absolute;
+  right: -150px;
+  top: 35%;
+  width: 480px;
+  height: auto;
+  z-index: 10;
+  transition: transform 1s ease-in-out;
+}
+
+.toretto-image.enter {
+  transform: translateX(-100px);
+}
+
+.toretto-image.exit {
+  transform: translateX(800px);
+}
