@@ -132,10 +132,12 @@
 
 /* Cevap animasyonları */
 @keyframes flash-wrong {
-  0%, 100% {
+  0%,
+  100% {
     filter: brightness(1);
   }
-  25%, 75% {
+  25%,
+  75% {
     filter: brightness(0.2);
   }
   50% {
@@ -144,7 +146,8 @@
 }
 
 @keyframes flash-correct {
-  0%, 100% {
+  0%,
+  100% {
     background-color: #2ecc71;
   }
   50% {
@@ -159,4 +162,28 @@
 
 .flash-correct {
   animation: flash-correct 0.8s ease-in-out 1;
+}
+.countdown-badge {
+  position: fixed;
+  bottom: 140px;
+  right: 840px;
+  background-color: #23194f;
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 16px 24px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  animation: scalePulse 1s ease infinite;
+}
+
+@keyframes scalePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
 }

@@ -21,15 +21,24 @@ const QuizPage: React.FC = () => {
 
   return (
     <>
+      {/* İlerleme durumu */}
       <ProgressBar current={currentIndex} total={10} />
+
+      {/* Yeni, modern puan kutusu */}
       <ScoreDisplay score={score} />
+
+      {/* Soru ve görsel */}
       <QuestionRenderer
         question={currentQuestion}
         onAnswer={handleAnswer}
         showOptions={showOptions}
         eliminatedOptions={eliminatedOptions}
       />
-      <TimerDisplay timeLeft={timeLeft} showOptions={showOptions} />
+
+      {/* Geriye sayım süresi */}
+      <TimerDisplay timeLeft={timeLeft} />
+
+      {/* Jokerler */}
       {!currentQuestion.isFirst && (
         <div className="joker-container" style={{ marginTop: 30 }}>
           <JokerPanel onSkip={handleSkip} onEliminate={handleEliminate} />

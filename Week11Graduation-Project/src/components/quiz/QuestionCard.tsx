@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/components/QuestionCard.css";
 
 interface QuestionCardProps {
@@ -26,12 +26,30 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     "option-yellow",
     "option-green",
   ];
+
   const [flashingOption, setFlashingOption] = useState<string | null>(null);
   const [flashType, setFlashType] = useState<"correct" | "wrong" | null>(null);
+  const [countdown, setCountdown] = useState(4);
+
+  // Geri sayım başlat
+  useEffect(() => {
+    if (!showOptions) {
+      setCountdown(4);
+      const interval = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev === 1) {
+            clearInterval(interval);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [showOptions]);
 
   const handleAnswer = (option: string) => {
     const isCorrect = option === correctAnswer;
-
     setFlashingOption(option);
     setFlashType(isCorrect ? "correct" : "wrong");
 
@@ -45,8 +63,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <div className="question-card-container">
+      {/* Soru başlığı */}
       <h2 className="question-text">{question}</h2>
 
+      {/* Görsel */}
       {media && (
         <div className="image-wrapper">
           <img
@@ -57,6 +77,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         </div>
       )}
 
+      {/* Geri sayım animasyonu */}
+      {!showOptions && countdown > 0 && (
+        <div className="countdown-badge">{countdown}</div>
+      )}
+
+      {/* Şıklar */}
       <div className={`options-container ${showOptions ? "show" : "hide"}`}>
         {options.map((option, index) => {
           const isEliminated = eliminatedOptions.includes(option);
@@ -83,6 +109,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         })}
       </div>
 
+      {/* Bekleme mesajı */}
       {!showOptions && (
         <p className="waiting-text">Cevap seçenekleri birazdan görünecek...</p>
       )}

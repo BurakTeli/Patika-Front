@@ -3,6 +3,7 @@ import "../../styles/components/TimerDisplay.css";
 
 interface TimerDisplayProps {
   timeLeft: number;
+  showOptions?: boolean;
 }
 
 const TimerDisplay: React.FC<TimerDisplayProps> = ({ timeLeft }) => {

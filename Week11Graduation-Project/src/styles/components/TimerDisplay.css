@@ -1,7 +1,7 @@
 .timer-display {
   position: fixed;
   top: 50%;
-  right: 50px;
+  right: 160px;
   transform: translateY(-50%);
   width: 120px;
   height: 120px;
