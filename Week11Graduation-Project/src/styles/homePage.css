@@ -1,33 +1,55 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ddfef8;
+  color: #23194f;
+  scroll-behavior: smooth;
 }
 
 .home-container {
   width: 100%;
   max-width: 1400px;
-  height: 100vh; /* ekranın tamamını kaplar */
+  height: 100vh;
   margin: auto;
   padding: 40px;
-  background-color: #DDFEF8;
-  color: #23194F;
+  background-color: #ddfef8;
+  color: #23194f;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* dikeyde ve yatayda içeriği ortalar */
+  justify-content: center;
   box-sizing: border-box;
+  position: relative;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .home-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .home-info {
   font-size: 1.2rem;
   margin-bottom: 30px;
   text-align: center;
+  max-width: 600px;
 }
 
 .home-form {
@@ -44,29 +66,93 @@ html, body, #root {
 }
 
 .form-field label {
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   font-weight: 600;
 }
 
 .form-field input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #23194F;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #23194f;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-field input:focus {
+  border-color: #4a3da3;
+  box-shadow: 0 0 8px rgba(35, 25, 79, 0.2);
 }
 
 .start-button {
-  background-color: #23194F;
+  background-color: #23194f;
   color: #ffffff;
-  padding: 12px;
+  padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .start-button:hover {
-  opacity: 0.9;
+  background-color: #2f2470;
+  transform: translateY(-2px);
+}
+
+.funny-button {
+  position: relative;
+  padding: 14px 28px;
+  background: transparent;
+  color: #23194f;
+  border: 2px solid #23194f;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.3s ease;
+  margin-top: 40px;
+}
+
+.funny-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, #23194f, #ddfef8);
+  z-index: -1;
+  transition: all 0.4s ease-in-out;
+  transform: skewX(-20deg);
+}
+
+.funny-button:hover::before {
+  left: 0;
+}
+
+.funny-button:hover {
+  color: #fff;
+}
+
+.funny-button:active {
+  animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .error-msg {

@@ -1,30 +1,43 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import "../../styles/components/UserInfoForm.css"; // ✅ CSS bağlantısı
 
 interface UserInfoFormProps {
-  onSubmit: (values: { firstName: string; lastName: string; nickname: string }) => void;
+  onSubmit: (values: {
+    firstName: string;
+    lastName: string;
+    nickname: string;
+  }) => void;
 }
 
 const validationSchema = Yup.object({
-  firstName: Yup.string().required('Ad zorunlu!'),
-  lastName: Yup.string().required('Soyad zorunlu!'),
-  nickname: Yup.string().required('Nickname zorunlu!'),
+  firstName: Yup.string().required("Ad zorunlu!"),
+  lastName: Yup.string().required("Soyad zorunlu!"),
+  nickname: Yup.string().required("Nickname zorunlu!"),
 });
 
 const initialValues = {
-  firstName: '',
-  lastName: '',
-  nickname: '',
+  firstName: "",
+  lastName: "",
+  nickname: "",
 };
 
 const UserInfoForm: React.FC<UserInfoFormProps> = ({ onSubmit }) => {
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
       <Form className="home-form">
         <div className="form-field">
           <label htmlFor="firstName">Ad</label>
           <Field name="firstName" type="text" placeholder="Adınız" />
-          <ErrorMessage name="firstName" component="div" className="error-msg" />
+          <ErrorMessage
+            name="firstName"
+            component="div"
+            className="error-msg"
+          />
         </div>
 
         <div className="form-field">
