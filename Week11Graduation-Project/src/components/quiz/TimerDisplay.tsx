@@ -1,18 +1,18 @@
 import React from "react";
+import "../../styles/components/TimerDisplay.css";
 
 interface TimerDisplayProps {
   timeLeft: number;
-  showOptions: boolean;
 }
 
-const TimerDisplay: React.FC<TimerDisplayProps> = ({ timeLeft, showOptions }) => {
+const TimerDisplay: React.FC<TimerDisplayProps> = ({ timeLeft }) => {
+  const isCritical = timeLeft <= 10;
+
   return (
     <div className="timer-display">
-      <strong>
-        {showOptions
-          ? `Time Left: ${timeLeft}s`
-          : "Answer options will appear in 4 seconds..."}
-      </strong>
+      <span className={`timer-text ${isCritical ? "critical" : ""}`}>
+        {timeLeft}
+      </span>
     </div>
   );
 };
