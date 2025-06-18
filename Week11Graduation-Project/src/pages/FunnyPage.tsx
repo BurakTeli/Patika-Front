@@ -45,7 +45,7 @@ const FunnyPage = () => {
 
               // Animasyonlar bittikten sonra yönlendirme
               setTimeout(() => {
-                navigate("/sonraki-sayfa"); // Yönlendirmek istediğin sayfa yolu
+                navigate("/race"); // Doğru sayfa yolu "/race"
               }, 1500); // Furkan_Teacher3 animasyonunun tamamlanma süresi
             }, 1000);
           }, 3000);
