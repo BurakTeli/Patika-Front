@@ -43,11 +43,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
       <h2 className="question-text">{question}</h2>
 
       {media && (
-        <img
-          src={`/assets/images/${media}`}
-          alt="question visual"
-          className="question-image"
-        />
+        <div className="image-wrapper">
+          <img
+            src={`/assets/images/${media}`}
+            alt="question visual"
+            className="question-image"
+          />
+        </div>
       )}
 
       <div className={`options-container ${showOptions ? "show" : "hide"}`}>
