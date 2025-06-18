@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/FunnyPage.css";
 
@@ -13,12 +13,10 @@ const FunnyPage = () => {
 
   const [showToretto, setShowToretto] = useState(false);
   const [startExitToretto, setStartExitToretto] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
   const handleStart = () => {
     setStartAnimation(true);
-    audioRef.current?.play();
   };
 
   useEffect(() => {
@@ -41,20 +39,17 @@ const FunnyPage = () => {
               setShowToretto(false);
               setCharacterPhase("third");
 
-              // Furkan_Teacher3 bitince Burak başlar
               setTimeout(() => {
                 setCharacterPhase("burak");
 
-                // Burak bitince Kübra başlar
                 setTimeout(() => {
                   setCharacterPhase("kubra");
 
-                  // Kübra bitince sayfa yönlendirmesi
                   setTimeout(() => {
                     navigate("/race");
-                  }, 4000); // Kübra çıkışı süresi
-                }, 4000); // Burak çıkışı süresi
-              }, 3500); // Furkan_Teacher3 çıkışı sonrası bekleme
+                  }, 4000);
+                }, 4000);
+              }, 3500);
             }, 1000);
           }, 3000);
         }, 2000);
@@ -130,8 +125,6 @@ const FunnyPage = () => {
           </button>
         )}
       </div>
-
-      <audio ref={audioRef} src="/sounds/laugh.mp3" preload="auto" />
     </div>
   );
 };

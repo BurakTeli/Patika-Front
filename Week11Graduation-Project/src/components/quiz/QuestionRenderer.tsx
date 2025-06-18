@@ -4,10 +4,11 @@ import QuestionCard from "./QuestionCard";
 
 interface QuestionRendererProps {
   question: {
-    isFirst?: boolean; // ✅ Burada optional hale getiriyoruz
+    isFirst?: boolean;
     question: string;
     options: string[];
     media: string;
+    answer: string;
   };
   onAnswer: (selected: string) => void;
   showOptions: boolean;
@@ -20,21 +21,28 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   showOptions,
   eliminatedOptions = [],
 }) => {
-  return question.isFirst ? (
-    <FirstQuestion
-      question={question.question}
-      options={question.options}
-      media={question.media}
-      onAnswer={onAnswer}
-      showOptions={showOptions}
-    />
-  ) : (
+  // Eğer ilk soruysa özel FirstQuestion bileşeni render edilir
+  if (question.isFirst) {
+    return (
+      <FirstQuestion
+        question={question.question}
+        options={question.options}
+        media={question.media}
+        onAnswer={onAnswer}
+        showOptions={showOptions}
+      />
+    );
+  }
+
+  // Diğer tüm sorular için QuestionCard bileşeni kullanılır
+  return (
     <QuestionCard
       question={question.question}
       options={question.options}
       media={question.media}
       onAnswer={onAnswer}
       showOptions={showOptions}
+      correctAnswer={question.answer} // ✅ Eksik olan prop burada eklendi
       eliminatedOptions={eliminatedOptions}
     />
   );

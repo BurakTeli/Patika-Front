@@ -1,4 +1,3 @@
-import React from "react";
 import RaceStartSection from "../components/RaceStartSection/RaceStartSection"; 
 
 const NextPage = () => {
