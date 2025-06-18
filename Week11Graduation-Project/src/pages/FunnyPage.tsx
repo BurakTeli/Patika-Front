@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/FunnyPage.css";
 
@@ -7,7 +7,10 @@ const FunnyPage = () => {
 
   const [startAnimation, setStartAnimation] = useState(false);
   const [blackout, setBlackout] = useState(false);
-  const [characterPhase, setCharacterPhase] = useState<"first" | "second" | "toretto" | "third">("first");
+  const [characterPhase, setCharacterPhase] = useState<
+    "first" | "second" | "toretto" | "third" | "burak" | "kubra"
+  >("first");
+
   const [showToretto, setShowToretto] = useState(false);
   const [startExitToretto, setStartExitToretto] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -15,9 +18,7 @@ const FunnyPage = () => {
 
   const handleStart = () => {
     setStartAnimation(true);
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
+    audioRef.current?.play();
   };
 
   useEffect(() => {
@@ -30,23 +31,30 @@ const FunnyPage = () => {
         setBlackout(false);
         setCharacterPhase("second");
 
-        // Toretto sahnesi başlatılır
         setTimeout(() => {
           setShowToretto(true);
 
-          // 3 saniye sonra Toretto kaybolur ve karakter değişir
           setTimeout(() => {
             setStartExitToretto(true);
 
-            // Toretto çıkarken Furkan_Teacher3'e geçiş ve sağa kayma
             setTimeout(() => {
               setShowToretto(false);
               setCharacterPhase("third");
 
-              // Animasyonlar bittikten sonra yönlendirme
+              // Furkan_Teacher3 bitince Burak başlar
               setTimeout(() => {
-                navigate("/race"); // Doğru sayfa yolu "/race"
-              }, 1500); // Furkan_Teacher3 animasyonunun tamamlanma süresi
+                setCharacterPhase("burak");
+
+                // Burak bitince Kübra başlar
+                setTimeout(() => {
+                  setCharacterPhase("kubra");
+
+                  // Kübra bitince sayfa yönlendirmesi
+                  setTimeout(() => {
+                    navigate("/race");
+                  }, 4000); // Kübra çıkışı süresi
+                }, 4000); // Burak çıkışı süresi
+              }, 3500); // Furkan_Teacher3 çıkışı sonrası bekleme
             }, 1000);
           }, 3000);
         }, 2000);
@@ -58,15 +66,13 @@ const FunnyPage = () => {
     }
 
     return () => {
-      if (image) {
-        image.removeEventListener("transitionend", handleTransitionEnd);
-      }
+      image?.removeEventListener("transitionend", handleTransitionEnd);
     };
   }, [navigate]);
 
   return (
     <div className="funny-page light">
-      {blackout && <div className="blackout-screen"></div>}
+      {blackout && <div className="blackout-screen" />}
 
       <div className="intro-animation">
         {characterPhase === "first" && (
@@ -91,6 +97,22 @@ const FunnyPage = () => {
             src="/assets/images/Furkan_Teacher3.png"
             alt="Furkan Teacher 3"
             className="moving-image3"
+          />
+        )}
+
+        {characterPhase === "burak" && (
+          <img
+            src="/assets/images/Burak2.png"
+            alt="Burak"
+            className="burak-animation"
+          />
+        )}
+
+        {characterPhase === "kubra" && (
+          <img
+            src="/assets/images/Kubra.png"
+            alt="Kübra"
+            className="kubra-animation"
           />
         )}
 

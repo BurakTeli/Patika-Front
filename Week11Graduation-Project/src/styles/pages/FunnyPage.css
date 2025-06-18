@@ -1,20 +1,16 @@
-/* 🔲 Sayfa genel yapısı */
 .funny-page {
   width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;
   background-color: #ffffff;
-  color: white;
-}
-
-/* 🌞 Beyaz temada metin görünmesin (isteğe bağlı) */
-.funny-page.light {
-  background-color: #ffffff;
   color: #ffffff;
 }
 
-/* 🎬 Giriş animasyonu ve buton konumu */
+.funny-page.light {
+  background-color: #ffffff;
+}
+
 .intro-animation {
   display: flex;
   justify-content: center;
@@ -24,32 +20,101 @@
   position: relative;
 }
 
-/* 🚗 İlk karakter: Sağdan sola hareket eder */
+/* Başlangıç karakteri */
 .moving-image {
   position: absolute;
   right: -850px;
   top: 30%;
   width: 680px;
-  height: auto;
   transition: transform 10s ease-in-out;
   transform: translateX(0);
 }
 
-/* 🚀 Hareket başladığında sola kayar */
 .moving-image.animate {
   transform: translateX(-100vw);
 }
 
-/* 🎯 İkinci karakter: Solda sabit görünür */
+/* Sabit ikinci karakter */
 .moving-image2 {
   position: absolute;
   left: 0;
   top: 25%;
   width: 480px;
-  height: auto;
 }
 
-/* ⬛ 2 saniyelik ekran karartma efekti */
+/* Üçüncü karakter sağa çıkar */
+.moving-image3 {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 720px;
+  animation: moveRight 3.5s forwards;
+}
+
+/* ✅ Burak soldan sağa çıkar - daha yavaş */
+.burak-animation {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 700px;
+  animation: moveRightSlow 4.5s forwards;
+}
+
+/* ✅ Kübra soldan sağa çıkar - daha da yavaş */
+.kubra-animation {
+  position: absolute;
+  left: 0;
+  top: 28%;
+  width: 400px;
+  animation: moveRightSlower 6s forwards;
+}
+
+/* Ortak sağa hareket animasyonları */
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes moveRightSlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes moveRightSlower {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* Toretto hareketleri */
+.toretto-image {
+  position: absolute;
+  right: -150px;
+  top: 35%;
+  width: 480px;
+  transition: transform 1s ease-in-out;
+}
+
+.toretto-image.enter {
+  transform: translateX(-100px);
+}
+
+.toretto-image.exit {
+  transform: translateX(800px);
+}
+
+/* Ekran karartma */
 .blackout-screen {
   position: fixed;
   top: 0;
@@ -60,7 +125,7 @@
   z-index: 9999;
 }
 
-/* 🟣 Başlat butonu */
+/* Başlat butonu */
 .start-button {
   margin-top: 2rem;
   padding: 12px 24px;
@@ -75,50 +140,4 @@
 
 .start-button:hover {
   background-color: #ff2c9d;
-}
-/* Sabit ikinci karakter */
-.moving-image2 {
-  position: absolute;
-  left: 0;
-  top: 25%;
-  width: 480px;
-  height: auto;
-}
-
-/* Üçüncü karakter: sağa doğru kayar */
-.moving-image3 {
-  position: absolute;
-  left: 0;
-  top: 40%;
-  width: 720px;
-  height: auto;
-  animation: moveRight 5s forwards;
-}
-
-@keyframes moveRight {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
-}
-
-/* Toretto giriş-çıkış */
-.toretto-image {
-  position: absolute;
-  right: -150px;
-  top: 35%;
-  width: 480px;
-  height: auto;
-  z-index: 10;
-  transition: transform 1s ease-in-out;
-}
-
-.toretto-image.enter {
-  transform: translateX(-100px);
-}
-
-.toretto-image.exit {
-  transform: translateX(800px);
 }
