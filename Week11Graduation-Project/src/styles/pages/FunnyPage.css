@@ -1,3 +1,4 @@
+/* === Root container for the funny animation page === */
 .funny-page {
   width: 100%;
   height: 100vh;
@@ -7,10 +8,12 @@
   color: #ffffff;
 }
 
+/* Light theme variant (if toggled) */
 .funny-page.light {
   background-color: #ffffff;
 }
 
+/* === Wrapper for centering and managing animation stack === */
 .intro-animation {
   display: flex;
   justify-content: center;
@@ -20,21 +23,22 @@
   position: relative;
 }
 
-/* Başlangıç karakteri */
+/* === First character (Furkan_Teacher.png) enters from the right === */
 .moving-image {
   position: absolute;
-  right: -850px;
+  right: -850px; /* Start far outside screen */
   top: 30%;
   width: 680px;
   transition: transform 10s ease-in-out;
   transform: translateX(0);
 }
 
+/* Triggers Furkan_Teacher to move across the screen */
 .moving-image.animate {
   transform: translateX(-100vw);
 }
 
-/* Sabit ikinci karakter */
+/* === Second character (Furkan_Teacher2.png) appears statically === */
 .moving-image2 {
   position: absolute;
   left: 0;
@@ -42,16 +46,16 @@
   width: 480px;
 }
 
-/* Üçüncü karakter sağa çıkar */
+/* === Third character (Furkan_Teacher3.png) moves slowly across screen === */
 .moving-image3 {
   position: absolute;
   left: 0;
   top: 40%;
   width: 720px;
-  animation: moveRight 3.5s forwards;
+  animation: moveRight 20s forwards; /* Slow animation for dramatic effect */
 }
 
-/* ✅ Burak soldan sağa çıkar - daha yavaş */
+/* === Burak character moves left to right (faster) === */
 .burak-animation {
   position: absolute;
   left: 0;
@@ -60,7 +64,7 @@
   animation: moveRightSlow 4.5s forwards;
 }
 
-/* ✅ Kübra soldan sağa çıkar - daha da yavaş */
+/* === Kübra character moves left to right (medium speed) === */
 .kubra-animation {
   position: absolute;
   left: 0;
@@ -69,7 +73,7 @@
   animation: moveRightSlower 6s forwards;
 }
 
-/* Ortak sağa hareket animasyonları */
+/* === Keyframes: normal rightward movement === */
 @keyframes moveRight {
   0% {
     transform: translateX(0);
@@ -79,6 +83,7 @@
   }
 }
 
+/* === Keyframes: slower movement for Burak === */
 @keyframes moveRightSlow {
   0% {
     transform: translateX(0);
@@ -88,6 +93,7 @@
   }
 }
 
+/* === Keyframes: slowest movement for Kübra === */
 @keyframes moveRightSlower {
   0% {
     transform: translateX(0);
@@ -97,7 +103,7 @@
   }
 }
 
-/* Toretto hareketleri */
+/* === Toretto character entrance and exit animations === */
 .toretto-image {
   position: absolute;
   right: -150px;
@@ -106,15 +112,17 @@
   transition: transform 1s ease-in-out;
 }
 
+/* Enters slightly onto screen */
 .toretto-image.enter {
   transform: translateX(-100px);
 }
 
+/* Exits far right after entrance */
 .toretto-image.exit {
   transform: translateX(800px);
 }
 
-/* Ekran karartma */
+/* === Fullscreen blackout effect === */
 .blackout-screen {
   position: fixed;
   top: 0;
@@ -122,10 +130,10 @@
   width: 100vw;
   height: 100vh;
   background-color: black;
-  z-index: 9999;
+  z-index: 9999; /* Ensures it's on top of everything */
 }
 
-/* Başlat butonu */
+/* === Main action trigger button === */
 .start-button {
   margin-top: 2rem;
   padding: 12px 24px;
