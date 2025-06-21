@@ -7,6 +7,7 @@ const HeaderSection: React.FC = () => {
     <div className="header-container">
       <h1 className="header-title">Arabanı Seç</h1>
       <p className="header-subtitle">Varsa Bizden İyisi o da bizden birisi</p>
+      <p className="header-subtitle">Araba Sesleri için Lütfen butonlara tıklayın</p>
     </div>
   );
 };
