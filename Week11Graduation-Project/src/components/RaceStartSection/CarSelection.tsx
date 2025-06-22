@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/CarSelection.css";
 
+// 🖼️ Araba görselleri, açıklamalar ve ses dosyaları
 const imageSources = [
   {
     src: "/assets/images/Furkan_Teacher.png",
@@ -24,28 +25,31 @@ const imageSources = [
 ];
 
 const CarSelection: React.FC = () => {
-  const [visibleDetailIndex, setVisibleDetailIndex] = useState<number | null>(null);
+  const [visibleDetailIndex, setVisibleDetailIndex] = useState<number | null>(
+    null
+  );
   const currentAudioRef = useRef<HTMLAudioElement | null>(null);
   const navigate = useNavigate();
 
+  // 🔊 Yeni sesi çal ve önceki sesi durdur
   const playSound = (src: string) => {
-    // Stop previous audio if exists
     if (currentAudioRef.current) {
       currentAudioRef.current.pause();
       currentAudioRef.current.currentTime = 0;
     }
 
-    // Create new audio
     const newAudio = new Audio(src);
     currentAudioRef.current = newAudio;
     newAudio.play();
   };
 
+  // 👁️ Açıklamayı göster/gizle ve sesi oynat
   const toggleDetails = (index: number) => {
-    setVisibleDetailIndex(prev => (prev === index ? null : index));
+    setVisibleDetailIndex((prev) => (prev === index ? null : index));
     playSound(imageSources[index].sound);
   };
 
+  // 🔙 Ana sayfaya dön ve sesi durdur
   const goToHome = () => {
     if (currentAudioRef.current) {
       currentAudioRef.current.pause();
@@ -56,15 +60,25 @@ const CarSelection: React.FC = () => {
 
   return (
     <div className="car-selection-container">
+      {/* 🔁 Araba kartlarını döngüyle oluştur */}
       {imageSources.map((item, index) => (
         <div key={index} className="car-box">
           <div className="image-wrapper" onClick={() => toggleDetails(index)}>
-            <img src={item.src} alt={`Araba ${index + 1}`} className="car-image" />
-            <div className={`overlay ${visibleDetailIndex === index ? "show" : ""}`}>
+            <img
+              src={item.src}
+              alt={`Araba ${index + 1}`}
+              className="car-image"
+            />
+            <div
+              className={`overlay ${
+                visibleDetailIndex === index ? "show" : ""
+              }`}
+            >
               <span className="overlay-text">{item.label}</span>
             </div>
           </div>
 
+          {/* 🔘 Detaylar butonu */}
           <div className="detail-button-container">
             <button
               className="detail-button"
@@ -76,6 +90,7 @@ const CarSelection: React.FC = () => {
         </div>
       ))}
 
+      {/* 🔙 Ana sayfaya dönüş butonu */}
       <div className="go-home-button-container">
         <button className="go-home-button" onClick={goToHome}>
           Ana Sayfaya Dön

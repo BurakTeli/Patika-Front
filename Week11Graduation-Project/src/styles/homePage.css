@@ -1,3 +1,4 @@
+/* 🧱 Global Reset & Base Styling */
 html,
 body,
 #root {
@@ -10,10 +11,11 @@ body,
   scroll-behavior: smooth;
 }
 
+/* 🧩 Main Container for Homepage */
 .home-container {
   width: 100%;
   max-width: 1400px;
-  height: 100vh;
+  min-height: 100vh; /* ⬅ Changed from height to min-height for responsive layout */
   margin: auto;
   padding: 40px;
   background-color: #ddfef8;
@@ -27,6 +29,7 @@ body,
   animation: fadeIn 1.5s ease-in-out;
 }
 
+/* ✨ Fade-in animation for page entrance */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -38,6 +41,7 @@ body,
   }
 }
 
+/* 📝 Page title */
 .home-title {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -45,6 +49,7 @@ body,
   text-align: center;
 }
 
+/* 📘 Quiz description text */
 .home-info {
   font-size: 1.2rem;
   margin-bottom: 30px;
@@ -52,6 +57,7 @@ body,
   max-width: 600px;
 }
 
+/* 🧾 Form wrapper */
 .home-form {
   display: flex;
   flex-direction: column;
@@ -60,6 +66,7 @@ body,
   max-width: 400px;
 }
 
+/* 📋 Individual form field styling */
 .form-field {
   display: flex;
   flex-direction: column;
@@ -84,6 +91,7 @@ body,
   box-shadow: 0 0 8px rgba(35, 25, 79, 0.2);
 }
 
+/* 🚀 Start Quiz Button */
 .start-button {
   background-color: #23194f;
   color: #ffffff;
@@ -102,6 +110,7 @@ body,
   transform: translateY(-2px);
 }
 
+/* 😂 Funny Page Button with animation */
 .funny-button {
   position: relative;
   padding: 14px 28px;
@@ -155,8 +164,58 @@ body,
   }
 }
 
+/* ⚠️ Error message under form fields */
 .error-msg {
   color: #ff5a5f;
   font-size: 0.875rem;
   margin-top: 4px;
+}
+
+/* 📱 Responsive Styling */
+
+/* ➤ Tablet and smaller screens */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 20px;
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-info {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    max-width: 90%;
+  }
+
+  .home-form {
+    max-width: 100%;
+  }
+
+  .funny-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    margin-top: 30px;
+  }
+}
+
+/* ➤ Mobile devices */
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.6rem;
+  }
+
+  .home-info {
+    font-size: 0.9rem;
+  }
+
+  .start-button,
+  .funny-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
 }

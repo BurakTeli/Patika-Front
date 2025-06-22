@@ -8,6 +8,7 @@ interface ScoreDisplayProps {
 const ScoreDisplay: React.FC<ScoreDisplayProps> = ({ score }) => {
   const [animate, setAnimate] = useState(false);
 
+  // ✨ Trigger animation on score change
   useEffect(() => {
     setAnimate(true);
     const timeout = setTimeout(() => setAnimate(false), 600);
@@ -16,7 +17,7 @@ const ScoreDisplay: React.FC<ScoreDisplayProps> = ({ score }) => {
 
   return (
     <div className={`score-box ${animate ? "score-animate" : ""}`}>
-      Puan: {score}
+      Score: {score}
     </div>
   );
 };

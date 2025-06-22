@@ -1,3 +1,4 @@
+/* 🧱 Main page layout */
 .result-page {
   text-align: center;
   padding: 40px 20px;
@@ -6,12 +7,14 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+/* 🎉 Page title */
 .result-title {
   font-size: 40px;
   margin-bottom: 20px;
   color: #23194f;
 }
 
+/* ⭐ Animated score box */
 .score-box-animated {
   font-size: 28px;
   font-weight: bold;
@@ -25,11 +28,18 @@
   animation: scaleGlow 1.5s infinite;
 }
 
+/* ✨ Glow effect animation */
 @keyframes scaleGlow {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
+/* 📊 Stats container as responsive grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -37,6 +47,7 @@
   margin: 40px 0;
 }
 
+/* 📌 Individual stat card */
 .stat-card {
   background-color: #ffffff;
   border: 2px solid #23194f22;
@@ -48,6 +59,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+/* 🔁 Restart button */
 .restart-button {
   background-color: #23194f;
   color: white;
@@ -60,6 +72,7 @@
   transition: 0.3s;
 }
 
+/* 🖱️ Restart hover effect */
 .restart-button:hover {
   background-color: #3e2b87;
 }

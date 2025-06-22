@@ -20,18 +20,13 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   correctAnswer,
   eliminatedOptions = [],
 }) => {
-  const colorClasses = [
-    "option-red",
-    "option-blue",
-    "option-yellow",
-    "option-green",
-  ];
+  const colorClasses = ["option-red", "option-blue", "option-yellow", "option-green"];
 
   const [flashingOption, setFlashingOption] = useState<string | null>(null);
   const [flashType, setFlashType] = useState<"correct" | "wrong" | null>(null);
   const [countdown, setCountdown] = useState(4);
 
-  // Geri sayım başlat
+  // ⏳ Countdown animation when options are hidden
   useEffect(() => {
     if (!showOptions) {
       setCountdown(4);
@@ -48,6 +43,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     }
   }, [showOptions]);
 
+  // ✅ Handles answer selection and triggers visual feedback
   const handleAnswer = (option: string) => {
     const isCorrect = option === correctAnswer;
     setFlashingOption(option);
@@ -63,10 +59,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   return (
     <div className="question-card-container">
-      {/* Soru başlığı */}
+      {/* 📄 Question text */}
       <h2 className="question-text">{question}</h2>
 
-      {/* Görsel */}
+      {/* 🖼️ Image if available */}
       {media && (
         <div className="image-wrapper">
           <img
@@ -77,12 +73,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         </div>
       )}
 
-      {/* Geri sayım animasyonu */}
+      {/* ⏳ Countdown badge shown before options */}
       {!showOptions && countdown > 0 && (
         <div className="countdown-badge">{countdown}</div>
       )}
 
-      {/* Şıklar */}
+      {/* 🎯 Answer options */}
       <div className={`options-container ${showOptions ? "show" : "hide"}`}>
         {options.map((option, index) => {
           const isEliminated = eliminatedOptions.includes(option);
@@ -109,9 +105,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         })}
       </div>
 
-      {/* Bekleme mesajı */}
+      {/* ℹ️ Waiting text shown while options are hidden */}
       {!showOptions && (
-        <p className="waiting-text">Cevap seçenekleri birazdan görünecek...</p>
+        <p className="waiting-text">Answer options will appear shortly...</p>
       )}
     </div>
   );

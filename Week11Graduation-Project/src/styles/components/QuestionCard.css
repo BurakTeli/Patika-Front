@@ -1,67 +1,77 @@
-/* Ana kart container */
+/* 🧱 Root container for the entire question section */
 .question-card-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 20px;
-  background-color: #ffffff;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  max-width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 380px; /* Space for fixed options bar */
+  background-color: transparent !important;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Soru metni */
+/* 📝 Question text style */
 .question-text {
   font-size: 28px;
   font-weight: 600;
   color: #2c2c2c;
   margin-bottom: 24px;
   line-height: 1.4;
+  text-align: center;
+  z-index: 10;
+  position: relative;
 }
 
-/* Görsel alanı (ortalanmış) */
+/* 🖼️ Wrapper for centering the question image */
 .image-wrapper {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50vw;
-  height: 50vh;
+  width: 40vmin;
+  height: 40vmin;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
   z-index: 500;
+  overflow: hidden;
 }
 
-/* Görselin kendisi */
+/* 🖼️ Question image itself */
 .question-image {
-  width: 100%;
+  width: 80vmin;
   height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
 }
 
-/* Şıklar alanı */
+/* 🎯 Container for answer options */
 .options-container {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* 2 columns layout */
   gap: 12px;
   padding: 16px;
-  background-color: white;
+  background-color: transparent !important;
   z-index: 999;
   box-sizing: border-box;
   transition: opacity 0.5s ease;
 }
 
-/* Butonlar */
+/* 🔘 Answer option buttons */
 .option-button {
   height: 120px;
   font-size: 22px;
@@ -69,14 +79,14 @@
   border: none;
   border-radius: 20px;
   width: 100%;
+  max-width: 900px;
   color: white;
   transition: 0.3s ease;
   justify-self: center;
-  max-width: 900px;
   cursor: pointer;
 }
 
-/* Renkler */
+/* 🎨 Color variations */
 .option-red {
   background-color: #e74c3c;
 }
@@ -91,6 +101,7 @@
   background-color: #2ecc71;
 }
 
+/* 🔁 Hover states */
 .option-red:hover {
   background-color: #c0392b;
 }
@@ -104,14 +115,14 @@
   background-color: #27ae60;
 }
 
-/* Elenen şıklar */
+/* 🚫 Eliminated option style */
 .option-button.eliminated {
   background-color: #ccc !important;
   color: #777 !important;
   cursor: not-allowed;
 }
 
-/* Göster/Gizle */
+/* 👻 Visibility toggle for options */
 .options-container.hide {
   opacity: 0;
   pointer-events: none;
@@ -121,7 +132,7 @@
   pointer-events: auto;
 }
 
-/* Bekleme metni */
+/* ⏳ Message shown while waiting */
 .waiting-text {
   text-align: center;
   font-style: italic;
@@ -130,7 +141,7 @@
   font-size: 18px;
 }
 
-/* Cevap animasyonları */
+/* ⚡ Flash animation – wrong answer */
 @keyframes flash-wrong {
   0%,
   100% {
@@ -145,6 +156,7 @@
   }
 }
 
+/* ✅ Flash animation – correct answer */
 @keyframes flash-correct {
   0%,
   100% {
@@ -156,17 +168,22 @@
   }
 }
 
+/* 💥 Class for triggering wrong flash */
 .flash-wrong {
   animation: flash-wrong 0.8s ease-in-out 1;
 }
 
+/* ✅ Class for triggering correct flash */
 .flash-correct {
   animation: flash-correct 0.8s ease-in-out 1;
 }
+
+/* ⏱️ Countdown badge shown before options appear */
 .countdown-badge {
   position: fixed;
   bottom: 140px;
-  right: 840px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #23194f;
   color: white;
   font-size: 36px;
@@ -178,6 +195,7 @@
   animation: scalePulse 1s ease infinite;
 }
 
+/* 💓 Pulsing animation for countdown badge */
 @keyframes scalePulse {
   0%,
   100% {

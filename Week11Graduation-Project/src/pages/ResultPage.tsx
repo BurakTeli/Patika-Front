@@ -6,6 +6,7 @@ const ResultPage: React.FC = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
 
+  // 🎯 Destructure quiz result data from navigation state
   const {
     score = 0,
     correctAnswers = 0,
@@ -14,25 +15,30 @@ const ResultPage: React.FC = () => {
     totalQuestions = 0,
   } = state || {};
 
+  // 🔁 Restart the quiz
   const handleRestart = () => {
     navigate("/quiz");
   };
 
   return (
     <div className="result-page">
-      <h1 className="result-title">🎉 Tebrikler!</h1>
+      {/* 🎉 Title */}
+      <h1 className="result-title">🎉 Congratulations!</h1>
 
-      <div className="score-box-animated">⭐ Toplam Puan: {score}</div>
+      {/* ⭐ Final score box with animation */}
+      <div className="score-box-animated">⭐ Total Score: {score}</div>
 
+      {/* 📊 Statistics summary */}
       <div className="stats-grid">
-        <div className="stat-card">✅ Doğru: {correctAnswers}</div>
-        <div className="stat-card">❌ Yanlış: {wrongAnswers}</div>
-        <div className="stat-card">🕒 Ortalama Süre: {averageTime}s</div>
-        <div className="stat-card">📋 Toplam Soru: {totalQuestions}</div>
+        <div className="stat-card">✅ Correct: {correctAnswers}</div>
+        <div className="stat-card">❌ Incorrect: {wrongAnswers}</div>
+        <div className="stat-card">🕒 Avg. Time: {averageTime}s</div>
+        <div className="stat-card">📋 Total Questions: {totalQuestions}</div>
       </div>
 
+      {/* 🔁 Restart button */}
       <button className="restart-button" onClick={handleRestart}>
-        🔁 Tekrar Oyna
+        🔁 Play Again
       </button>
     </div>
   );

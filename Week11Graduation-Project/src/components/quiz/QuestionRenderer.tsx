@@ -21,7 +21,7 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({
   showOptions,
   eliminatedOptions = [],
 }) => {
-  // Eğer ilk soruysa özel FirstQuestion bileşeni render edilir
+  // 🟡 If this is the first question, render the special FirstQuestion component
   if (question.isFirst) {
     return (
       <FirstQuestion
@@ -34,7 +34,7 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({
     );
   }
 
-  // Diğer tüm sorular için QuestionCard bileşeni kullanılır
+  // 🔵 For all other questions, render the standard QuestionCard component
   return (
     <QuestionCard
       question={question.question}
@@ -42,7 +42,7 @@ const QuestionRenderer: React.FC<QuestionRendererProps> = ({
       media={question.media}
       onAnswer={onAnswer}
       showOptions={showOptions}
-      correctAnswer={question.answer} // ✅ Eksik olan prop burada eklendi
+      correctAnswer={question.answer}            // ✅ Required for flashing animation logic
       eliminatedOptions={eliminatedOptions}
     />
   );

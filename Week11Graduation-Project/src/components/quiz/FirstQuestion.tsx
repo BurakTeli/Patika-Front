@@ -1,5 +1,5 @@
-import React from 'react';
-import '../../styles/components/FirstQuestion.css';
+import React from "react";
+import "../../styles/components/FirstQuestion.css";
 
 interface FirstQuestionProps {
   question: string;
@@ -18,7 +18,10 @@ const FirstQuestion: React.FC<FirstQuestionProps> = ({
 }) => {
   return (
     <div className="first-question-container">
+      {/* 📝 Question Text */}
       <h2 className="question-text">{question}</h2>
+
+      {/* 🖼️ Optional media image */}
       {media && (
         <img
           src={`/assets/images/${media}`}
@@ -26,7 +29,9 @@ const FirstQuestion: React.FC<FirstQuestionProps> = ({
           className="question-image"
         />
       )}
-      <div className={`options-container ${showOptions ? 'show' : 'hide'}`}>
+
+      {/* 🎯 Answer Options */}
+      <div className={`options-container ${showOptions ? "show" : "hide"}`}>
         {options.map((option) => (
           <button
             key={option}
@@ -38,7 +43,11 @@ const FirstQuestion: React.FC<FirstQuestionProps> = ({
           </button>
         ))}
       </div>
-      {!showOptions && <p className="waiting-text">Cevap seçenekleri birazdan görünecek...</p>}
+
+      {/* ⏳ Message when options are hidden */}
+      {!showOptions && (
+        <p className="waiting-text">Answer options will appear shortly...</p>
+      )}
     </div>
   );
 };

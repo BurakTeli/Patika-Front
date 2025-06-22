@@ -1,3 +1,4 @@
+/* 🕒 Container for circular timer */
 .timer-display {
   position: fixed;
   top: 50%;
@@ -5,7 +6,7 @@
   transform: translateY(-50%);
   width: 120px;
   height: 120px;
-  background-color: #8e44ad; /* Mor */
+  background-color: #8e44ad; /* 🟣 Purple background */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -14,6 +15,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* 🔢 Timer number style */
 .timer-text {
   font-family: "Arial", sans-serif;
   font-size: 24px;
@@ -22,6 +24,7 @@
   transition: color 0.3s ease;
 }
 
+/* 🔴 Critical state (time <= 10) */
 .timer-text.critical {
-  color: #e74c3c; /* Kırmızı */
+  color: #e74c3c; /* Red */
 }

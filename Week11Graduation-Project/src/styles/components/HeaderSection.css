@@ -1,19 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap");
 
+/* 🧱 Container for header text */
 .header-container {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 40px;
+  margin-bottom: 0; 
 }
 
+/* 🏁 Main title style */
 .header-title {
-  font-family: "Orbitron", sans-serif; /* futuristic Star Wars feel */
+  font-family: "Orbitron", sans-serif; /* 🚀 Futuristic font like Star Wars */
   font-size: 64px;
-  color: #00aaff; /* bright blue */
-  text-shadow: 2px 2px 8px rgba(0, 170, 255, 0.6); /* glowing blue effect */
+  color: #00aaff; /* ✨ Bright blue */
+  text-shadow: 2px 2px 8px rgba(0, 170, 255, 0.6); /* 💫 Glow effect */
   letter-spacing: 4px;
   margin-bottom: 20px;
 }
 
+/* ✍️ Subtitle styles (shared) */
 .header-subtitle {
   font-family: "Orbitron", sans-serif;
   font-size: 28px;

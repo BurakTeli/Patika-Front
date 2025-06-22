@@ -21,13 +21,13 @@ const QuizPage: React.FC = () => {
 
   return (
     <>
-      {/* İlerleme durumu */}
+      {/* 🔄 Quiz progress bar */}
       <ProgressBar current={currentIndex} total={10} />
 
-      {/* Yeni, modern puan kutusu */}
+      {/* 🏆 Score display box */}
       <ScoreDisplay score={score} />
 
-      {/* Soru ve görsel */}
+      {/* ❓ Question and optional media */}
       <QuestionRenderer
         question={currentQuestion}
         onAnswer={handleAnswer}
@@ -35,10 +35,10 @@ const QuizPage: React.FC = () => {
         eliminatedOptions={eliminatedOptions}
       />
 
-      {/* Geriye sayım süresi */}
+      {/* ⏳ Countdown timer */}
       <TimerDisplay timeLeft={timeLeft} />
 
-      {/* Jokerler */}
+      {/* 🃏 Joker section (hidden on first question) */}
       {!currentQuestion.isFirst && (
         <div className="joker-container" style={{ marginTop: 30 }}>
           <JokerPanel onSkip={handleSkip} onEliminate={handleEliminate} />
