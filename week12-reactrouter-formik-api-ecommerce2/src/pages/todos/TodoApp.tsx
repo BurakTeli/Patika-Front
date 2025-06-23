@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/todos/todoApp.css";
 import TodoHeader from "../../components/todos/TodoHeader";
 import TodoMain from "../../components/todos/TodoMain";
@@ -8,6 +8,19 @@ import { Todo } from "../../types/todo";
 const TodoApp: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+
+  // Load todos from localStorage on first render
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  // Save todos to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   // Add a new todo
   const addTodo = (title: string) => {
@@ -19,26 +32,34 @@ const TodoApp: React.FC = () => {
     setTodos([...todos, newTodo]);
   };
 
-  // Toggle todo completed state
+  // Toggle completed state
   const toggleTodo = (id: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
+    setTodos((prev) =>
+      prev.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
 
-  // Delete a todo by id
+  // Delete a todo
   const deleteTodo = (id: number) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
-  // Remove all completed todos
+  // Update a todo title
+  const updateTodo = (id: number, newTitle: string) => {
+    if (newTitle === "") return;
+    setTodos((prev) =>
+      prev.map((todo) => (todo.id === id ? { ...todo, title: newTitle } : todo))
+    );
+  };
+
+  // Clear all completed todos
   const clearCompleted = () => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
+    setTodos((prev) => prev.filter((todo) => !todo.completed));
   };
 
-  // Calculate filtered todos based on filter state
+  // Filtered todos based on current filter
   const filteredTodos = todos.filter((todo) => {
     if (filter === "active") return !todo.completed;
     if (filter === "completed") return todo.completed;
@@ -55,6 +76,7 @@ const TodoApp: React.FC = () => {
         todos={filteredTodos}
         onToggleTodo={toggleTodo}
         onDeleteTodo={deleteTodo}
+        onUpdateTodo={updateTodo}
       />
 
       <TodoFooter
