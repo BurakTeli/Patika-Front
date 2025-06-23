@@ -1,17 +1,15 @@
 import React from "react";
-// Importing the CSS file for the footer section of the todo app
 import "../../styles/todos/todoFooter.css";
 
-// Functional component definition for the footer of the todo app
 const TodoFooter: React.FC = () => {
   return (
     <footer className="footer">
-      {/* Displays the count of remaining (active) todo items */}
+      {/* Display remaining todos */}
       <span className="todo-count">
         <strong>1</strong> item left
       </span>
 
-      {/* Filter links to view all, active, or completed todos */}
+      {/* Filter options */}
       <ul className="filters">
         <li>
           <a href="#/" className="selected">
@@ -26,7 +24,7 @@ const TodoFooter: React.FC = () => {
         </li>
       </ul>
 
-      {/* Button to clear completed todos - no functionality yet */}
+      {/* Clear completed todos */}
       <button className="clear-completed">Clear completed</button>
     </footer>
   );

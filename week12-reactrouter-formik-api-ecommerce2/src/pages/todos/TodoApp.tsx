@@ -1,41 +1,42 @@
 import React, { useState } from "react";
-
-// Importing global CSS styles specific to the todo app
 import "../../styles/todos/todoApp.css";
-
-// Importing modular components: Header, Main, and Footer
 import TodoHeader from "../../components/todos/TodoHeader";
 import TodoMain from "../../components/todos/TodoMain";
 import TodoFooter from "../../components/todos/TodoFooter";
-
-// Importing Todo type definition
 import { Todo } from "../../types/todo";
 
 const TodoApp: React.FC = () => {
-  // Declaring a state to keep track of the todo list
+  // State to hold the list of todos
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  // Function to add a new todo item to the list
+  // Function to add a new todo
   const addTodo = (title: string) => {
     const newTodo: Todo = {
-      id: Date.now(), // Unique ID based on current timestamp
+      id: Date.now(),
       title,
-      completed: false, // Newly added todos are not completed by default
+      completed: false,
     };
-
-    // Updating the state with the new todo
     setTodos([...todos, newTodo]);
+  };
+
+  // Function to toggle the completion status of a todo
+  const toggleTodo = (id: number) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   return (
     <section className="todoapp">
-      {/* Header component responsible for adding new todos */}
+      {/* Header section with input */}
       <TodoHeader onAddTodo={addTodo} />
 
-      {/* Main component displaying the list of todos */}
-      <TodoMain todos={todos} />
+      {/* Main section showing list of todos */}
+      <TodoMain todos={todos} onToggleTodo={toggleTodo} />
 
-      {/* Footer component - can be used for future stats or filters */}
+      {/* Footer section with filter and clear */}
       <TodoFooter />
     </section>
   );
