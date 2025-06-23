@@ -6,10 +6,9 @@ import TodoFooter from "../../components/todos/TodoFooter";
 import { Todo } from "../../types/todo";
 
 const TodoApp: React.FC = () => {
-  // State to hold the list of todos
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  // Function to add a new todo
+  // Add a new todo
   const addTodo = (title: string) => {
     const newTodo: Todo = {
       id: Date.now(),
@@ -19,7 +18,7 @@ const TodoApp: React.FC = () => {
     setTodos([...todos, newTodo]);
   };
 
-  // Function to toggle the completion status of a todo
+  // Toggle the completion status of a todo
   const toggleTodo = (id: number) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -28,13 +27,22 @@ const TodoApp: React.FC = () => {
     );
   };
 
+  // Delete a todo by id
+  const deleteTodo = (id: number) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <section className="todoapp">
       {/* Header section with input */}
       <TodoHeader onAddTodo={addTodo} />
 
       {/* Main section showing list of todos */}
-      <TodoMain todos={todos} onToggleTodo={toggleTodo} />
+      <TodoMain
+        todos={todos}
+        onToggleTodo={toggleTodo}
+        onDeleteTodo={deleteTodo}
+      />
 
       {/* Footer section with filter and clear */}
       <TodoFooter />

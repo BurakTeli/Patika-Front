@@ -1,34 +1,34 @@
 import React from "react";
-import "../../styles/todos/todoMain.css";
 import { Todo } from "../../types/todo";
 
 interface Props {
   todos: Todo[];
   onToggleTodo: (id: number) => void;
+  onDeleteTodo: (id: number) => void;
 }
 
-const TodoMain: React.FC<Props> = ({ todos, onToggleTodo }) => {
+const TodoMain: React.FC<Props> = ({ todos, onToggleTodo, onDeleteTodo }) => {
   return (
     <section className="main">
-      {/* Global toggle (not functional yet) */}
-      <input className="toggle-all" type="checkbox" id="toggle-all" />
-      <label htmlFor="toggle-all">Mark all as complete</label>
-
       <ul className="todo-list">
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li key={todo.id} className={todo.completed ? "completed" : ""}>
             <div className="view">
-              {/* Toggle individual todo */}
+              {/* Toggle checkbox */}
               <input
                 className="toggle"
                 type="checkbox"
                 checked={todo.completed}
                 onChange={() => onToggleTodo(todo.id)}
               />
-              {/* Display todo title */}
+              {/* Todo title */}
               <label>{todo.title}</label>
-              {/* Delete button (not functional yet) */}
-              <button className="destroy"></button>
+
+              {/* Delete button */}
+              <button
+                className="destroy"
+                onClick={() => onDeleteTodo(todo.id)}
+              />
             </div>
           </li>
         ))}
