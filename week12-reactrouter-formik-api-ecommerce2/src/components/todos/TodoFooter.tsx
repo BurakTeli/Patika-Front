@@ -4,16 +4,18 @@ interface Props {
   currentFilter: "all" | "active" | "completed";
   onChangeFilter: (filter: "all" | "active" | "completed") => void;
   activeCount: number;
+  onClearCompleted: () => void;
 }
 
 const TodoFooter: React.FC<Props> = ({
   currentFilter,
   onChangeFilter,
   activeCount,
+  onClearCompleted,
 }) => {
   return (
     <footer className="footer">
-      {/* Active todo count */}
+      {/* Display remaining items */}
       <span className="todo-count">
         {activeCount} item{activeCount !== 1 && "s"} left
       </span>
@@ -45,6 +47,11 @@ const TodoFooter: React.FC<Props> = ({
           </button>
         </li>
       </ul>
+
+      {/* Clear completed button */}
+      <button className="clear-completed" onClick={onClearCompleted}>
+        Clear completed
+      </button>
     </footer>
   );
 };
