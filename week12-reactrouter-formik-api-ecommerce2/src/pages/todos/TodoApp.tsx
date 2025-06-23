@@ -8,6 +8,9 @@ import { Todo } from "../../types/todo";
 const TodoApp: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  // New filter state: "all" | "active" | "completed"
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+
   // Add a new todo
   const addTodo = (title: string) => {
     const newTodo: Todo = {
@@ -18,7 +21,7 @@ const TodoApp: React.FC = () => {
     setTodos([...todos, newTodo]);
   };
 
-  // Toggle the completion status of a todo
+  // Toggle completed
   const toggleTodo = (id: number) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -27,25 +30,35 @@ const TodoApp: React.FC = () => {
     );
   };
 
-  // Delete a todo by id
+  // Delete todo
   const deleteTodo = (id: number) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
+
+  // Filtered todos based on current filter
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+    return true; // all
+  });
 
   return (
     <section className="todoapp">
       {/* Header section with input */}
       <TodoHeader onAddTodo={addTodo} />
 
-      {/* Main section showing list of todos */}
+      {/* Main section shows only filtered todos */}
       <TodoMain
-        todos={todos}
+        todos={filteredTodos}
         onToggleTodo={toggleTodo}
         onDeleteTodo={deleteTodo}
       />
 
-      {/* Footer section with filter and clear */}
-      <TodoFooter />
+      {/* Footer section to switch filter */}
+      <TodoFooter
+        currentFilter={filter}
+        onChangeFilter={setFilter}
+      />
     </section>
   );
 };

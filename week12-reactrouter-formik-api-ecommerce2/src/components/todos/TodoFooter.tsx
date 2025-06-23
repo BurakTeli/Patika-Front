@@ -1,31 +1,50 @@
 import React from "react";
-import "../../styles/todos/todoFooter.css";
 
-const TodoFooter: React.FC = () => {
+interface Props {
+  currentFilter: "all" | "active" | "completed";
+  onChangeFilter: (filter: "all" | "active" | "completed") => void;
+  activeCount: number;
+}
+
+const TodoFooter: React.FC<Props> = ({
+  currentFilter,
+  onChangeFilter,
+  activeCount,
+}) => {
   return (
     <footer className="footer">
-      {/* Display remaining todos */}
+      {/* Active todo count */}
       <span className="todo-count">
-        <strong>1</strong> item left
+        {activeCount} item{activeCount !== 1 && "s"} left
       </span>
 
-      {/* Filter options */}
+      {/* Filter buttons */}
       <ul className="filters">
         <li>
-          <a href="#/" className="selected">
+          <button
+            className={currentFilter === "all" ? "selected" : ""}
+            onClick={() => onChangeFilter("all")}
+          >
             All
-          </a>
+          </button>
         </li>
         <li>
-          <a href="#/">Active</a>
+          <button
+            className={currentFilter === "active" ? "selected" : ""}
+            onClick={() => onChangeFilter("active")}
+          >
+            Active
+          </button>
         </li>
         <li>
-          <a href="#/">Completed</a>
+          <button
+            className={currentFilter === "completed" ? "selected" : ""}
+            onClick={() => onChangeFilter("completed")}
+          >
+            Completed
+          </button>
         </li>
       </ul>
-
-      {/* Clear completed todos */}
-      <button className="clear-completed">Clear completed</button>
     </footer>
   );
 };
