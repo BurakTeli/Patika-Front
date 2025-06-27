@@ -4,7 +4,6 @@ export interface Question {
   options: string[];
   answer: string;
   media: string;
-  isFirst?: boolean;
 }
 
 export const questions: Question[] = [
@@ -18,8 +17,7 @@ export const questions: Question[] = [
       "Ankaralı Namık",
     ],
     answer: "Ajda Pekkan",
-    media: "teacher.png", // Fotoğraf ismi değişmeyecekse bu kalsın
-    isFirst: true,
+    media: "teacher.png",
   },
   {
     id: 2,
