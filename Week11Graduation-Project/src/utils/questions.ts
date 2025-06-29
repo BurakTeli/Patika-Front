@@ -6,7 +6,6 @@ export interface Question {
   options: string[];
   answer: string;
   media: string;
-
 }
 
 export const questions: Question[] = [

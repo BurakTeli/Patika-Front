@@ -52,53 +52,51 @@ The goals of this project were to:
 - Clear, commented code for each component
 - Separation of styling into dedicated `.css` files
 
-
 ## 📂 Project Structure
 
-📦 Week11Graduation-Project
-┣ 📁 assets
-┃ ┗ 📁 images
-┣ 📁 components
-┃ ┣ 📜 QuestionCard.tsx
-┃ ┣ 📜 JokerPanel.tsx
-┃ ┗ 📜 ...
-┣ 📁 pages
-┃ ┣ 📜 QuizPage.tsx
-┃ ┣ 📜 ResultPage.tsx
-┃ ┗ 📜 FunnyPage.tsx
-┣ 📁 styles
-┃ ┣ 📜 QuestionCard.css
-┃ ┣ 📜 Joker.css
-┃ ┗ 📜 ...
-┣ 📜 App.tsx
-┣ 📜 main.tsx
+📦 Week11Graduation-Project  
+┣ 📁 assets  
+┃ ┗ 📁 images  
+┣ 📁 components  
+┃ ┣ 📜 QuestionCard.tsx  
+┃ ┣ 📜 JokerPanel.tsx  
+┃ ┗ 📜 ...  
+┣ 📁 pages  
+┃ ┣ 📜 QuizPage.tsx  
+┃ ┣ 📜 ResultPage.tsx  
+┃ ┗ 📜 FunnyPage.tsx  
+┣ 📁 styles  
+┃ ┣ 📜 QuestionCard.css  
+┃ ┣ 📜 Joker.css  
+┃ ┗ 📜 ...  
+┣ 📜 App.tsx  
+┣ 📜 main.tsx  
 ┗ 📜 index.html
 
 ## 🎮 Features
 
-- ✅ Fully functional quiz flow with score tracking
-- ✅ Countdown timer for each question
-- ✅ Answer validation with animated feedback
-- ✅ Joker system (3 types) with confirmation and effects
-- ✅ Fixed action bar for answering on mobile
-- ✅ Modern and responsive UI
+- ✅ Fully functional quiz flow with score tracking  
+- ✅ Countdown timer for each question  
+- ✅ Answer validation with animated feedback  
+- ✅ Joker system (3 types) with confirmation and effects  
+- ✅ Fixed action bar for answering on mobile  
+- ✅ Modern and responsive UI  
 - ✅ Navigable pages like `/quiz`, `/funny`, `/race`
 
 ---
 
-## 🌐 Live Demo (Netlify)
+## 🌐 Live Demo (Vercel)
 
-🟢 **Netlify Deployment Link:**  
-👉 [https://your-netlify-link.netlify.app](https://your-netlify-link.netlify.app)  
-*(Replace this with your actual published link)*
+🟢 **Vercel Deployment Link:**  
+👉 [https://patika-front.vercel.app](https://patika-front.vercel.app)
 
 ---
 
 ## 🔮 Potential Improvements
 
-- Add Firebase/Supabase for user data and questions
-- Multi-user competition mode
-- Global leaderboard and rankings
+- Add Firebase/Supabase for user data and questions  
+- Multi-user competition mode  
+- Global leaderboard and rankings  
 - Admin dashboard for managing quizzes
 
 ---
@@ -106,7 +104,7 @@ The goals of this project were to:
 ## 👨‍💻 Author
 
 **Burak Telli** – [GitHub: @BurakTeli](https://github.com/BurakTeli)  
-Frontend Developer | UI/UX Enthusiast | Bootcamp Graduate  
+Frontend Developer | UI/UX Enthusiast | Bootcamp Graduate
 
 ---
 
@@ -115,5 +113,3 @@ Frontend Developer | UI/UX Enthusiast | Bootcamp Graduate
 This project is licensed under the **MIT License** – feel free to use, adapt, and contribute.
 
 ---
-
-
