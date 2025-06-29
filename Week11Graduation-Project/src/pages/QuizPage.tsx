@@ -38,12 +38,10 @@ const QuizPage: React.FC = () => {
       {/* ⏳ Countdown timer */}
       <TimerDisplay timeLeft={timeLeft} />
 
-      {/* 🃏 Joker section (hidden on first question) */}
-      {!currentQuestion.isFirst && (
-        <div className="joker-container" style={{ marginTop: 30 }}>
-          <JokerPanel onSkip={handleSkip} onEliminate={handleEliminate} />
-        </div>
-      )}
+      {/* 🃏 Joker section */}
+      <div className="joker-container" style={{ marginTop: 30 }}>
+        <JokerPanel onSkip={handleSkip} onEliminate={handleEliminate} />
+      </div>
     </>
   );
 };
