@@ -1,0 +1,237 @@
+/* style.css */
+/* --- Main Container --- */
+body {
+  background: #16161a;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* To-Do Card Styling */
+.todo-container {
+  background: #232946;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.14);
+  padding: 32px 28px 22px 28px;
+  margin-top: 45px;
+}
+
+h1 {
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #eebbc3 !important;
+}
+
+/* --- Add Task Form --- */
+.add-task-form .form-control {
+  font-size: 1.1rem;
+  border-radius: 10px 0 0 10px;
+  background: #1a1a2e;
+  color: #fff;
+  border: 1.5px solid #232946;
+  box-shadow: none;
+  transition: border-color 0.2s;
+}
+.add-task-form .form-control:focus {
+  border-color: #eebbc3;
+  background: #16161a;
+  color: #fff;
+}
+
+.add-task-form .btn-primary {
+  background: #eebbc3;
+  color: #232946;
+  border-radius: 0 10px 10px 0;
+  font-weight: 600;
+  border: none;
+  transition: background 0.18s, color 0.18s;
+}
+.add-task-form .btn-primary:hover,
+.add-task-form .btn-primary:focus {
+  background: #ffd6ea;
+  color: #111;
+}
+
+/* --- Error Message --- */
+.invalid-feedback#errorMessage {
+  color: #f44336;
+  display: none;
+  margin-top: 8px;
+  font-size: 0.98rem;
+}
+.invalid-feedback#errorMessage.show {
+  display: block;
+  animation: shake 0.25s 1;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* --- Filter Buttons --- */
+.filter-buttons .btn-group .btn {
+  font-weight: 500;
+  border: none;
+  box-shadow: none;
+  background: #232946;
+  color: #fff;
+  transition: background 0.15s, color 0.15s;
+}
+.filter-buttons .btn-group .btn.active,
+.filter-buttons .btn-group .btn:focus {
+  background: #eebbc3;
+  color: #232946;
+}
+.filter-buttons .btn-group .btn:hover {
+  background: #444b6e;
+  color: #fff;
+}
+
+/* --- Task List --- */
+.task-list {
+  margin-top: 8px;
+}
+
+.list-group-item.task-item {
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.17s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  min-height: 56px;
+}
+.list-group-item.task-item.completed {
+  opacity: 0.7;
+  text-decoration: line-through;
+  background: #232946;
+}
+
+/* --- Task Content --- */
+.task-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 70%;
+}
+
+.task-text {
+  font-size: 1.1rem;
+  user-select: text;
+  flex-shrink: 0;
+  max-width: 320px;
+  overflow-wrap: break-word;
+}
+
+.edit-input {
+  display: none;
+  width: 80%;
+  background: #292944;
+  color: #fff;
+  border-radius: 7px;
+  border: 1.5px solid #eebbc3;
+  margin-left: 10px;
+  font-size: 1.08rem;
+  padding: 4px 10px;
+}
+.task-item.editing .task-text {
+  display: none;
+}
+.task-item.editing .edit-input {
+  display: block;
+}
+
+/* --- Custom Checkbox --- */
+.task-checkbox[type="checkbox"] {
+  accent-color: #eebbc3;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.18s;
+  box-shadow: 0 0 0 1.5px #eebbc3;
+}
+
+/* --- Task Action Buttons --- */
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+.task-btn {
+  background: none;
+  border: none;
+  color: #eebbc3;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background 0.17s, color 0.17s;
+  cursor: pointer;
+}
+.task-btn:hover {
+  background: #ffd6ea44;
+  color: #232946;
+}
+
+.task-btn.delete-btn:hover {
+  background: #ff555544;
+  color: #fff;
+}
+
+.task-btn.edit-btn:active {
+  background: #afd3d8;
+}
+
+/* --- Empty List Message --- */
+#emptyMessage {
+  color: #aaa;
+  font-size: 1.08rem;
+  letter-spacing: 0.3px;
+  margin-top: 36px;
+}
+
+/* --- Clear Completed Button --- */
+#clearCompletedBtn {
+  background: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 9px 22px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 10px rgba(244, 67, 54, 0.1);
+  transition: background 0.18s, color 0.18s;
+  display: none;
+}
+#clearCompletedBtn:hover,
+#clearCompletedBtn:focus {
+  background: #c62828;
+  color: #fff;
+}
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 540px) {
+  .todo-container {
+    padding: 16px 6px 12px 6px;
+  }
+  .task-text {
+    max-width: 180px;
+    font-size: 1.02rem;
+  }
+}

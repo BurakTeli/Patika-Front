@@ -13,7 +13,13 @@ const ResultPage: React.FC = () => {
     wrongAnswers = 0,
     averageTime = 0,
     totalQuestions = 0,
+    userAnswers = [],
   } = state || {};
+
+  // 🟡 Count unanswered questions (marked as "Boş" or left undefined/null)
+  const emptyAnswers = userAnswers.filter(
+    (ans: string | undefined | null) => !ans || ans === "Boş"
+  ).length;
 
   // 🔁 Restart the quiz
   const handleRestart = () => {
@@ -34,6 +40,9 @@ const ResultPage: React.FC = () => {
         <div className="stat-card">❌ Incorrect: {wrongAnswers}</div>
         <div className="stat-card">🕒 Avg. Time: {averageTime}s</div>
         <div className="stat-card">📋 Total Questions: {totalQuestions}</div>
+
+        {/* ⚠️ New stat: Number of unanswered questions */}
+        <div className="stat-card">⚠️ Unanswered: {emptyAnswers}</div>
       </div>
 
       {/* 🔁 Restart button */}
