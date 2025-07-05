@@ -1,0 +1,170 @@
+/* style.css */
+
+/* --- Global Reset and Font Family --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f1f5f8; /* Light background */
+  font-family: "Zilla Slab", serif; /* Clean, modern font */
+}
+
+/* --- Main Title Styling --- */
+h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  text-align: center;
+  color: #ff6a23; /* Orange accent */
+  margin-top: 30px;
+  margin-bottom: 16px;
+}
+
+.menu {
+  margin-top: 20px;
+}
+
+/* --- Category Button Container --- */
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 20px 0;
+  gap: 0.5rem;
+}
+
+/* --- Category Filter Buttons --- */
+.btn-item {
+  min-width: 100px;
+  margin: 0 6px;
+  border-radius: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.18s;
+  border-width: 2px;
+}
+/* Highlight the active or focused filter button */
+.btn-item.active,
+.btn-item:focus {
+  background-color: #ff6a23 !important;
+  color: #fff !important;
+  border-color: #ff6a23 !important;
+}
+
+/* --- Menu Card Container --- */
+.section-center {
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+
+/* --- Single Menu Card Layout --- */
+.menu-items {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.07);
+  margin: 20px 0;
+  padding: 18px 22px 18px 16px;
+  min-height: 180px;
+  transition: box-shadow 0.2s;
+}
+/* Card hover effect */
+.menu-items:hover {
+  box-shadow: 0 6px 24px rgba(255, 106, 35, 0.18);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* --- Menu Item Photo --- */
+.photo {
+  width: 30%;
+  min-width: 130px;
+  height: 175px;
+  object-fit: cover;
+  border: 0.25rem solid #ff6a23;
+  border-radius: 12px;
+  margin-right: 22px;
+  background: #eee;
+}
+
+/* --- Menu Info (Text Area) --- */
+.menu-info {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+/* --- Menu Card Title & Price --- */
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ff6a23;
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+}
+
+.menu-title h4 {
+  color: #e00a00;
+  font-size: 1.13rem;
+  margin: 0;
+}
+.price {
+  color: #ff6a23;
+  font-weight: 600;
+  font-size: 1.09rem;
+}
+
+/* --- Menu Card Description --- */
+.menu-text {
+  font-size: 1rem;
+  color: #444;
+  padding-top: 8px;
+  line-height: 1.5;
+}
+
+/* --- "No Items" Message Styling --- */
+.text-muted {
+  color: #bdbdbd !important;
+}
+
+/* --- Responsive: Cards Stack and Shrink on Small Screens --- */
+@media (max-width: 900px) {
+  .menu-items {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    min-height: 140px;
+  }
+  .photo {
+    width: 90%;
+    height: 160px;
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  .menu-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 2.1rem;
+    margin-top: 14px;
+  }
+  .menu-items {
+    padding: 9px;
+  }
+  .photo {
+    min-width: 90px;
+    height: 120px;
+  }
+  .menu-text {
+    font-size: 0.96rem;
+  }
+}
