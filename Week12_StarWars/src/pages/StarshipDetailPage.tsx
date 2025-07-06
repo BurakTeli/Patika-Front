@@ -1,9 +1,7 @@
-// src/pages/StarshipDetail/StarshipDetailPage.tsx
-
+// src/pages/StarshipDetailPage.tsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./StarshipDetailPage.module.css";
-
 import { getStarshipDetail } from "../services/starshipService";
 
 interface StarshipDetail {
@@ -11,6 +9,13 @@ interface StarshipDetail {
   model: string;
   manufacturer: string;
   crew: string;
+  starship_class: string;
+  passengers: string;
+  cost_in_credits: string;
+  hyperdrive_rating: string;
+  max_atmosphering_speed: string;
+  length: string;
+  cargo_capacity: string;
   [key: string]: any;
 }
 
@@ -42,14 +47,12 @@ const StarshipDetailPage: React.FC = () => {
         <p>Loading...</p>
       </div>
     );
-
   if (error)
     return (
       <div className={styles.detailWrapper}>
         <p>{error}</p>
       </div>
     );
-
   if (!starship) return null;
 
   return (
@@ -60,10 +63,31 @@ const StarshipDetailPage: React.FC = () => {
           <strong>Model:</strong> {starship.model}
         </p>
         <p>
+          <strong>Class:</strong> {starship.starship_class}
+        </p>
+        <p>
           <strong>Manufacturer:</strong> {starship.manufacturer}
         </p>
         <p>
+          <strong>Cost:</strong> {starship.cost_in_credits} credits
+        </p>
+        <p>
           <strong>Crew:</strong> {starship.crew}
+        </p>
+        <p>
+          <strong>Passengers:</strong> {starship.passengers}
+        </p>
+        <p>
+          <strong>Speed:</strong> {starship.max_atmosphering_speed}
+        </p>
+        <p>
+          <strong>Hyperdrive Rating:</strong> {starship.hyperdrive_rating}
+        </p>
+        <p>
+          <strong>Length:</strong> {starship.length} meters
+        </p>
+        <p>
+          <strong>Cargo Capacity:</strong> {starship.cargo_capacity} kg
         </p>
       </div>
     </div>
