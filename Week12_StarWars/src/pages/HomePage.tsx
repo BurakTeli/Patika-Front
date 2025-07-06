@@ -1,5 +1,6 @@
 // src/pages/Home/HomePage.tsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./HomePage.module.css";
 import SearchBar from "../components/SearchBar/SearchBar";
@@ -41,9 +42,13 @@ const HomePage: React.FC = () => {
       ) : (
         <div className={styles.listContainer}>
           {filteredStarships.map((ship) => (
-            <div key={ship.uid} className={styles.card}>
+            <Link
+              to={`/starships/${ship.uid}`}
+              key={ship.uid}
+              className={styles.card}
+            >
               <h3>{ship.name}</h3>
-            </div>
+            </Link>
           ))}
         </div>
       )}

@@ -1,6 +1,9 @@
 // src/pages/StarshipDetail/StarshipDetailPage.tsx
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./StarshipDetailPage.module.css";
+
 import { getStarshipDetail } from "../services/starshipService";
 
 interface StarshipDetail {
@@ -34,22 +37,35 @@ const StarshipDetailPage: React.FC = () => {
   }, [id]);
 
   if (loading)
-    return <p style={{ color: "white", padding: "2rem" }}>Loading...</p>;
-  if (error) return <p style={{ color: "red", padding: "2rem" }}>{error}</p>;
+    return (
+      <div className={styles.detailWrapper}>
+        <p>Loading...</p>
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className={styles.detailWrapper}>
+        <p>{error}</p>
+      </div>
+    );
+
   if (!starship) return null;
 
   return (
-    <div style={{ padding: "2rem", color: "white" }}>
-      <h2>{starship.name}</h2>
-      <p>
-        <strong>Model:</strong> {starship.model}
-      </p>
-      <p>
-        <strong>Manufacturer:</strong> {starship.manufacturer}
-      </p>
-      <p>
-        <strong>Crew:</strong> {starship.crew}
-      </p>
+    <div className={styles.detailWrapper}>
+      <div className={styles.detailCard}>
+        <h2>{starship.name}</h2>
+        <p>
+          <strong>Model:</strong> {starship.model}
+        </p>
+        <p>
+          <strong>Manufacturer:</strong> {starship.manufacturer}
+        </p>
+        <p>
+          <strong>Crew:</strong> {starship.crew}
+        </p>
+      </div>
     </div>
   );
 };
