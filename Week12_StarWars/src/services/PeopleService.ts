@@ -12,3 +12,14 @@ export const getPeopleList = async () => {
     return [];
   }
 };
+
+
+export const getPersonDetail = async (id: string | undefined) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/people/${id}`);
+    return response.data.result.properties;
+  } catch (error) {
+    console.error("Error fetching person detail:", error);
+    throw error;
+  }
+};
