@@ -38,4 +38,4 @@ const PeoplePage: React.FC = () => {
   );
 };
 
-export default PeoplePage;
+export default PeoplePage ;

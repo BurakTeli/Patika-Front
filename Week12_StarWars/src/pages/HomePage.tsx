@@ -30,7 +30,6 @@ const HomePage: React.FC = () => {
   const filteredStarships = starships.filter((ship) =>
     ship.name.toLowerCase().includes(query.toLowerCase())
   );
-
   return (
     <div className={styles.homeWrapper}>
       <SearchBar value={query} onChange={setQuery} />
@@ -52,6 +51,13 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       )}
+
+      {/* 🆕 PeoplePage bağlantısı */}
+      <div className={styles.linkWrapper}>
+        <Link to="/people" className={styles.peopleLink}>
+          ➤ View Characters
+        </Link>
+      </div>
     </div>
   );
 };

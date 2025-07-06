@@ -26,3 +26,27 @@
 .card:hover {
   transform: scale(1.02);
 }
+
+.linkWrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.peopleLink {
+  font-size: 18px;
+  font-weight: bold;
+  color: #58a6ff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #58a6ff;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.peopleLink:hover {
+  background-color: #58a6ff;
+  color: white;
+}
+
+
