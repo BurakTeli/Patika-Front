@@ -1,5 +1,5 @@
 // src/pages/Home/HomePage.tsx
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./HomePage.module.css";
 import SearchBar from "../components/SearchBar/SearchBar";
@@ -14,17 +14,18 @@ interface Starship {
 const HomePage: React.FC = () => {
   const [query, setQuery] = useState("");
   const [starships, setStarships] = useState<Starship[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  // Fetch starships on mount
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getStarshipList();
-      setStarships(data);
+    const fetchStarships = async () => {
+      setLoading(true);
+      const result = await getStarshipList();
+      setStarships(result);
+      setLoading(false);
     };
-    fetchData();
+    fetchStarships();
   }, []);
 
-  // Filter results based on query
   const filteredStarships = starships.filter((ship) =>
     ship.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -32,14 +33,20 @@ const HomePage: React.FC = () => {
   return (
     <div className={styles.homeWrapper}>
       <SearchBar value={query} onChange={setQuery} />
-      <div className={styles.listContainer}>
-        {filteredStarships.map((ship) => (
-          <div key={ship.uid} className={styles.card}>
-            <h3>{ship.name}</h3>
-            <p>UID: {ship.uid}</p>
-          </div>
-        ))}
-      </div>
+
+      {loading ? (
+        <p>Loading starships...</p>
+      ) : filteredStarships.length === 0 ? (
+        <p>No starships found.</p>
+      ) : (
+        <div className={styles.listContainer}>
+          {filteredStarships.map((ship) => (
+            <div key={ship.uid} className={styles.card}>
+              <h3>{ship.name}</h3>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
