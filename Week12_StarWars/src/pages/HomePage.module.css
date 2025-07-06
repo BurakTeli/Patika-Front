@@ -1,0 +1,21 @@
+/* src/pages/HomePage.module.css */
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d0d0d;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 24px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 1px 1px 8px rgba(255, 255, 255, 0.2);
+}

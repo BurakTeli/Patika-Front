@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import SearchBar from "./components/SearchBar/SearchBar";
-import "./App.css";
+// src/App.tsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import StarshipDetailPage from "./pages/StarshipDetailPage";
 
 const App = () => {
-  const [query, setQuery] = useState("");
-
   return (
-    <div className="appContainer">
-      <div className="content">
-        <h1 className="appTitle">Star Wars Starships</h1>
-        <SearchBar value={query} onChange={setQuery} />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/starship/:id" element={<StarshipDetailPage />} />
+      </Routes>
+    </Router>
   );
 };
 
