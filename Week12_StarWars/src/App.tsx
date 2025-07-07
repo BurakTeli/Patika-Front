@@ -6,10 +6,12 @@ import StarshipDetailPage from "./pages/StarshipDetailPage";
 import PeoplePage from "./pages/PeoplePage";
 import PeopleDetailPage from "./pages/PeopleDetailPage"; // 🔧 Added: Import PeopleDetailPage
 import HomePage from "./pages/HomePage";
+import Navbar from "./components/Navbar";
 
 const App: React.FC = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/starships/:id" element={<StarshipDetailPage />} />
