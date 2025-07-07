@@ -7,6 +7,7 @@ import PeoplePage from "./pages/PeoplePage";
 import PeopleDetailPage from "./pages/PeopleDetailPage"; // 🔧 Added: Import PeopleDetailPage
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
+import PlanetsPage from "./pages/PlanetsPage";
 
 const App: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const App: React.FC = () => {
         <Route path="/starships/:id" element={<StarshipDetailPage />} />
         <Route path="/people" element={<PeoplePage />} />
         <Route path="/people/:id" element={<PeopleDetailPage />} />{" "}
-        {/* 🔧 Added: Dynamic character detail route */}
+        <Route path="/planets" element={<PlanetsPage />} />
       </Routes>
     </Router>
   );

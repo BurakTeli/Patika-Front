@@ -1,12 +1,13 @@
+// src/components/Navbar.tsx
+
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "../styles/components/Navbar.module.css"; // 🔧 Added: CSS module import
+import styles from "../styles/components/Navbar.module.css";
 
 const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
-        {/* 🔧 Added: Navigation links */}
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? styles.active : styles.link)}
@@ -25,6 +26,13 @@ const Navbar: React.FC = () => {
         >
           Characters
         </NavLink>
+        <NavLink
+          to="/planets"
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        >
+          Planets
+        </NavLink>{" "}
+        {/* 🔧 Added: Link to planets page */}
       </div>
     </nav>
   );
