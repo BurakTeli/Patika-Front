@@ -11,6 +11,7 @@ import PeopleDetailPage from "./pages/PeopleDetailPage";
 import PlanetsPage from "./pages/PlanetsPage";
 import PlanetDetailPage from "./pages/PlanetDetailPage"; // ✅ Added: Planet detail import
 import NotFoundPage from "./pages/NotFoundPage";
+import FilmDetailPage from "./pages/FilmDetailPage";
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/planets" element={<PlanetsPage />} />
         <Route path="/planets/:id" element={<PlanetDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/films/:id" element={<FilmDetailPage />} />
       </Routes>
     </Router>
   );
