@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPlanetDetail } from "../services/PlanetsService";
+import styles from "../styles/pages/PlanetDetailPage.module.css"; // 🔧 Added: Import styles
 
 interface PlanetDetail {
   name: string;
@@ -23,7 +24,6 @@ const PlanetDetailPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // 🔧 Added: Fetch planet details
   useEffect(() => {
     const fetchDetail = async () => {
       try {
@@ -41,37 +41,48 @@ const PlanetDetailPage: React.FC = () => {
   }, [id]);
 
   if (loading)
-    return <p style={{ color: "white", padding: "2rem" }}>Loading...</p>;
-  if (error) return <p style={{ color: "red", padding: "2rem" }}>{error}</p>;
+    return (
+      <div className={styles.detailWrapper}>
+        <p>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div className={styles.detailWrapper}>
+        <p>{error}</p>
+      </div>
+    );
   if (!planet) return null;
 
   return (
-    <div style={{ padding: "2rem", color: "white" }}>
-      <h2>{planet.name}</h2>
-      <p>
-        <strong>Climate:</strong> {planet.climate}
-      </p>
-      <p>
-        <strong>Terrain:</strong> {planet.terrain}
-      </p>
-      <p>
-        <strong>Diameter:</strong> {planet.diameter} km
-      </p>
-      <p>
-        <strong>Gravity:</strong> {planet.gravity}
-      </p>
-      <p>
-        <strong>Population:</strong> {planet.population}
-      </p>
-      <p>
-        <strong>Orbital Period:</strong> {planet.orbital_period} days
-      </p>
-      <p>
-        <strong>Rotation Period:</strong> {planet.rotation_period} hours
-      </p>
-      <p>
-        <strong>Surface Water:</strong> {planet.surface_water}%
-      </p>
+    <div className={styles.detailWrapper}>
+      <div className={styles.detailCard}>
+        <h2>{planet.name}</h2>
+        <p>
+          <strong>Climate:</strong> {planet.climate}
+        </p>
+        <p>
+          <strong>Terrain:</strong> {planet.terrain}
+        </p>
+        <p>
+          <strong>Diameter:</strong> {planet.diameter} km
+        </p>
+        <p>
+          <strong>Gravity:</strong> {planet.gravity}
+        </p>
+        <p>
+          <strong>Population:</strong> {planet.population}
+        </p>
+        <p>
+          <strong>Orbital Period:</strong> {planet.orbital_period} days
+        </p>
+        <p>
+          <strong>Rotation Period:</strong> {planet.rotation_period} hours
+        </p>
+        <p>
+          <strong>Surface Water:</strong> {planet.surface_water}%
+        </p>
+      </div>
     </div>
   );
 };
