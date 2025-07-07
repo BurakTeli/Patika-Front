@@ -2,12 +2,14 @@
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+
+import HomePage from "./pages/HomePage";
 import StarshipDetailPage from "./pages/StarshipDetailPage";
 import PeoplePage from "./pages/PeoplePage";
-import PeopleDetailPage from "./pages/PeopleDetailPage"; // 🔧 Added: Import PeopleDetailPage
-import HomePage from "./pages/HomePage";
-import Navbar from "./components/Navbar";
+import PeopleDetailPage from "./pages/PeopleDetailPage";
 import PlanetsPage from "./pages/PlanetsPage";
+import PlanetDetailPage from "./pages/PlanetDetailPage"; // ✅ Added: Planet detail import
 
 const App: React.FC = () => {
   return (
@@ -17,8 +19,10 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/starships/:id" element={<StarshipDetailPage />} />
         <Route path="/people" element={<PeoplePage />} />
-        <Route path="/people/:id" element={<PeopleDetailPage />} />{" "}
+        <Route path="/people/:id" element={<PeopleDetailPage />} />
         <Route path="/planets" element={<PlanetsPage />} />
+        <Route path="/planets/:id" element={<PlanetDetailPage />} />{" "}
+        {/* ✅ Added: Planet detail route */}
       </Routes>
     </Router>
   );
