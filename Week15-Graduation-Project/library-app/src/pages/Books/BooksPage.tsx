@@ -105,8 +105,11 @@ const BooksPage = () => {
   // Handle form submit for adding or updating a book
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const submitData = {
       ...formData,
+      authorId: Number(formData.authorId),
+      publisherId: Number(formData.publisherId),
       categoryIds: formData.categoryIds.map(Number),
     };
 
@@ -114,11 +117,27 @@ const BooksPage = () => {
       if (editingId !== null) {
         await updateBook(editingId, submitData);
         showNotification("Kitap güncellendi.");
+        fetchAll(); // Güncellemede tüm liste yenileniyor
       } else {
-        await addBook(submitData);
+        const addedBook = await addBook(submitData);
+
+        // ✅ Tip uyumu sağlandı (number olarak eşleşiyor)
+        const fullBook: Book = {
+          ...addedBook,
+          author: authors.find((a) => a.id === Number(submitData.authorId))!, // `!` kesin var demektir
+          publisher: publishers.find(
+            (p) => p.id === Number(submitData.publisherId)
+          )!,
+          categories: categories.filter((c) =>
+            submitData.categoryIds.includes(c.id)
+          ),
+        };
+
+        setBooks((prev) => [...prev, fullBook]);
         showNotification("Kitap eklendi.");
       }
-      // Reset form after submit
+
+      // Formu sıfırla
       setFormData({
         name: "",
         publicationYear: new Date().getFullYear(),
@@ -128,7 +147,6 @@ const BooksPage = () => {
         categoryIds: [],
       });
       setEditingId(null);
-      fetchAll();
     } catch {
       showNotification("İşlem başarısız.", "error");
     }
