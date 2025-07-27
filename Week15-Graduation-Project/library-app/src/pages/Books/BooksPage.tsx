@@ -1,19 +1,19 @@
 // src/pages/Books/BooksPage.tsx
 
 // Import React hooks and necessary services
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {
   getAllBooks,
   addBook,
   updateBook,
   deleteBook,
-} from '../../services/bookService';
-import { getAllAuthors } from '../../services/getAllAuthors';
-import { getAllPublishers } from '../../services/getAllPublishers';
-import { getAllCategories } from '../../services/getAllCategories';
-import type { Book, Author, Publisher, Category } from '../../types';
-import Notification from '../../components/Notification';
-import './BooksPage.css';
+} from "../../services/bookService";
+import { getAllAuthors } from "../../services/getAllAuthors";
+import { getAllPublishers } from "../../services/getAllPublishers";
+import { getAllCategories } from "../../services/getAllCategories";
+import type { Book, Author, Publisher, Category } from "../../types";
+import Notification from "../../components/Notification";
+import "./BooksPage.css";
 
 // Main component for managing books
 const BooksPage = () => {
@@ -25,7 +25,7 @@ const BooksPage = () => {
 
   // Form state for adding or updating a book
   const [formData, setFormData] = useState({
-    name: '',
+    name: "",
     publicationYear: new Date().getFullYear(),
     stock: 1,
     authorId: 0,
@@ -39,33 +39,37 @@ const BooksPage = () => {
   // Notification state
   const [notification, setNotification] = useState({
     show: false,
-    message: '',
-    type: 'success' as 'success' | 'error',
+    message: "",
+    type: "success" as "success" | "error",
   });
 
   // Function to show temporary notifications
-  const showNotification = (message: string, type: 'success' | 'error' = 'success') => {
+  const showNotification = (
+    message: string,
+    type: "success" | "error" = "success"
+  ) => {
     setNotification({ show: true, message, type });
     setTimeout(() => {
-      setNotification({ show: false, message: '', type });
+      setNotification({ show: false, message: "", type });
     }, 3000);
   };
 
   // Fetch all necessary data when the component mounts
   const fetchAll = async () => {
     try {
-      const [booksRes, authorsRes, publishersRes, categoriesRes] = await Promise.all([
-        getAllBooks(),
-        getAllAuthors(),
-        getAllPublishers(),
-        getAllCategories(),
-      ]);
+      const [booksRes, authorsRes, publishersRes, categoriesRes] =
+        await Promise.all([
+          getAllBooks(),
+          getAllAuthors(),
+          getAllPublishers(),
+          getAllCategories(),
+        ]);
       setBooks(booksRes);
       setAuthors(authorsRes);
       setPublishers(publishersRes);
       setCategories(categoriesRes);
     } catch {
-      showNotification('Veriler yüklenemedi.', 'error');
+      showNotification("Veriler yüklenemedi.", "error");
     }
   };
 
@@ -75,17 +79,23 @@ const BooksPage = () => {
   }, []);
 
   // Handle input and select changes for form fields
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: name === 'publicationYear' || name === 'stock' ? Number(value) : value,
+      [name]:
+        name === "publicationYear" || name === "stock" ? Number(value) : value,
     }));
   };
 
   // Handle category multi-select changes
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
+    const selectedOptions = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
     setFormData((prev) => ({
       ...prev,
       categoryIds: selectedOptions,
@@ -103,14 +113,14 @@ const BooksPage = () => {
     try {
       if (editingId !== null) {
         await updateBook(editingId, submitData);
-        showNotification('Kitap güncellendi.');
+        showNotification("Kitap güncellendi.");
       } else {
         await addBook(submitData);
-        showNotification('Kitap eklendi.');
+        showNotification("Kitap eklendi.");
       }
       // Reset form after submit
       setFormData({
-        name: '',
+        name: "",
         publicationYear: new Date().getFullYear(),
         stock: 1,
         authorId: 0,
@@ -120,7 +130,7 @@ const BooksPage = () => {
       setEditingId(null);
       fetchAll();
     } catch {
-      showNotification('İşlem başarısız.', 'error');
+      showNotification("İşlem başarısız.", "error");
     }
   };
 
@@ -139,13 +149,13 @@ const BooksPage = () => {
 
   // Handle book deletion
   const handleDelete = async (id: number) => {
-    if (!confirm('Bu kitabı silmek istediğinize emin misiniz?')) return;
+    if (!confirm("Bu kitabı silmek istediğinize emin misiniz?")) return;
     try {
       await deleteBook(id);
-      showNotification('Kitap silindi.');
+      showNotification("Kitap silindi.");
       fetchAll();
     } catch {
-      showNotification('Silme işlemi başarısız.', 'error');
+      showNotification("Silme işlemi başarısız.", "error");
     }
   };
 
@@ -153,7 +163,11 @@ const BooksPage = () => {
     <div className="books-container">
       <h2>Kitaplar</h2>
       {/* Notification component */}
-      <Notification show={notification.show} message={notification.message} type={notification.type} />
+      <Notification
+        show={notification.show}
+        message={notification.message}
+        type={notification.type}
+      />
 
       {/* Book form for add/update */}
       <form onSubmit={handleSubmit} className="book-form">
@@ -181,24 +195,46 @@ const BooksPage = () => {
           onChange={handleChange}
           required
         />
-        <select name="authorId" value={formData.authorId} onChange={handleChange} required>
+        <select
+          name="authorId"
+          value={formData.authorId}
+          onChange={handleChange}
+          required
+        >
           <option value={0}>Yazar Seç</option>
           {authors.map((a) => (
-            <option key={a.id} value={a.id}>{a.name}</option>
+            <option key={a.id} value={a.id}>
+              {a.name}
+            </option>
           ))}
         </select>
-        <select name="publisherId" value={formData.publisherId} onChange={handleChange} required>
+        <select
+          name="publisherId"
+          value={formData.publisherId}
+          onChange={handleChange}
+          required
+        >
           <option value={0}>Yayınevi Seç</option>
           {publishers.map((p) => (
-            <option key={p.id} value={p.id}>{p.name}</option>
+            <option key={p.id} value={p.id}>
+              {p.name}
+            </option>
           ))}
         </select>
-        <select multiple value={formData.categoryIds} onChange={handleCategoryChange}>
+        <select
+          multiple
+          value={formData.categoryIds}
+          onChange={handleCategoryChange}
+        >
           {categories.map((c) => (
-            <option key={c.id} value={c.id.toString()}>{c.name}</option>
+            <option key={c.id} value={c.id.toString()}>
+              {c.name}
+            </option>
           ))}
         </select>
-        <button type="submit">{editingId !== null ? 'Güncelle' : 'Ekle'}</button>
+        <button type="submit">
+          {editingId !== null ? "Güncelle" : "Ekle"}
+        </button>
       </form>
 
       {/* Book list */}
@@ -206,9 +242,16 @@ const BooksPage = () => {
         {books.map((book) => (
           <li key={book.id} className="book-item">
             <div>
-              <strong>{book.name}</strong> ({book.publicationYear}) – {book.stock} adet<br />
-              Yazar: {book.author.name} | Yayınevi: {book.publisher.name}<br />
-              Kategoriler: {book.categories.map((cat) => cat.name).join(', ')}
+              <strong>{book.name}</strong> ({book.publicationYear}) –{" "}
+              {book.stock} adet
+              <br />
+              Yazar: {book.author?.name || "Bilinmiyor"} | Yayınevi:{" "}
+              {book.publisher?.name || "Bilinmiyor"}
+              <br />
+              Kategoriler:{" "}
+              {book.categories?.length > 0
+                ? book.categories.map((cat) => cat?.name).join(", ")
+                : "Yok"}
             </div>
             <div className="book-actions">
               <button onClick={() => handleEdit(book)}>Düzenle</button>
