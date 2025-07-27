@@ -1,0 +1,59 @@
+/* Genel düzen */
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+/* Logo stilleri */
+.logo {
+  height: 5em;
+  padding: 1rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 12px rgba(100, 108, 255, 0.6));
+}
+
+/* React logoya özel */
+.logo.react:hover {
+  filter: drop-shadow(0 0 12px rgba(97, 218, 251, 0.6));
+}
+
+/* Dönme animasyonu */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hareket tercihini dikkate al */
+@media (prefers-reduced-motion: no-preference) {
+  .logo.spin {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Kart görünümü */
+.card {
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  margin: 1rem 0;
+}
+
+/* Doküman açıklaması */
+.read-the-docs {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
