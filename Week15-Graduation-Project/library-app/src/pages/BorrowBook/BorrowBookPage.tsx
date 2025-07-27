@@ -1,6 +1,5 @@
 // src/pages/BorrowBookPage.tsx
 
-// Import necessary hooks and services
 import { useEffect, useState } from "react";
 import {
   getAllBorrowings,
@@ -11,13 +10,9 @@ import { getAllBooks } from "../../services/bookService";
 import type { Book, BookBorrowing, BookBorrowingRequest } from "../../types";
 import "./BorrowBookPage.css";
 
-// Main component for borrowing books
 const BorrowBookPage = () => {
-  // State for borrow records and book list
   const [borrowings, setBorrowings] = useState<BookBorrowing[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
-
-  // Form state for borrow request
   const [formData, setFormData] = useState<BookBorrowingRequest>({
     borrowerName: "",
     borrowerMail: "",
@@ -26,22 +21,27 @@ const BorrowBookPage = () => {
     bookId: 0,
   });
 
-  // Fetch borrowings and books data from API
   const fetchData = async () => {
-    const [borrowsData, booksData] = await Promise.all([
-      getAllBorrowings(),
-      getAllBooks(),
-    ]);
-    setBorrowings(borrowsData);
-    setBooks(booksData);
+    try {
+      const [borrowsData, booksData] = await Promise.all([
+        getAllBorrowings(),
+        getAllBooks(),
+      ]);
+
+      // Konsola kitapları yaz ve name'i olmayanları filtrele
+      console.log("Kitaplar (API'den gelen):", booksData);
+      const validBooks = booksData.filter((book) => book.name);
+      setBooks(validBooks);
+      setBorrowings(borrowsData);
+    } catch (error) {
+      console.error("Veriler yüklenemedi:", error);
+    }
   };
 
-  // Load data on component mount
   useEffect(() => {
     fetchData();
   }, []);
 
-  // Handle form input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -52,33 +52,36 @@ const BorrowBookPage = () => {
     }));
   };
 
-  // Handle form submission to add a borrowing
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await addBorrowing(formData);
-    
-    // Reset form after submit
-    setFormData({
-      borrowerName: "",
-      borrowerMail: "",
-      borrowingDate: "",
-      returnDate: "",
-      bookId: 0,
-    });
-    fetchData();
+    try {
+      await addBorrowing(formData);
+      setFormData({
+        borrowerName: "",
+        borrowerMail: "",
+        borrowingDate: "",
+        returnDate: "",
+        bookId: 0,
+      });
+      fetchData();
+    } catch (error) {
+      console.error("Ekleme başarısız:", error);
+    }
   };
 
-  // Handle deleting a borrowing record
   const handleDelete = async (id: number) => {
-    await deleteBorrowing(id);
-    fetchData();
+    try {
+      await deleteBorrowing(id);
+      fetchData();
+    } catch (error) {
+      console.error("Silme başarısız:", error);
+    }
   };
 
   return (
     <div className="borrow-container">
       <h2>Kitap Ödünç Alma</h2>
 
-      {/* Borrowing form */}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -110,28 +113,35 @@ const BorrowBookPage = () => {
           onChange={handleChange}
           required
         />
+
+        {/* Kitap Seçimi */}
         <select
           name="bookId"
-          value={formData.bookId.toString()}
+          value={formData.bookId}
           onChange={handleChange}
           required
         >
-          <option value="">Kitap Seçiniz</option>
-          {books.map((book) => (
-            <option key={book.id} value={book.id}>
-              {book.name}
-            </option>
-          ))}
+          <option value={0}>📚 Kitap Seçiniz</option>
+          {books.length === 0 ? (
+            <option disabled>Kitap bulunamadı veya yüklenemedi</option>
+          ) : (
+            books.map((book) => (
+              <option key={book.id} value={book.id}>
+                {book.name}
+              </option>
+            ))
+          )}
         </select>
+
         <button type="submit">Kaydet</button>
       </form>
 
-      {/* List of borrowed books */}
       <h3>Ödünç Alınan Kitaplar</h3>
       <ul className="borrow-list">
         {borrowings.map((item) => (
           <li key={item.id}>
-            <strong>{item.borrowerName}</strong> - {item.book?.name} <br />
+            <strong>{item.borrowerName}</strong> –{" "}
+            {item.book?.name || "Kitap silinmiş"} <br />
             {item.borrowingDate} → {item.returnDate}
             <button onClick={() => handleDelete(item.id)}>Sil</button>
           </li>

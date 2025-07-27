@@ -1,6 +1,5 @@
 // src/pages/Books/BooksPage.tsx
 
-// Import React hooks and necessary services
 import { useEffect, useState } from "react";
 import {
   getAllBooks,
@@ -15,15 +14,12 @@ import type { Book, Author, Publisher, Category } from "../../types";
 import Notification from "../../components/Notification";
 import "./BooksPage.css";
 
-// Main component for managing books
 const BooksPage = () => {
-  // State for books, authors, publishers, categories
   const [books, setBooks] = useState<Book[]>([]);
   const [authors, setAuthors] = useState<Author[]>([]);
   const [publishers, setPublishers] = useState<Publisher[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
 
-  // Form state for adding or updating a book
   const [formData, setFormData] = useState({
     name: "",
     publicationYear: new Date().getFullYear(),
@@ -33,17 +29,14 @@ const BooksPage = () => {
     categoryIds: [] as string[],
   });
 
-  // ID of the book being edited, if any
   const [editingId, setEditingId] = useState<number | null>(null);
 
-  // Notification state
   const [notification, setNotification] = useState({
     show: false,
     message: "",
     type: "success" as "success" | "error",
   });
 
-  // Function to show temporary notifications
   const showNotification = (
     message: string,
     type: "success" | "error" = "success"
@@ -54,7 +47,6 @@ const BooksPage = () => {
     }, 3000);
   };
 
-  // Fetch all necessary data when the component mounts
   const fetchAll = async () => {
     try {
       const [booksRes, authorsRes, publishersRes, categoriesRes] =
@@ -73,12 +65,10 @@ const BooksPage = () => {
     }
   };
 
-  // Run fetchAll on component mount
   useEffect(() => {
     fetchAll();
   }, []);
 
-  // Handle input and select changes for form fields
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -90,7 +80,6 @@ const BooksPage = () => {
     }));
   };
 
-  // Handle category multi-select changes
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOptions = Array.from(
       e.target.selectedOptions,
@@ -102,7 +91,6 @@ const BooksPage = () => {
     }));
   };
 
-  // Handle form submit for adding or updating a book
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -117,27 +105,13 @@ const BooksPage = () => {
       if (editingId !== null) {
         await updateBook(editingId, submitData);
         showNotification("Kitap güncellendi.");
-        fetchAll(); // Güncellemede tüm liste yenileniyor
+        await fetchAll(); // Kitapları yenile
       } else {
-        const addedBook = await addBook(submitData);
-
-        // ✅ Tip uyumu sağlandı (number olarak eşleşiyor)
-        const fullBook: Book = {
-          ...addedBook,
-          author: authors.find((a) => a.id === Number(submitData.authorId))!, // `!` kesin var demektir
-          publisher: publishers.find(
-            (p) => p.id === Number(submitData.publisherId)
-          )!,
-          categories: categories.filter((c) =>
-            submitData.categoryIds.includes(c.id)
-          ),
-        };
-
-        setBooks((prev) => [...prev, fullBook]);
+        await addBook(submitData);
         showNotification("Kitap eklendi.");
+        await fetchAll(); // Yeni kitap eklendiğinde listeyi yenile
       }
 
-      // Formu sıfırla
       setFormData({
         name: "",
         publicationYear: new Date().getFullYear(),
@@ -152,26 +126,24 @@ const BooksPage = () => {
     }
   };
 
-  // Populate form with existing book data for editing
   const handleEdit = (book: Book) => {
     setFormData({
       name: book.name,
       publicationYear: book.publicationYear,
       stock: book.stock,
-      authorId: book.author.id,
-      publisherId: book.publisher.id,
-      categoryIds: book.categories.map((cat) => String(cat.id)),
+      authorId: book.author?.id || 0,
+      publisherId: book.publisher?.id || 0,
+      categoryIds: book.categories?.map((cat) => String(cat.id)) || [],
     });
     setEditingId(book.id);
   };
 
-  // Handle book deletion
   const handleDelete = async (id: number) => {
     if (!confirm("Bu kitabı silmek istediğinize emin misiniz?")) return;
     try {
       await deleteBook(id);
       showNotification("Kitap silindi.");
-      fetchAll();
+      await fetchAll();
     } catch {
       showNotification("Silme işlemi başarısız.", "error");
     }
@@ -180,14 +152,12 @@ const BooksPage = () => {
   return (
     <div className="books-container">
       <h2>Kitaplar</h2>
-      {/* Notification component */}
       <Notification
         show={notification.show}
         message={notification.message}
         type={notification.type}
       />
 
-      {/* Book form for add/update */}
       <form onSubmit={handleSubmit} className="book-form">
         <input
           type="text"
@@ -255,13 +225,11 @@ const BooksPage = () => {
         </button>
       </form>
 
-      {/* Book list */}
       <ul className="book-list">
         {books.map((book) => (
           <li key={book.id} className="book-item">
             <div>
-              <strong>{book.name}</strong> ({book.publicationYear}) –{" "}
-              {book.stock} adet
+              <strong>{book.name}</strong> ({book.publicationYear}) – {book.stock} adet
               <br />
               Yazar: {book.author?.name || "Bilinmiyor"} | Yayınevi:{" "}
               {book.publisher?.name || "Bilinmiyor"}
