@@ -1,0 +1,54 @@
+/* src/components/Notification.css */
+
+.notification {
+  position: relative;
+  padding: 1rem 1.5rem 1rem 3rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  width: fit-content;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notification::before {
+  content: "✓";
+  position: absolute;
+  left: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Tip stilleri */
+.success {
+  background-color: #e0fcef;
+  color: #256d4f;
+  border: 1px solid #b7f7d4;
+}
+
+.error {
+  background-color: #ffe8e8;
+  color: #c0392b;
+  border: 1px solid #ffc2c2;
+}
+
+.error::before {
+  content: "✖";
+}
+
+/* Fade-in animasyonu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
