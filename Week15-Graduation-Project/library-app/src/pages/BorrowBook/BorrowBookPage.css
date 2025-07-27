@@ -1,0 +1,107 @@
+/* src/styles/BorrowBookPage.css */
+
+.borrow-container {
+    max-width: 720px;
+    margin: 3rem auto;
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .borrow-container h2,
+  .borrow-container h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .borrow-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .borrow-container input,
+  .borrow-container select {
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .borrow-container input:focus,
+  .borrow-container select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.2);
+    border-color: #8b4513;
+  }
+  
+  .borrow-container button {
+    padding: 0.85rem;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .borrow-container button:hover {
+    background-color: #a0522d;
+    transform: translateY(-1px);
+  }
+  
+  .borrow-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .borrow-list li {
+    background-color: #fcfcfc;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 6px solid #8b4513;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    transition: transform 0.2s ease;
+  }
+  
+  .borrow-list li:hover {
+    transform: translateY(-3px);
+  }
+  
+  .borrow-list li strong {
+    color: #8b4513;
+  }
+  
+  .borrow-list li button {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .borrow-list li button:hover {
+    background-color: #c0392b;
+  }
+  
